@@ -1,2 +1,2 @@
 # Index for the website
-1. [Project Wishlist](Project_Wishlist.html)
+1. [Project Wishlist](html/Project_Wishlist.html)
