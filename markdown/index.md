@@ -19,6 +19,7 @@ This blog is a space where I share my thoughts on software, high-performance com
 8. [Update podman containers manually](html/Update_podman_containers_manually.html)
 9. [Ultimate Coffee Recipes](html/Ultimate_Coffee_Recipes.html)
 10. [How to fix Tablet app Orientations](html/How_to_fix_Tablet_app_Orientations.html)
+11. [Milvus on Podman](html/Milvus_on_Podman.html)
 
 ***
 
