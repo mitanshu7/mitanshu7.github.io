@@ -1,9 +1,12 @@
 # Project Wishlist
-## Things i wish to do 
-> Mitanshu Sukhwani | 06/06/2025
 
-1. Make a silent trimmer for people with sensory issues.
-2. Make my OnePlus Pad 2 stylus work with OnePlus 11r
-3. Add [NextCloud](https://nextcloud.com/) support to [BeanConqueror](https://beanconqueror.com/)
-4. Run [DuckDB](https://duckdb.org/) on [Kindle](https://en.wikipedia.org/wiki/Amazon_Kindle)
-5. Improve the [GitHub Repo](https://github.com/mitanshu7/tailscale_kual) I created for [Tailscale](https://tailscale.com/) on Kindle 
+## Things I Wish to Do
+
+**Mitanshu Sukhwani** • *06 June 2025*
+
+- [ ] Make a silent trimmer for people with sensory issues.
+- [ ] Make my OnePlus Pad 2 stylus work with OnePlus 11r
+- [ ] Add [NextCloud](https://nextcloud.com/) support to [BeanConqueror](https://beanconqueror.com/)
+- [ ] Run [DuckDB](https://duckdb.org/) on [Kindle](https://en.wikipedia.org/wiki/Amazon_Kindle)
+- [x] Create [Tailscale](https://tailscale.com/) [KUAL](https://kindlemodding.org/jailbreaking/post-jailbreak/installing-kual-mrpi/) for Kindle.
+  - [mitanshu7/tailscale_kual](https://github.com/mitanshu7/tailscale_kual)
