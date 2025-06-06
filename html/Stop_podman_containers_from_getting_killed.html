@@ -4,7 +4,7 @@
   <meta charset="utf-8" />
   <meta name="generator" content="pandoc" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
-  <title>index</title>
+  <title>Stop_podman_containers_from_getting_killed</title>
   <style>
     html {
       color: #1a1a1a;
@@ -169,11 +169,62 @@
   </style>
 </head>
 <body>
-<h1 id="index-for-the-website">Index for the website</h1>
+<h1 id="stop-podman-containers-from-getting-killed">Stop podman
+containers from getting killed</h1>
+<h2 id="after-logoutreboot">After logout/reboot</h2>
+<p><strong>Mitanshu Sukhwani</strong> • <em>06 June 2025</em></p>
 <ol type="1">
-<li><a href="html/Project_Wishlist.html">Project Wishlist</a></li>
-<li><a href="html/Stop_podman_containers_from_getting_killed.html">Stop
-podman containers from getting killed</a></li>
+<li><p>Run the podman containers <strong>without</strong> a restart
+policy.</p></li>
+<li><p>Issue command:<br />
+<code>loginctl enable-linger $user</code></p></li>
 </ol>
+<blockquote>
+<p>[!WARNING] systemd support is deprecated in podman, see <a
+href="https://docs.podman.io/en/latest/markdown/podman-systemd.unit.5.html">quadlets</a>.</p>
+</blockquote>
+<ol start="3" type="1">
+<li><p>Enable service using:<br />
+<code>podman generate systemd --files --name $container</code>,<br />
+where <code>$container</code> is your container id.</p></li>
+<li><p>In the service file, change</p>
+<pre><code>[Install]
+WantedBy=multi-user.target</code></pre>
+<p>to</p>
+<pre><code>[Install]
+WantedBy=default.target</code></pre>
+<p>if not done already by the generated service.</p></li>
+<li><p>We can copy the file to<br />
+<code>~/.config/systemd/user/container-foo.service</code></p>
+<p>If the directory doesnt exist,</p>
+<p>create it <code>mkdir -p ~/.config/systemd/user/</code>,</p>
+<p>copy the service
+file<code>cp container*service ~/.config/systemd/user/</code>,</p>
+<p>and then issue:<br />
+<code>systemctl --user daemon-reload</code></p></li>
+<li><p>Start a rootless container via<br />
+<code>systemctl --user start container-foo.service</code></p></li>
+<li><p>To persist reboots, also issue command:<br />
+<code>systemctl --user enable container-foo.service</code></p></li>
+<li><p>Stop a rootless container via<br />
+<code>systemctl --user stop container-foo.service</code></p></li>
+</ol>
+<p>Now the containers should live through the logout sessions (2) and
+reboots (7)</p>
+<h1 id="references">References</h1>
+<ol type="1">
+<li><p><a
+href="https://www.reddit.com/r/podman/comments/h00nfi/rootless_systemd_restarting_containers_when_i_log/">rootless
+systemd restarting containers when I log out of a shell</a></p></li>
+<li><p><a
+href="https://www.redhat.com/sysadmin/podman-shareable-systemd-services">Running
+containers with Podman and shareable systemd services</a></p></li>
+<li><p><a
+href="https://unix.stackexchange.com/questions/251211/why-doesnt-my-systemd-user-unit-start-at-boot">Why
+doesn’t my systemd user unit start at boot?</a></p></li>
+</ol>
+<h1 id="suggested-reading">Suggested reading</h1>
+<p><a href="https://mo8it.com/blog/quadlet/">Quadlet: Running Podman
+containers under systemd</a></p>
 </body>
 </html>
