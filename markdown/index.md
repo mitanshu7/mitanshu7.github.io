@@ -16,6 +16,7 @@ This blog is a space where I share my thoughts on software, high-performance com
 5. [How to SSH to another user](html/How_to_SSH_to_another_user.html)
 6. [How to change SSH Port on OCI](html/How_to_change_SSH_Port_on_OCI.html)
 7. [Masala Tea Recipe](html/Masala_Tea_Recipe.html)
+8. [Update podman containers manually](html/Update_podman_containers_manually.html)
 
 ***
 

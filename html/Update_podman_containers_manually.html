@@ -4,7 +4,7 @@
   <meta charset="utf-8" />
   <meta name="generator" content="pandoc" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
-  <title>index</title>
+  <title>Update_podman_containers_manually</title>
   <style>
     html {
       color: #1a1a1a;
@@ -169,47 +169,28 @@
   </style>
 </head>
 <body>
-<h1 id="hello">Hello</h1>
-<p>I’m <strong>Mitanshu Sukhwani</strong>, a tech enthusiast with a
-Master’s degree in Physics from <a href="https://www.iitm.ac.in/">IIT
-Madras</a>. After completing my studies, I spent a year as a Project
-Associate at <a href="https://www.iisertirupati.ac.in/">IISER
-Tirupati</a>, where I worked on EEG data, network science, and the
-mathematical modeling of mammalian brains. In my free time, I explore
-projects in Machine Learning (ML) and Linux.</p>
-<p>I’m passionate about the intersection of neuroscience, software, and
-data, and I enjoy working on innovative solutions that blend technology
-with real-world challenges. When I’m not coding or diving into new AI
-ideas, you’ll likely find me enjoying a cup of coffee and spending time
-with my cats.</p>
-<p>This blog is a space where I share my thoughts on software,
-high-performance computing, and, of course, coffee.</p>
-<hr />
-<h1 id="index-for-the-website">Index for the website</h1>
+<h1 id="update-podman-containers-manually">Update podman containers
+manually</h1>
+<h2 id="when-i-couldnt-figure-out-auto-update">When I couldn’t figure
+out <a
+href="https://docs.podman.io/en/latest/markdown/podman-auto-update.1.html">auto-update</a></h2>
+<p><strong>Mitanshu Sukhwani</strong> • <em>06 June 2025</em></p>
 <ol type="1">
-<li><a href="html/Project_Wishlist.html">Project Wishlist</a></li>
-<li><a href="html/Stop_podman_containers_from_getting_killed.html">Stop
-podman containers from getting killed</a></li>
-<li><a href="html/PaperMatch.html">PaperMatch</a></li>
-<li><a href="html/WSA_with_KernelSU.html">WSA with KernelSU</a></li>
-<li><a href="html/How_to_SSH_to_another_user.html">How to SSH to another
-user</a></li>
-<li><a href="html/How_to_change_SSH_Port_on_OCI.html">How to change SSH
-Port on OCI</a></li>
-<li><a href="html/Masala_Tea_Recipe.html">Masala Tea Recipe</a></li>
-<li><a href="html/Update_podman_containers_manually.html">Update podman
-containers manually</a></li>
+<li><p>Stop running containers using:</p>
+<p><code>podman stop CONTAINER_ID</code></p>
+<p>or using</p>
+<p><code>systemctl --user stop container-CONTAINER_NAME.service</code></p>
+<p>if systemd service is generated and running.</p></li>
+<li><p>Fetch the latest image:
+<code>podman pull CONTAINER_NAME:TAG</code></p></li>
+<li><p>Start the container via the original command that you used to
+start the very first time, modify the tag if needed.</p></li>
+<li><p>Generate new service file using the following command:
+<code>podman generate systemd --new CONTAINER_NAME &gt; ~/.config/systemd/user/container-CONTAINER_NAME.service</code></p></li>
+<li><p>Reload services:<br />
+<code>systemctl --user daemon-reload</code></p></li>
+<li><p>To persist reboots, also issue command:<br />
+<code>systemctl --user enable container-CONTAINER_NAME.service</code></p></li>
 </ol>
-<hr />
-<h1 id="contact">Contact</h1>
-<ul>
-<li>Email: <a
-href="mailto:mitanshu.sukhwani@gmail.com">mitanshu.sukhwani@gmail.com</a></li>
-<li>LinkedIn: <a
-href="https://linkedin.com/in/mitanshusukhwani">Mitanshu
-Sukhwani</a></li>
-<li>GitHub: <a href="https://github.com/mitanshu7">mitanshu7</a></li>
-</ul>
-<p><em>Thanks for stopping by!</em></p>
 </body>
 </html>
