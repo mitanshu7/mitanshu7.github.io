@@ -14,6 +14,7 @@ This blog is a space where I share my thoughts on software, high-performance com
 3. [PaperMatch](html/PaperMatch.html)
 4. [WSA with KernelSU](html/WSA_with_KernelSU.html)
 5. [How to SSH to another user](html/How_to_SSH_to_another_user.html)
+6. [How to change SSH Port on OCI](html/How_to_change_SSH_Port_on_OCI.html)
 
 ***
 
