@@ -18,6 +18,7 @@ This blog is a space where I share my thoughts on software, high-performance com
 7. [Masala Tea Recipe](html/Masala_Tea_Recipe.html)
 8. [Update podman containers manually](html/Update_podman_containers_manually.html)
 9. [Ultimate Coffee Recipes](html/Ultimate_Coffee_Recipes.html)
+10. [How to fix Tablet app Orientations](html/How_to_fix_Tablet_app_Orientations.html)
 
 ***
 
