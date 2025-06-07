@@ -2,6 +2,8 @@
 
 ## Using [PBS](https://altair.com/pbs-professional) or not :)
 
+### For IISER Tirupati HPC 
+
 **Mitanshu Sukhwani** • *07 June 2025*
 
 # Prerequisites
@@ -21,14 +23,14 @@
 
 3. Start an Interactive session using the `-I` flag. \
 For example if you used the following PBS attributes in your batch script  
-```bash
-#PBS -l nodes=7:ppn=4
-#PBS -l mem=2gb
-#PBS -l walltime=15:00:00
-#PBS -q default
-``` 
+  ```bash
+  #PBS -l nodes=7:ppn=4
+  #PBS -l mem=2gb
+  #PBS -l walltime=15:00:00
+  #PBS -q default
+  ``` 
 The the command would translate to  
-` $ qsub -I -X -q default -l select=7:ncpus=4,walltime=15:00:00,mem=2gb`
+  ` $ qsub -I -X -q default -l select=7:ncpus=4,walltime=15:00:00,mem=2gb`
   
 4. After you are assigned a node, proceed as follows
 
@@ -115,3 +117,110 @@ The the command would translate to
 ### Benefits
 
 1. No time limit. Scheduler takes a long time to assign you to ELongQ (even 2hrs is not enough of wait time), so bypasses that.
+
+# Bonus
+
+## Bash scripts to bypassing PBS
+
+1. Create a file titled `sshtunneltohpc.sh` with the following contents:
+
+  ```bash
+  #!/bin/bash
+
+  #Different gobal variables
+  myport=8781 #choose between 8000 and 9999
+  iam=$(whoami) #your username to login into masternode/hpc
+  masterpass= #your pass
+  loginip=172.27.1.152 #masternode ip address
+
+  # Connecting to masternode by using pass
+  sshpass -p $masterpass ssh -o StrictHostKeyChecking=no -L $myport:localhost:$myport $iam@$loginip "bash sshtunneltonode.sh"
+
+  # Connecting to masternode by using keys
+  #ssh -L $myport:localhost:$myport $iam@$loginip "bash sshtunneltonode.sh"
+  ```
+
+2. Create a file titled `sshtunneltonode.sh` with the following contents:
+
+  ```bash
+  #!/bin/bash
+
+  #Different gobal variables
+  myport=8781 #choose between 8000 and 9999
+  iam=$(whoami) #your username to login into masternode/hpc
+
+  # grabbing the first free node
+  firstfreenode=$(pbsnodes -a | grep -i "free" -n | cut -d ":" -f 1 | sed -n '1p')
+
+  #finding node number
+  if [ $firstfreenode = 4 ]
+  then
+      node=01
+  elif [ $firstfreenode = 26 ]
+  then
+      node=02
+  elif [ $firstfreenode = 48 ]
+  then
+      node=03
+  elif [ $firstfreenode = 70 ]
+  then
+      node=04
+  elif [ $firstfreenode = 92 ]
+  then
+      node=05
+  elif [ $firstfreenode = 114 ]
+  then
+      node=06
+  elif [ $firstfreenode = 136 ]
+  then
+      node=07
+  elif [ $firstfreenode = 158 ]
+  then
+      node=08
+  elif [ $firstfreenode = 180 ]
+  then
+      node=09
+  elif [ $firstfreenode = 202 ]
+  then
+      node=10
+  elif [ $firstfreenode = 224 ]
+  then
+      node=11
+  elif [ $firstfreenode = 245 ]
+  then
+      node=12
+  elif [ $firstfreenode = 266 ]
+  then
+      node=13
+  else
+      node=14
+  fi
+
+  #assiging ip
+  nodeip=10.10.10.1$node #ip address of compute node
+  #echo $nodeip
+
+  # sshing into selected compute node
+  ssh -L $myport:localhost:$myport $iam@$nodeip "bash start-jupyter.sh"
+  ```
+
+3. Create a file titled `start-jupyter.sh` with the following contents:
+
+  ```bash
+  myport=8781
+  export NUMEXPR_MAX_THREADS=40
+  jupyter-lab --no-browser --port=$myport
+  ```
+
+4. Keep the file `sshtunneltohpc.sh` on your local machine and edit the `masterpass=` parameter accordingly. if you have the keys setup, comment lines accordingly to avoid exposing the pass.
+
+5. Copy the files `sshtunneltonode.sh` and `start-jupyter.sh` to your masternode.
+
+6. Go to the terminal of your local machine and just run ```bash sshtunneltohpc.sh```
+
+7. This will connect your local machine to hpc, and then execute the `sshtunneltonode.sh` script automatically.
+
+8. The `sshtunneltonode.sh` script will connect to the first **"free"** node and execute `start-jupyter.sh` automatically.
+
+9. You'll be shown a url at the end, just open that and you'll be connected to compute node running your instance of Jupyterlab
+
