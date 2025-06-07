@@ -31,6 +31,8 @@ This blog is where I share thoughts/How-Tos on software, high-performance comput
 
 12. [How to copy ssh keys from master to compute node](html/How_to_copy_ssh_keys_from_master_to_compute_node.html)
 
+13. [How to run Jupyter on compute node](html/How_to_run_Jupyter_on_compute_node.html)
+
 ***
 
 # Contact
