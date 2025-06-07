@@ -4,7 +4,7 @@
   <meta charset="utf-8" />
   <meta name="generator" content="pandoc" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
-  <title>index</title>
+  <title>How_to_copy_ssh_keys_from_master_to_compute_node</title>
   <style>
     html {
       color: #1a1a1a;
@@ -169,54 +169,24 @@
   </style>
 </head>
 <body>
-<h1 id="hello">Hello</h1>
-<p>I’m <strong>Mitanshu Sukhwani</strong>, a tech enthusiast with a
-Master’s in Physics from <a href="https://physics.iitm.ac.in">IIT
-Madras</a>. I’ve worked at <a
-href="https://www.iisertirupati.ac.in">IISER Tirupati</a> on EEG data,
-network science, and brain modeling. I enjoy exploring ML, Linux, and
-the intersection of neuroscience, software, and data.</p>
-<p>This blog is where I share thoughts/How-Tos on software,
-high-performance computing, and coffee—with a side of cats.</p>
-<hr />
-<h1 id="index-for-the-website">Index for the website</h1>
+<h1 id="how-to-copy-ssh-keys-from-master-to-compute-node">How to copy
+ssh keys from master to compute node</h1>
+<h2 id="fix-when-you-run-ssh-keygen-on-brand-new-hpc-access">Fix when
+you run <code>ssh-keygen</code> on brand new HPC access</h2>
+<p><strong>Mitanshu Sukhwani</strong> • <em>07 June 2025</em></p>
 <ol type="1">
-<li><p><a href="html/Project_Wishlist.html">Project
-Wishlist</a></p></li>
-<li><p><a
-href="html/Stop_podman_containers_from_getting_killed.html">Stop podman
-containers from getting killed</a></p></li>
-<li><p><a href="html/PaperMatch.html">PaperMatch</a></p></li>
-<li><p><a href="html/WSA_with_KernelSU.html">WSA with
-KernelSU</a></p></li>
-<li><p><a href="html/How_to_SSH_to_another_user.html">How to SSH to
-another user</a></p></li>
-<li><p><a href="html/How_to_change_SSH_Port_on_OCI.html">How to change
-SSH Port on OCI</a></p></li>
-<li><p><a href="html/Masala_Tea_Recipe.html">Masala Tea
-Recipe</a></p></li>
-<li><p><a href="html/Update_podman_containers_manually.html">Update
-podman containers manually</a></p></li>
-<li><p><a href="html/Ultimate_Coffee_Recipes.html">Ultimate Coffee
-Recipes</a></p></li>
-<li><p><a href="html/How_to_fix_Tablet_app_Orientations.html">How to fix
-Tablet app Orientations</a></p></li>
-<li><p><a href="html/Milvus_on_Podman.html">Milvus on
-Podman</a></p></li>
-<li><p><a
-href="html/How_to_copy_ssh_keys_from_master_to_compute_node.html">How to
-copy ssh keys from master to compute node</a></p></li>
+<li><p>SSH into your master node.</p></li>
+<li><p>Create new keys using <code>ssh-keygen</code>. No passphrase
+would be better for ease of access, but worse security.</p></li>
+<li><p>Find the ip addresses of your (any) compute node from the
+<code>/etc/hosts/</code> file from masternode. We don’t need to copy our
+ssh key to other nodes, as that happens itself.</p></li>
+<li><p>Copy the public keys to compute nodes using
+<code>ssh-copy-id $USER@10.10.10.101</code>. Where
+<code>10.10.10.101</code> is the ip of your compute node.</p></li>
+<li><p>Now you will be prompted to enter password for
+<code>$USER</code>, after that you can schedule your jobs using
+pbs.</p></li>
 </ol>
-<hr />
-<h1 id="contact">Contact</h1>
-<ul>
-<li>Email: <a
-href="mailto:mitanshu.sukhwani@gmail.com">mitanshu.sukhwani@gmail.com</a></li>
-<li>LinkedIn: <a
-href="https://linkedin.com/in/mitanshusukhwani">Mitanshu
-Sukhwani</a></li>
-<li>GitHub: <a href="https://github.com/mitanshu7">mitanshu7</a></li>
-</ul>
-<p><em>Thanks for stopping by!</em></p>
 </body>
 </html>

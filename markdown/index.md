@@ -29,6 +29,8 @@ This blog is where I share thoughts/How-Tos on software, high-performance comput
 
 11. [Milvus on Podman](html/Milvus_on_Podman.html)
 
+12. [How to copy ssh keys from master to compute node](html/How_to_copy_ssh_keys_from_master_to_compute_node.html)
+
 ***
 
 # Contact
