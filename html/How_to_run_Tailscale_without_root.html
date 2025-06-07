@@ -239,6 +239,9 @@ href="https://tailscale.com/">Tailscale</a> without root</h1>
 <h2 id="longing-to-connect-to-your-lab-server">Longing to connect to
 your lab server?</h2>
 <p><strong>Mitanshu Sukhwani</strong> • <em>07 June 2025</em></p>
+<h1 id="steps">Steps:</h1>
+<p>Rename <strong>mitanshu</strong> to your
+<strong>username</strong></p>
 <ol type="1">
 <li><p>Fetch appropriate binaries from here:
 https://pkgs.tailscale.com/stable/#static</p></li>
@@ -270,7 +273,9 @@ class="sourceCode bash"><code class="sourceCode bash"><span id="cb2-1"><a href="
 <span id="cb2-19"><a href="#cb2-19" aria-hidden="true" tabindex="-1"></a>    <span class="fu">date</span></span>
 <span id="cb2-20"><a href="#cb2-20" aria-hidden="true" tabindex="-1"></a>    <span class="bu">echo</span> <span class="st">&quot;tailscaled is already running.&quot;</span></span>
 <span id="cb2-21"><a href="#cb2-21" aria-hidden="true" tabindex="-1"></a><span class="cf">fi</span></span></code></pre></div></li>
-<li><p>Add cronjob using: <code>crontab -e</code></p>
+<li><p>Add cronjob using:</p>
+<p><code>crontab -e</code></p>
+<p>and adding</p>
 <div class="sourceCode" id="cb3"><pre
 class="sourceCode bash"><code class="sourceCode bash"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="ex">@reboot</span> /home/mitanshu/tailscale/start_tailscaled.sh</span>
 <span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="ex">*</span> <span class="pp">*</span> <span class="pp">*</span> <span class="pp">*</span> <span class="pp">*</span> /home/mitanshu/tailscale/start_tailscaled.sh</span></code></pre></div></li>

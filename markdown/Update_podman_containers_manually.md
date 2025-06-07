@@ -19,17 +19,21 @@
 
 
 2. Fetch the latest image:
+
 	`podman pull CONTAINER_NAME:TAG`
 
 3. Start the container via the original command that you used to start the very first time, modify the tag if needed.
 
 4. Generate new service file using the following command:
+
 	`podman generate systemd --new CONTAINER_NAME > ~/.config/systemd/user/container-CONTAINER_NAME.service`
 
 
 5. Reload services:  
+
 	`systemctl --user daemon-reload`
 
 
 6.  To persist reboots, also issue command:  
+
     `systemctl --user enable container-CONTAINER_NAME.service`

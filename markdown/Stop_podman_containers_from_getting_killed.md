@@ -9,25 +9,28 @@
 1.  Run the podman containers **without** a restart policy.
     
 2.  Issue command:  
+
     `loginctl enable-linger $user`
 
-> [!WARNING]
+> **WARNING**
 >  systemd support is deprecated in podman, see [quadlets](https://docs.podman.io/en/latest/markdown/podman-systemd.unit.5.html). 
 
 3.  Enable service using:  
+
     `podman generate systemd --files --name $container`,  
+
     where `$container` is your container id.
     
 4.  In the service file, change
     
-    ```
+    ```bash
     [Install]
     WantedBy=multi-user.target
     ```
 
     to
 
-    ```
+    ```bash
     [Install]
     WantedBy=default.target
     ```
@@ -35,6 +38,7 @@
     if not done already by the generated service.
 
 5.  We can copy the file to  
+
     `~/.config/systemd/user/container-foo.service`  
 
     If the directory doesnt exist,
@@ -44,15 +48,19 @@
     copy the service file`cp container*service ~/.config/systemd/user/`,
 
     and then issue:  
+
     `systemctl --user daemon-reload`
 
 6. Start a rootless container via  
+
     `systemctl --user start container-foo.service`
 
 7. To persist reboots, also issue command:  
+
     `systemctl --user enable container-foo.service`
 
 8. Stop a rootless container via  
+
     `systemctl --user stop container-foo.service`
 
 Now the containers should live through the logout sessions (2) and reboots (7)

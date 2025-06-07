@@ -22,14 +22,17 @@
 ## Using PBS
 
 3. Start an Interactive session using the `-I` flag. \
-For example if you used the following PBS attributes in your batch script  
+  For example if you used the following PBS attributes in your batch script  
+
   ```bash
   #PBS -l nodes=7:ppn=4
   #PBS -l mem=2gb
   #PBS -l walltime=15:00:00
   #PBS -q default
   ``` 
+
 The the command would translate to  
+
   ` $ qsub -I -X -q default -l select=7:ncpus=4,walltime=15:00:00,mem=2gb`
   
 4. After you are assigned a node, proceed as follows
@@ -42,14 +45,17 @@ The the command would translate to
 
 8. You will be shown a url of the nature, `http://localhost:8546/lab?token=XXXXXXXXXXXXXXXXXXXXX`. Make note of the url.
 
-9. Open a second terminal on your local machine T2, no create a ssh tunnel (from local-machine to master-node) using,
+9. Open a second terminal on your local machine T2, no create a ssh tunnel (from local-machine to master-node) using:
+
   `ssh -L 8546:localhost:8546 $USER:172.27.1.152`
 
   
 10. You are now logged into your masternode, now create a second ssh-tunnel (from master-node to compute-node) into that node using your already ssh'ed terminal T1 using:
+
   `ssh -L 8546:localhost:8546 $USER:10.10.10.1XX`
   
   where *$USER* your username, 
+
   and the ip address of nodes are `10.10.10.1XX` where `XX` is the node number.
   
 11. Now you have a Jupyter server running on your allotted node and a ssh tunnel from local-machine $\to$ master-node $\to$ compute-node
@@ -62,7 +68,7 @@ The the command would translate to
 
 1. You'll run into walltime
   
-2. 2 ssh tunnels might slow down the speed. Cannot do a direct tunnel to compute node, since they are not available on the institute network.
+2. ssh tunnels might slow down the speed. Cannot do a direct tunnel to compute node, since they are not available on the institute network.
   
 3. Long wait times if you ask for ELongQ (168:00:00)
 
@@ -74,7 +80,9 @@ The the command would translate to
 ## Bypassing PBS
 
 3. After logging in your masternode, type and execute,
+
   `pbsnodes -a`
+
   This will give you information about all the nodes and their state.
   
 4. Pick a free node, lets say it was *node05*.
@@ -82,12 +90,15 @@ The the command would translate to
 5. Select a port number between *8000* and *9999*, this is where we will be exposing our jupyter environment. Lets pick **8546**
   
 6. Now create a ssh-tunnel (from master-node to compute-node) into that node using your already ssh'ed terminal T1 using:
+  
   `ssh -L 8546:localhost:8546 $USER:10.10.10.105`
   
   where *$USER* your username, 
+
   and the ip address of nodes are `10.10.10.1XX` where `XX` is the node number.
   
-7. You are now logged in node05. You will see your conda envt already activated. now open jupyterlab/notebook using,
+7. You are now logged in node05. You will see your conda envt already activated. now open jupyterlab/notebook using:
+
   `jupyter-lab --no-browser --port 8546`
   
 8. you will be shown a url of the nature
@@ -96,7 +107,8 @@ The the command would translate to
   
   Make note of the url.
   
-9. Open a second terminal on your local machine T2, no create a ssh tunnel (from local-machine to master-node) using,
+9. Open a second terminal on your local machine T2, no create a ssh tunnel (from local-machine to master-node) using:
+
   `ssh -L 8546:localhost:8546 $USER:172.27.1.152`
   
 10. Open your favorite web browser on your local machine and copy paste the above URL

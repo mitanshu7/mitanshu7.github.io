@@ -4,6 +4,10 @@
 
 **Mitanshu Sukhwani** • *07 June 2025*
 
+# Steps:
+
+Rename **mitanshu** to your **username**
+
 1. Fetch appropriate binaries from here: https://pkgs.tailscale.com/stable/#static 
 
 2. Make them executible with:
@@ -39,7 +43,11 @@
     fi
     ```
 
-4. Add cronjob using: `crontab -e`
+4. Add cronjob using: 
+
+    `crontab -e`
+
+    and adding
 
     ```bash
     @reboot /home/mitanshu/tailscale/start_tailscaled.sh

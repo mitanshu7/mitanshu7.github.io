@@ -9,7 +9,9 @@ To create a simple (and free) website we will be using [Github Pages](https://pa
 The following assumptions are made: 
 
 1. You have working knowledge of [git](https://git-scm.com/).
+
 2. You have a [GitHub](https://github.com/) account.
+
 3. You are more comfortable with [Markdown](https://www.markdownguide.org/) than [HTML](https://www.w3schools.com/html/).
 
 # Steps

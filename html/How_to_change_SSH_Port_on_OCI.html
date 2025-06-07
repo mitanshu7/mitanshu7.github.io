@@ -173,22 +173,25 @@
 OCI</h1>
 <h2 id="a-tutorial">A tutorial</h2>
 <p><strong>Mitanshu Sukhwani</strong> • <em>07 June 2025</em></p>
+<h1 id="steps">Steps</h1>
 <ol start="0" type="1">
-<li><strong>NEEDED</strong>: have a new user in sudo group with a
+<li><p><strong>NEEDED</strong>: have a new user in sudo group with a
 password handy before doing anything here. It will be handy in
-troubleshooting via the <code>Cloud Shell</code> in case things go awry.
-(Which is how this whole tutorial was executed :))</li>
-<li>Harden ssh using tips in <a
+troubleshooting via the <a
+href="https://docs.oracle.com/en-us/iaas/Content/API/Concepts/devcloudshellgettingstarted.htm">Cloud
+Shell</a> in case things go awry. (Which is how this whole tutorial was
+executed :))</p></li>
+<li><p>Harden ssh using tips in <a
 href="https://www.redhat.com/en/blog/eight-ways-secure-ssh">Eight ways
-to protect SSH access on your system | Enable Sysadmin</a></li>
-<li>If you restart the sshd service, it’ll show the error that selinux
-is preventing sshd from binding to new port. Then you allow selinux
-using the command:
-<code>sudo semanage port -a -t ssh_port_t -p tcp &lt;port-number&gt;</code></li>
-<li>Now when you restart the sshd service using:
+to protect SSH access on your system | Enable Sysadmin</a></p></li>
+<li><p>If you restart the sshd service, it’ll show the error that
+selinux is preventing sshd from binding to new port. Then you allow
+selinux using the command:</p>
+<p><code>sudo semanage port -a -t ssh_port_t -p tcp &lt;port-number&gt;</code></p></li>
+<li><p>Now when you restart the sshd service using:
 <code>sudo systemctl restart sshd</code>, it should happen without any
-issues However you still will not be able to connect, just yet.</li>
-<li>Now modiify firewall rules to allow the mentioned port.
+issues However you still will not be able to connect, just yet.</p></li>
+<li><p>Now modiify firewall rules to allow the mentioned port.</p>
 <ol type="1">
 <li>List firewall rules using:
 <code>sudo firewall-cmd --list-all</code></li>
@@ -198,29 +201,30 @@ issues However you still will not be able to connect, just yet.</li>
 <li>List rules again to see changes:
 <code>sudo firewall-cmd --list-all</code></li>
 </ol></li>
-<li>Now go to https://cloud.oracle.com/compute/instances, Find your
-instance and go to the clickable subnet under primary vnic.</li>
-<li>There select the default security list and add an ingress rule:
+<li><p>Now go to https://cloud.oracle.com/compute/instances, Find your
+instance and go to the clickable subnet under primary vnic.</p></li>
+<li><p>There select the default security list and add an ingress
+rule:</p>
 <ol type="1">
 <li>Select Add Ingress rule</li>
 <li>In Source CIDR, enter <code>0.0.0.0/0</code> to allow every ip.</li>
 <li>Enter the <code>&lt;port-number&gt;</code> in Destination Port
 Range.</li>
 </ol></li>
-<li>Voila!, now you can connect to your instance on a custom ssh
-port.</li>
-<li>Bonus, delete ingress rule for port 22. (YET TO TEST)</li>
+<li><p>Voila!, now you can connect to your instance on a custom ssh
+port.</p></li>
+<li><p>Bonus, delete ingress rule for port 22. (YET TO TEST)</p></li>
 </ol>
 <h1 id="references">References:</h1>
 <ol type="1">
-<li><a href="https://youtu.be/GL3FcUCkM_s">How to Update the Default SSH
-Port of Oracle Linux 8 in OCI</a></li>
-<li><a
+<li><p><a href="https://youtu.be/GL3FcUCkM_s">How to Update the Default
+SSH Port of Oracle Linux 8 in OCI</a></p></li>
+<li><p><a
 href="https://docs.oracle.com/en/operating-systems/oracle-linux/8/firewall/OL8-FIREWALL.pdf">Oracle
-Linux 8: Configuring the Firewall</a></li>
-<li><a
+Linux 8: Configuring the Firewall</a></p></li>
+<li><p><a
 href="https://docs.oracle.com/en/learn/ol-selinux/#selinux-booleans">Learn
-how to use SELinux.</a></li>
+how to use SELinux.</a></p></li>
 </ol>
 </body>
 </html>

@@ -5,6 +5,7 @@
 **Mitanshu Sukhwani** • *07 June 2025*
 
 # Cloudflared Setup Guide
+
 This guide will walk you through setting up Cloudflared on your system.
 
 ## Pre-Requisites
@@ -12,6 +13,7 @@ This guide will walk you through setting up Cloudflared on your system.
 You need to have administrative (doas) access to your system. 
 
 Add nano editor using:
+
 `doas apk update && doas apk add nano`
 
 Here are the steps to install Cloudflared.
@@ -32,9 +34,13 @@ cloudflared -v
 After installing Cloudflared, you need to create a Cloudflare tunnel.
 
 1.  Visit [https://one.dash.cloudflare.com](https://one.dash.cloudflare.com).
+
 2.  Navigate to `Networks -> Tunnels -> Create a tunnel`.
+
 3.  Fill in a name you like and save the tunnel.
+
 4.  Find the code block below `After you have installed cloudflared on your machine, you can install a service to automatically run your tunnel whenever your machine starts:`.
+
 5.  Replace `sudo` with `doas` before executing. Make note of the your `<TOKEN>` which comes after `sudo cloudflared service install`
 
 ## Starting the Cloudflared Service, while sustaining reboots

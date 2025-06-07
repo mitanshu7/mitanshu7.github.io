@@ -181,16 +181,16 @@ href="https://docs.podman.io/en/latest/markdown/podman-auto-update.1.html">auto-
 <p>or using</p>
 <p><code>systemctl --user stop container-CONTAINER_NAME.service</code></p>
 <p>if systemd service is generated and running.</p></li>
-<li><p>Fetch the latest image:
-<code>podman pull CONTAINER_NAME:TAG</code></p></li>
+<li><p>Fetch the latest image:</p>
+<p><code>podman pull CONTAINER_NAME:TAG</code></p></li>
 <li><p>Start the container via the original command that you used to
 start the very first time, modify the tag if needed.</p></li>
-<li><p>Generate new service file using the following command:
-<code>podman generate systemd --new CONTAINER_NAME &gt; ~/.config/systemd/user/container-CONTAINER_NAME.service</code></p></li>
-<li><p>Reload services:<br />
-<code>systemctl --user daemon-reload</code></p></li>
-<li><p>To persist reboots, also issue command:<br />
-<code>systemctl --user enable container-CONTAINER_NAME.service</code></p></li>
+<li><p>Generate new service file using the following command:</p>
+<p><code>podman generate systemd --new CONTAINER_NAME &gt; ~/.config/systemd/user/container-CONTAINER_NAME.service</code></p></li>
+<li><p>Reload services:</p>
+<p><code>systemctl --user daemon-reload</code></p></li>
+<li><p>To persist reboots, also issue command:</p>
+<p><code>systemctl --user enable container-CONTAINER_NAME.service</code></p></li>
 </ol>
 </body>
 </html>

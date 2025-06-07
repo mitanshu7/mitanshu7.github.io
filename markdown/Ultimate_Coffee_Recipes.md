@@ -6,12 +6,17 @@
 
 Pick your Brewer:
 
-1. V60
-2. Chemex
-3. Clever Dripper
-4. AeroPress
-5. French Press
-6. Moka Pot
+1. [V60](https://global.hario.com/v60/v60series.html)
+
+2. [Chemex](https://chemexcoffeemaker.com/)
+
+3. [Clever Dripper](https://cleverbrewing.coffee/)
+
+4. [AeroPress](https://aeropress.com/)
+
+5. [French Press](https://en.wikipedia.org/wiki/French_press)
+
+6. [Moka Pot](https://www.bialetti.com/it_en/moka-express.html)
 
 Watch away the following YouTube Playlist!
 

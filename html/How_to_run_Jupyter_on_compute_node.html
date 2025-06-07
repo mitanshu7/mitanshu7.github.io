@@ -260,16 +260,15 @@ is the ip.</p></li>
 <ol start="3" type="1">
 <li>Start an Interactive session using the <code>-I</code> flag.<br />
 For example if you used the following PBS attributes in your batch
-script<br />
-</li>
+script</li>
 </ol>
 <div class="sourceCode" id="cb1"><pre
 class="sourceCode bash"><code class="sourceCode bash"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co">#PBS -l nodes=7:ppn=4</span></span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="co">#PBS -l mem=2gb</span></span>
 <span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="co">#PBS -l walltime=15:00:00</span></span>
 <span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="co">#PBS -q default</span></span></code></pre></div>
-<p>The the command would translate to<br />
-<code>$ qsub -I -X -q default -l select=7:ncpus=4,walltime=15:00:00,mem=2gb</code></p>
+<p>The the command would translate to</p>
+<p><code>$ qsub -I -X -q default -l select=7:ncpus=4,walltime=15:00:00,mem=2gb</code></p>
 <ol start="4" type="1">
 <li><p>After you are assigned a node, proceed as follows</p></li>
 <li><p>Activate your conda environment with the installed packages using
@@ -283,15 +282,18 @@ this is where we will be exposing our jupyter environment. Lets pick
 <code>http://localhost:8546/lab?token=XXXXXXXXXXXXXXXXXXXXX</code>. Make
 note of the url.</p></li>
 <li><p>Open a second terminal on your local machine T2, no create a ssh
-tunnel (from local-machine to master-node) using,
-<code>ssh -L 8546:localhost:8546 $USER:172.27.1.152</code></p></li>
-<li><p>You are now logged into your masternode, now create a second
-ssh-tunnel (from master-node to compute-node) into that node using your
-already ssh’ed terminal T1 using:
-<code>ssh -L 8546:localhost:8546 $USER:10.10.10.1XX</code></p></li>
+tunnel (from local-machine to master-node) using:</p></li>
 </ol>
-<p>where <em>$USER</em> your username, and the ip address of nodes are
-<code>10.10.10.1XX</code> where <code>XX</code> is the node number.</p>
+<p><code>ssh -L 8546:localhost:8546 $USER:172.27.1.152</code></p>
+<ol start="10" type="1">
+<li>You are now logged into your masternode, now create a second
+ssh-tunnel (from master-node to compute-node) into that node using your
+already ssh’ed terminal T1 using:</li>
+</ol>
+<p><code>ssh -L 8546:localhost:8546 $USER:10.10.10.1XX</code></p>
+<p>where <em>$USER</em> your username,</p>
+<p>and the ip address of nodes are <code>10.10.10.1XX</code> where
+<code>XX</code> is the node number.</p>
 <ol start="11" type="1">
 <li><p>Now you have a Jupyter server running on your allotted node and a
 ssh tunnel from local-machine <span class="math inline">→</span>
@@ -303,8 +305,8 @@ paste the above URL</p></li>
 <h3 id="caveats">Caveats</h3>
 <ol type="1">
 <li><p>You’ll run into walltime</p></li>
-<li><p>2 ssh tunnels might slow down the speed. Cannot do a direct
-tunnel to compute node, since they are not available on the institute
+<li><p>ssh tunnels might slow down the speed. Cannot do a direct tunnel
+to compute node, since they are not available on the institute
 network.</p></li>
 <li><p>Long wait times if you ask for ELongQ (168:00:00)</p></li>
 </ol>
@@ -315,31 +317,39 @@ time being.</li>
 </ol>
 <h2 id="bypassing-pbs">Bypassing PBS</h2>
 <ol start="3" type="1">
-<li><p>After logging in your masternode, type and execute,
-<code>pbsnodes -a</code> This will give you information about all the
-nodes and their state.</p></li>
+<li>After logging in your masternode, type and execute,</li>
+</ol>
+<p><code>pbsnodes -a</code></p>
+<p>This will give you information about all the nodes and their
+state.</p>
+<ol start="4" type="1">
 <li><p>Pick a free node, lets say it was <em>node05</em>.</p></li>
 <li><p>Select a port number between <em>8000</em> and <em>9999</em>,
 this is where we will be exposing our jupyter environment. Lets pick
 <strong>8546</strong></p></li>
 <li><p>Now create a ssh-tunnel (from master-node to compute-node) into
-that node using your already ssh’ed terminal T1 using:
-<code>ssh -L 8546:localhost:8546 $USER:10.10.10.105</code></p></li>
+that node using your already ssh’ed terminal T1 using:</p></li>
 </ol>
-<p>where <em>$USER</em> your username, and the ip address of nodes are
-<code>10.10.10.1XX</code> where <code>XX</code> is the node number.</p>
+<p><code>ssh -L 8546:localhost:8546 $USER:10.10.10.105</code></p>
+<p>where <em>$USER</em> your username,</p>
+<p>and the ip address of nodes are <code>10.10.10.1XX</code> where
+<code>XX</code> is the node number.</p>
 <ol start="7" type="1">
-<li><p>You are now logged in node05. You will see your conda envt
-already activated. now open jupyterlab/notebook using,
-<code>jupyter-lab --no-browser --port 8546</code></p></li>
-<li><p>you will be shown a url of the nature</p></li>
+<li>You are now logged in node05. You will see your conda envt already
+activated. now open jupyterlab/notebook using:</li>
+</ol>
+<p><code>jupyter-lab --no-browser --port 8546</code></p>
+<ol start="8" type="1">
+<li>you will be shown a url of the nature</li>
 </ol>
 <p><code>http://localhost:8546/lab?token=XXXXXXXXXXXXXXXXXXXXX</code></p>
 <p>Make note of the url.</p>
 <ol start="9" type="1">
-<li><p>Open a second terminal on your local machine T2, no create a ssh
-tunnel (from local-machine to master-node) using,
-<code>ssh -L 8546:localhost:8546 $USER:172.27.1.152</code></p></li>
+<li>Open a second terminal on your local machine T2, no create a ssh
+tunnel (from local-machine to master-node) using:</li>
+</ol>
+<p><code>ssh -L 8546:localhost:8546 $USER:172.27.1.152</code></p>
+<ol start="10" type="1">
 <li><p>Open your favorite web browser on your local machine and copy
 paste the above URL</p></li>
 <li><p>Enjoy ;)</p></li>

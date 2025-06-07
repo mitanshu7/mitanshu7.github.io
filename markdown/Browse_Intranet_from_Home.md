@@ -7,8 +7,11 @@
 **Mitanshu Sukhwani** • *07 June 2025*
 
 # Requirements:
+
 1. Tailscale VPN logged in on the already running workstation at campus.
+
 2. Linux/MacOS device with sudo rights.
+
 3. Might work in Windows, however its way too complicated and out of the scope of this tutorial.
 
 # Method

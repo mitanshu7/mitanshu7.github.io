@@ -4,6 +4,12 @@
 
 **Mitanshu Sukhwani** • *07 June 2025*
 
+Learn more about HPC Architecture [here](https://phoenixnap.com/kb/hpc-architecture). 
+
+Generally, only the master node is connect to the internet, and the compute nodes are inter-connected with master node via a switch. 
+
+# Steps:
+
 1. SSH into your master node.
   
 2. Create new keys using `ssh-keygen`. No passphrase would be better for ease of access, but worse security.
