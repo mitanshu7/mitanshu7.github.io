@@ -4,7 +4,7 @@
   <meta charset="utf-8" />
   <meta name="generator" content="pandoc" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
-  <title>index</title>
+  <title>Create_a_simple_website</title>
   <style>
     html {
       color: #1a1a1a;
@@ -169,62 +169,50 @@
   </style>
 </head>
 <body>
-<h1 id="hello">Hello</h1>
-<p>I’m <strong>Mitanshu Sukhwani</strong>, a tech enthusiast with a
-Master’s in Physics from <a href="https://physics.iitm.ac.in">IIT
-Madras</a>. I’ve worked at <a
-href="https://www.iisertirupati.ac.in">IISER Tirupati</a> on EEG data,
-network science, and brain modeling. I enjoy exploring ML, Linux, and
-the intersection of neuroscience, software, and data.</p>
-<p>This blog is where I share thoughts/How-Tos on software,
-high-performance computing, and coffee—with a side of cats.</p>
-<hr />
-<h1 id="index-for-the-website">Index for the website</h1>
+<h1 id="create-a-simple-website">Create a simple website</h1>
+<h2 id="like-this-one">Like this one</h2>
+<p><strong>Mitanshu Sukhwani</strong> • <em>07 June 2025</em></p>
+<p>To create a simple (and free) website we will be using <a
+href="https://pages.github.com/">Github Pages</a>.</p>
+<p>The following assumptions are made:</p>
 <ol type="1">
-<li><p><a href="html/Project_Wishlist.html">Project
-Wishlist</a></p></li>
-<li><p><a
-href="html/Stop_podman_containers_from_getting_killed.html">Stop podman
-containers from getting killed</a></p></li>
-<li><p><a href="html/PaperMatch.html">PaperMatch</a></p></li>
-<li><p><a href="html/WSA_with_KernelSU.html">WSA with
-KernelSU</a></p></li>
-<li><p><a href="html/How_to_SSH_to_another_user.html">How to SSH to
-another user</a></p></li>
-<li><p><a href="html/How_to_change_SSH_Port_on_OCI.html">How to change
-SSH Port on OCI</a></p></li>
-<li><p><a href="html/Masala_Tea_Recipe.html">Masala Tea
-Recipe</a></p></li>
-<li><p><a href="html/Update_podman_containers_manually.html">Update
-podman containers manually</a></p></li>
-<li><p><a href="html/Ultimate_Coffee_Recipes.html">Ultimate Coffee
-Recipes</a></p></li>
-<li><p><a href="html/How_to_fix_Tablet_app_Orientations.html">How to fix
-Tablet app Orientations</a></p></li>
-<li><p><a href="html/Milvus_on_Podman.html">Milvus on
-Podman</a></p></li>
-<li><p><a
-href="html/How_to_copy_ssh_keys_from_master_to_compute_node.html">How to
-copy ssh keys from master to compute node</a></p></li>
-<li><p><a href="html/How_to_run_Jupyter_on_compute_node.html">How to run
-Jupyter on compute node</a></p></li>
-<li><p><a href="html/How_to_run_Tailscale_without_root.html">How to run
-Tailscale without root</a></p></li>
-<li><p><a href="html/How_to_Install_Cloudflared_on_Alpine.html">How to
-Install Cloudflared on Alpine</a></p></li>
-<li><p><a href="html/Create_a_simple_website.html">Create a simple
-website</a></p></li>
+<li>You have working knowledge of <a
+href="https://git-scm.com/">git</a>.</li>
+<li>You have a <a href="https://github.com/">GitHub</a> account.</li>
+<li>You are more comfortable with <a
+href="https://www.markdownguide.org/">Markdown</a> than <a
+href="https://www.w3schools.com/html/">HTML</a>.</li>
 </ol>
-<hr />
-<h1 id="contact">Contact</h1>
-<ul>
-<li>Email: <a
-href="mailto:mitanshu.sukhwani@gmail.com">mitanshu.sukhwani@gmail.com</a></li>
-<li>LinkedIn: <a
-href="https://linkedin.com/in/mitanshusukhwani">Mitanshu
-Sukhwani</a></li>
-<li>GitHub: <a href="https://github.com/mitanshu7">mitanshu7</a></li>
-</ul>
-<p><em>Thanks for stopping by!</em></p>
+<h1 id="steps">Steps</h1>
+<ol type="1">
+<li><p>Follow the steps on <a href="https://pages.github.com/">GitHub
+Pages</a> to have a initial functional website.</p></li>
+<li><p>Install <a href="https://pandoc.org/">pandoc</a> from <a
+href="https://pandoc.org/installing.html">here</a> for your operating
+system. Pandoc helps converting Markdown to HTML, the languge of choice
+for www.</p></li>
+<li><p>In your git repository (better to clone and work locally)
+<em>username.github.io</em>, make two folders, one titled
+<code>markdown</code> to store markdown files and another titled
+<code>html</code> to store html.</p></li>
+<li><p>Create a blog post in the <code>markdown</code> folder with title
+<code>post_title.md</code>.</p></li>
+<li><p>Convert the Markdown blog post to HTML using pandoc (execute in
+the repo folder):</p>
+<p><code>pandoc --standalone --output html/post_title.html markdown/post_title.md</code></p></li>
+<li><p>Create an <code>index.md</code> file in <code>markdown</code>
+folder. Create the index by hyperlinking the posts:</p>
+<p><code>1. [Post Title](html/post_title.html)</code></p></li>
+<li><p>Convert <code>index.md</code> to HTML using pandoc (execute in
+the repo folder):</p>
+<p><code>pandoc --standalone --output index.html markdown/index.md</code></p>
+<p>You need to create the index file at the root of your repository.
+Since GitHub does now allow you to host the site from folder titled
+other than <code>docs</code> trivially.</p></li>
+<li><p>Commit, push, wait a bit, and see your website live!</p></li>
+</ol>
+<h3 id="for-more-information-see-github-pages-documentation">For more
+information, see <a href="https://docs.github.com/en/pages">GitHub Pages
+documentation</a></h3>
 </body>
 </html>

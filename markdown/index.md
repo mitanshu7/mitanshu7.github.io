@@ -37,6 +37,8 @@ This blog is where I share thoughts/How-Tos on software, high-performance comput
 
 15. [How to Install Cloudflared on Alpine](html/How_to_Install_Cloudflared_on_Alpine.html)
 
+16. [Create a simple website](html/Create_a_simple_website.html)
+
 ***
 
 # Contact
