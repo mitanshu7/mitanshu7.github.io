@@ -33,6 +33,8 @@ This blog is where I share thoughts/How-Tos on software, high-performance comput
 
 13. [How to run Jupyter on compute node](html/How_to_run_Jupyter_on_compute_node.html)
 
+14. [How to run Tailscale without root](html/How_to_run_Tailscale_without_root.html)
+
 ***
 
 # Contact
