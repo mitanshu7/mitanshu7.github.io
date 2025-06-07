@@ -2,7 +2,7 @@
 
 ## Using [PBS](https://altair.com/pbs-professional) or not :)
 
-### For IISER Tirupati HPC 
+### For IISER Tirupati HPC, should work elsewhere with little modifications
 
 **Mitanshu Sukhwani** • *07 June 2025*
 
