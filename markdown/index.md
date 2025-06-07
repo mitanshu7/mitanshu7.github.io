@@ -35,6 +35,8 @@ This blog is where I share thoughts/How-Tos on software, high-performance comput
 
 14. [How to run Tailscale without root](html/How_to_run_Tailscale_without_root.html)
 
+15. [How to Install Cloudflared on Alpine](html/How_to_Install_Cloudflared_on_Alpine.html)
+
 ***
 
 # Contact
