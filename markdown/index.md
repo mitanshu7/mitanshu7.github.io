@@ -39,6 +39,8 @@ This blog is where I share thoughts/How-Tos on software, high-performance comput
 
 16. [Create a simple website](html/Create_a_simple_website.html)
 
+17. [Browse Intranet from Home](html/Browse_Intranet_from_Home.html)
+
 ***
 
 # Contact
