@@ -4,7 +4,7 @@
   <meta charset="utf-8" />
   <meta name="generator" content="pandoc" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
-  <title>index</title>
+  <title>Tailscale_on_Kindle</title>
   <style>
     html {
       color: #1a1a1a;
@@ -169,66 +169,53 @@
   </style>
 </head>
 <body>
-<h1 id="hello">Hello</h1>
-<p>I’m <strong>Mitanshu Sukhwani</strong>, a tech enthusiast with a
-Master’s in Physics from <a href="https://physics.iitm.ac.in">IIT
-Madras</a>. I’ve worked at <a
-href="https://www.iisertirupati.ac.in">IISER Tirupati</a> on EEG data,
-network science, and brain modeling. I enjoy exploring ML, Linux, and
-the intersection of neuroscience, software, and data.</p>
-<p>This blog is where I share thoughts/How-Tos on software,
-high-performance computing, and coffee - with a side of cats.</p>
-<hr />
-<h1 id="index-for-the-website">Index for the website</h1>
+<h1 id="tailscale-on-kindle">Tailscale on Kindle</h1>
+<h2 id="its-a-rite-of-passage-to-run-tailscale-on-weird-devices.">It’s a
+rite of passage to run tailscale on weird devices.</h2>
+<p><strong>Mitanshu Sukhwani</strong> • <em>08 June 2025</em></p>
+<p>Please visit <a
+href="https://github.com/mitanshu7/tailscale_kual">tailscale_kual</a>
+for the appropriate code.</p>
+<h2 id="prerequisites">Prerequisites:</h2>
 <ol type="1">
-<li><p><a href="html/Project_Wishlist.html">Project
-Wishlist</a></p></li>
-<li><p><a
-href="html/Stop_podman_containers_from_getting_killed.html">Stop podman
-containers from getting killed</a></p></li>
-<li><p><a href="html/PaperMatch.html">PaperMatch</a></p></li>
-<li><p><a href="html/WSA_with_KernelSU.html">WSA with
-KernelSU</a></p></li>
-<li><p><a href="html/How_to_SSH_to_another_user.html">How to SSH to
-another user</a></p></li>
-<li><p><a href="html/How_to_change_SSH_Port_on_OCI.html">How to change
-SSH Port on OCI</a></p></li>
-<li><p><a href="html/Masala_Tea_Recipe.html">Masala Tea
-Recipe</a></p></li>
-<li><p><a href="html/Update_podman_containers_manually.html">Update
-podman containers manually</a></p></li>
-<li><p><a href="html/Ultimate_Coffee_Recipes.html">Ultimate Coffee
-Recipes</a></p></li>
-<li><p><a href="html/How_to_fix_Tablet_app_Orientations.html">How to fix
-Tablet app Orientations</a></p></li>
-<li><p><a href="html/Milvus_on_Podman.html">Milvus on
-Podman</a></p></li>
-<li><p><a
-href="html/How_to_copy_ssh_keys_from_master_to_compute_node.html">How to
-copy ssh keys from master to compute node</a></p></li>
-<li><p><a href="html/How_to_run_Jupyter_on_compute_node.html">How to run
-Jupyter on compute node</a></p></li>
-<li><p><a href="html/How_to_run_Tailscale_without_root.html">How to run
-Tailscale without root</a></p></li>
-<li><p><a href="html/How_to_Install_Cloudflared_on_Alpine.html">How to
-Install Cloudflared on Alpine</a></p></li>
-<li><p><a href="html/Create_a_simple_website.html">Create a simple
-website</a></p></li>
-<li><p><a href="html/Browse_Intranet_from_Home.html">Browse Intranet
-from Home</a></p></li>
-<li><p><a href="html/Tailscale_on_Kindle.html">Tailscale on
-Kindle</a></p></li>
+<li>Jailbroken Kindle. (<a
+href="https://kindlemodding.gitbook.io/kindlemodding">see</a>)</li>
+<li>KUAL installed. (<a
+href="https://kindlemodding.gitbook.io/kindlemodding/post-jailbreak/installing-kual-mrpi">see</a>)</li>
+<li><a
+href="https://wiki.mobileread.com/wiki/USBNetwork">USBNetworking</a>
+hack installed and enabled.</li>
+<li>Set up <a
+href="https://docs.github.com/en/authentication/connecting-to-github-with-ssh/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent">ssh
+keys</a> for ease of use.</li>
 </ol>
-<hr />
-<h1 id="contact">Contact</h1>
-<ul>
-<li>Email: <a
-href="mailto:mitanshu.sukhwani@gmail.com">mitanshu.sukhwani@gmail.com</a></li>
-<li>LinkedIn: <a
-href="https://linkedin.com/in/mitanshusukhwani">Mitanshu
-Sukhwani</a></li>
-<li>GitHub: <a href="https://github.com/mitanshu7">mitanshu7</a></li>
-</ul>
-<p><em>Thanks for stopping by!</em></p>
+<h2 id="usage">Usage:</h2>
+<ol type="1">
+<li><p>Download the repository mentioned above.</p></li>
+<li><p>Get the latest tailscale binaries for the <code>arm</code>
+architecture from <a
+href="https://pkgs.tailscale.com/stable/#static">here</a>. Or see
+releases page for a version that worked for me.</p></li>
+<li><p>Place the <code>tailscale</code> and <code>tailscaled</code>
+binaries in the <code>tailscale/bin</code> folder of this (local)
+repository.</p></li>
+<li><p>Place the tailscale folder into the <code>extensions</code>
+folder on your kindle.</p></li>
+<li><p>In the KUAL menu, start <code>tailscaled</code> first then start
+<code>tailscale</code>.</p></li>
+<li><p>You can find the url to login in the
+<code>extensions/tailscale</code> folder in
+<code>tailscale_start_log.txt</code> file, if this is a first time
+setup.</p></li>
+<li><p>Copy the login url to a modern web browser and login using your
+preferred SSO.</p></li>
+<li><p>After connecting the device should add the kindle to your
+<code>Machines</code> page on tailscale admin console. (<a
+href="https://login.tailscale.com/admin/machines">this</a>).</p></li>
+<li><p>Now you can see the (static) IP address assigned by Tailscale for
+your machine. You can use this ip to connect to kindle.</p></li>
+<li><p>Note: Make sure the kindle screen is on, else the kindle sleeps
+the wifi.</p></li>
+</ol>
 </body>
 </html>

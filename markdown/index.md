@@ -41,6 +41,8 @@ This blog is where I share thoughts/How-Tos on software, high-performance comput
 
 17. [Browse Intranet from Home](html/Browse_Intranet_from_Home.html)
 
+18. [Tailscale on Kindle](html/Tailscale_on_Kindle.html)
+
 ***
 
 # Contact
