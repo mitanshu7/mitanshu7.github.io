@@ -16,7 +16,7 @@ One thing to know about LLMs is that they are [autoregressive models](https://en
 
 N-gram models are a very simple form of language models. An n-gram model estimates the probability of the next item given the n−1 previous items.
 
-$$ P(w_i | w_{i - (n-1)}, ..., w_{i-1}) = \frac{count(w_{i - (n-1)}, ..., w_{i-1},w_i)}{w_{i - (n-1)}, ..., w_{i-1}} $$
+$$ P(w_i | w_{i - (n-1)}, ..., w_{i-1}) = count(w_{i - (n-1)}, ..., w_{i-1},w_i) \ / \ count(w_{i - (n-1)}, ..., w_{i-1}) $$
 
 For a bigram, $N = 2$,
 

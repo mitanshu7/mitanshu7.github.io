@@ -263,9 +263,8 @@ example, LLMs have to learn to predict that the word coming after
 <p>N-gram models are a very simple form of language models. An n-gram
 model estimates the probability of the next item given the n−1 previous
 items.</p>
-<p><span class="math display">$$ P(w_i | w_{i - (n-1)}, ..., w_{i-1}) =
-\frac{count(w_{i - (n-1)}, ..., w_{i-1},w_i)}{w_{i - (n-1)}, ...,
-w_{i-1}} $$</span></p>
+<p><span
+class="math display"><em>P</em>(<em>w</em><sub><em>i</em></sub>|<em>w</em><sub><em>i</em> − (<em>n</em> − 1)</sub>, ..., <em>w</em><sub><em>i</em> − 1</sub>) = <em>c</em><em>o</em><em>u</em><em>n</em><em>t</em>(<em>w</em><sub><em>i</em> − (<em>n</em> − 1)</sub>, ..., <em>w</em><sub><em>i</em> − 1</sub>, <em>w</em><sub><em>i</em></sub>) / <em>c</em><em>o</em><em>u</em><em>n</em><em>t</em>(<em>w</em><sub><em>i</em> − (<em>n</em> − 1)</sub>, ..., <em>w</em><sub><em>i</em> − 1</sub>)</span></p>
 <p>For a bigram, <span class="math inline"><em>N</em> = 2</span>,</p>
 <p><span
 class="math display"><em>P</em>(<em>I</em>, <em>s</em><em>a</em><em>w</em>, <em>t</em><em>h</em><em>e</em>, <em>r</em><em>e</em><em>d</em>, <em>h</em><em>o</em><em>u</em><em>s</em><em>e</em>) ≈ <em>P</em>(<em>I</em>|⟨<em>s</em>⟩) × <em>P</em>(<em>s</em><em>a</em><em>w</em>|<em>I</em>) × <em>P</em>(<em>t</em><em>h</em><em>e</em>|<em>s</em><em>a</em><em>w</em>) × <em>P</em>(<em>r</em><em>e</em><em>d</em>|<em>t</em><em>h</em><em>e</em>) × <em>P</em>(<em>h</em><em>o</em><em>u</em><em>s</em><em>e</em>|<em>r</em><em>e</em><em>d</em>) × <em>P</em>(⟨/<em>s</em>⟩|<em>h</em><em>o</em><em>u</em><em>s</em><em>e</em>)</span></p>
