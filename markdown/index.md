@@ -53,6 +53,8 @@ This blog is where I share thoughts/How-Tos on software, high-performance comput
 
 23. [IsOddApi](html/IsOddApi.html)
 
+24. [Books Read](html/Books_Read.html)
+
 ***
 
 # Contact
