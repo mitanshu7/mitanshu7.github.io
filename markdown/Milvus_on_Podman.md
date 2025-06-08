@@ -19,6 +19,7 @@
     `cat standalone_embed.sh`
 
 3. Output:
+
     ```bash
     #!/usr/bin/env bash
 
@@ -167,7 +168,7 @@
 
 # Modified:
 
-1. remove sudo for use with podman
+1. remove sudo for use with podman rootless
 
 2. add `:Z`  in the end of mapped volumes for SELinux Context Handling
 
