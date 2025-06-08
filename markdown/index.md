@@ -51,6 +51,8 @@ This blog is where I share thoughts/How-Tos on software, high-performance comput
 
 22. [Selfhosting Setup](html/Selfhosting_Setup.html)
 
+23. [IsOddApi](html/IsOddApi.html)
+
 ***
 
 # Contact
