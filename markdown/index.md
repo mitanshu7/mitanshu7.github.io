@@ -2,7 +2,7 @@
 
 I'm **Mitanshu Sukhwani**, a tech enthusiast with a Master’s in Physics from [IIT Madras](https://physics.iitm.ac.in). I’ve worked at [IISER Tirupati](https://www.iisertirupati.ac.in) on EEG data, network science, and brain modeling. I enjoy exploring ML, Linux, and the intersection of neuroscience, software, and data.
 
-This blog is where I share thoughts/How-Tos on software, high-performance computing, and coffee—with a side of cats.
+This blog is where I share thoughts/How-Tos on software, high-performance computing, and coffee - with a side of cats.
 
 ***
 
