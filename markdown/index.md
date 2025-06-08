@@ -47,6 +47,8 @@ This blog is where I share thoughts/How-Tos on software, high-performance comput
 
 20. [N-gram Language Models](html/N-gram_Language_Models.html)
 
+21. [Automate with Ansible](html/Automate_with_Ansible.html)
+
 ***
 
 # Contact
