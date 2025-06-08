@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>Selfhosting_Setup</title>
+  <style>
+    html {
+      color: #1a1a1a;
+      background-color: #fdfdfd;
+    }
+    body {
+      margin: 0 auto;
+      max-width: 36em;
+      padding-left: 50px;
+      padding-right: 50px;
+      padding-top: 50px;
+      padding-bottom: 50px;
+      hyphens: auto;
+      overflow-wrap: break-word;
+      text-rendering: optimizeLegibility;
+      font-kerning: normal;
+    }
+    @media (max-width: 600px) {
+      body {
+        font-size: 0.9em;
+        padding: 12px;
+      }
+      h1 {
+        font-size: 1.8em;
+      }
+    }
+    @media print {
+      html {
+        background-color: white;
+      }
+      body {
+        background-color: transparent;
+        color: black;
+        font-size: 12pt;
+      }
+      p, h2, h3 {
+        orphans: 3;
+        widows: 3;
+      }
+      h2, h3, h4 {
+        page-break-after: avoid;
+      }
+    }
+    p {
+      margin: 1em 0;
+    }
+    a {
+      color: #1a1a1a;
+    }
+    a:visited {
+      color: #1a1a1a;
+    }
+    img {
+      max-width: 100%;
+    }
+    svg {
+      height: auto;
+      max-width: 100%;
+    }
+    h1, h2, h3, h4, h5, h6 {
+      margin-top: 1.4em;
+    }
+    h5, h6 {
+      font-size: 1em;
+      font-style: italic;
+    }
+    h6 {
+      font-weight: normal;
+    }
+    ol, ul {
+      padding-left: 1.7em;
+      margin-top: 1em;
+    }
+    li > ol, li > ul {
+      margin-top: 0;
+    }
+    blockquote {
+      margin: 1em 0 1em 1.7em;
+      padding-left: 1em;
+      border-left: 2px solid #e6e6e6;
+      color: #606060;
+    }
+    code {
+      font-family: Menlo, Monaco, Consolas, 'Lucida Console', monospace;
+      font-size: 85%;
+      margin: 0;
+      hyphens: manual;
+    }
+    pre {
+      margin: 1em 0;
+      overflow: auto;
+    }
+    pre code {
+      padding: 0;
+      overflow: visible;
+      overflow-wrap: normal;
+    }
+    .sourceCode {
+     background-color: transparent;
+     overflow: visible;
+    }
+    hr {
+      border: none;
+      border-top: 1px solid #1a1a1a;
+      height: 1px;
+      margin: 1em 0;
+    }
+    table {
+      margin: 1em 0;
+      border-collapse: collapse;
+      width: 100%;
+      overflow-x: auto;
+      display: block;
+      font-variant-numeric: lining-nums tabular-nums;
+    }
+    table caption {
+      margin-bottom: 0.75em;
+    }
+    tbody {
+      margin-top: 0.5em;
+      border-top: 1px solid #1a1a1a;
+      border-bottom: 1px solid #1a1a1a;
+    }
+    th {
+      border-top: 1px solid #1a1a1a;
+      padding: 0.25em 0.5em 0.25em 0.5em;
+    }
+    td {
+      padding: 0.125em 0.5em 0.25em 0.5em;
+    }
+    header {
+      margin-bottom: 4em;
+      text-align: center;
+    }
+    #TOC li {
+      list-style: none;
+    }
+    #TOC ul {
+      padding-left: 1.3em;
+    }
+    #TOC > ul {
+      padding-left: 0;
+    }
+    #TOC a:not(:hover) {
+      text-decoration: none;
+    }
+    code{white-space: pre-wrap;}
+    span.smallcaps{font-variant: small-caps;}
+    div.columns{display: flex; gap: min(4vw, 1.5em);}
+    div.column{flex: auto; overflow-x: auto;}
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    /* The extra [class] is a hack that increases specificity enough to
+       override a similar rule in reveal.js */
+    ul.task-list[class]{list-style: none;}
+    ul.task-list li input[type="checkbox"] {
+      font-size: inherit;
+      width: 0.8em;
+      margin: 0 0.8em 0.2em -1.6em;
+      vertical-align: middle;
+    }
+    .display.math{display: block; text-align: center; margin: 0.5rem auto;}
+  </style>
+</head>
+<body>
+<h1 id="selfhosting-setup">Selfhosting Setup</h1>
+<h2 id="own-your-data">Own your data</h2>
+<p><strong>Mitanshu Sukhwani</strong> • <em>09 June 2025</em></p>
+<p>Anyone saw this documentary called <a
+href="https://www.imdb.com/title/tt11464826/">Social Dillema
+(2020)</a>?</p>
+<blockquote>
+<p>Tech experts from Silicon Valley sound the alarm on the dangerous
+impact of social networking, which Big Tech use in an attempt to
+manipulate and influence.</p>
+</blockquote>
+<p>Well I did and got a little overboard with my emotions. The movie
+showed how so many of the little things apps do to make you stay hooked.
+My first response was to just delete all my social media. However,
+sometimes it gets lonely and with time your friends prod you to join a
+certain platform. I gave in after a bit, but always had a longing
+feeling to not use it. So after my Master’s ended, and while I was on a
+break, I tried to figure out selfhosting.</p>
+<p>Self-hosting is the practice of hosting and managing applications on
+your own server(s) instead of consuming from <a
+href="https://www.gnu.org/philosophy/who-does-that-server-really-serve.html">SaaSS</a>
+providers. And good for me, I had an old cpu lying around to mess with
+to my hearts desire.</p>
+<figure>
+<img src="../image/tincan.webp" alt="Tincan" />
+<figcaption aria-hidden="true">Tincan</figcaption>
+</figure>
+<p>The specs are underwhelming. It had 2GB of DDR2 RAM, <a
+href="https://en.wikipedia.org/wiki/Intel_Core_2">Core 2 Duo</a> E7500,
+and an external 1TB HDD.</p>
+<figure>
+<img src="../image/tincan_cpu.webp" alt="Tincan CPU" />
+<figcaption aria-hidden="true">Tincan CPU</figcaption>
+</figure>
+<p>It was a dusty old thing, so I took it apart and cleaned it. When I
+reassembled it, it would not start up! Turns out, little blue lego
+(short-circuit pin) are important and should not be discarded.</p>
+<figure>
+<img src="../image/tincan_opened.webp" alt="Tincan Opened" />
+<figcaption aria-hidden="true">Tincan Opened</figcaption>
+</figure>
+<p>It used an <a href="https://en.wikipedia.org/wiki/LGA_775">LGA
+755</a> socket.</p>
+<figure>
+<img src="../image/tincan_cpu_opened.webp" alt="Tincan CPU Socket" />
+<figcaption aria-hidden="true">Tincan CPU Socket</figcaption>
+</figure>
+<p>I installed <a href="https://www.debian.org/">Debian</a> on it.
+Learned about <a href="https://www.docker.com/">Docker</a> as a way to
+run software with the least amount of headaches.</p>
+<p>My personal favorite is <a
+href="https://nextcloud.com/">Nextcloud</a> (Google Drive alternative),
+<a href="https://www.audiobookshelf.org/">Audiobookshelf</a> (Audible
+alternative). I would host these sites on the Internet using <a
+href="https://developers.cloudflare.com/cloudflare-one/connections/connect-networks/">Cloudflare
+Tunnel</a>. My VPN of choice is <a
+href="https://tailscale.com/">Tailscale</a> to connect to your devices
+without having setup a server for VPN specifically.</p>
+<figure>
+<img src="../image/selfhost_homepage.webp" alt="Homepage" />
+<figcaption aria-hidden="true">Homepage</figcaption>
+</figure>
+<p>Numerous Youtube <a
+href="https://www.youtube.com/@NovaspiritTech">videos</a> and
+stackoverflow <a href="https://serverfault.com/">posts</a> have helped
+me troubleshoot tiniest of my problems. Many thanks to these wonderful
+people for existing.</p>
+<p>Find the software you want on <a
+href="https://github.com/awesome-selfhosted/awesome-selfhosted">awesome-selfhosted/awesome-selfhosted</a>.</p>
+<h1 id="bonus">Bonus</h1>
+<p>Get a <a
+href="https://aydacfu.xyz/downloads/1111B_WhitePaper_retro.pdf?v=2">class
+1.111b</a> top level domain name for less than a dollar on <a
+href="https://www.namecheap.com/">NameCheap</a> and use it with <a
+href="https://www.cloudflare.com/">Cloudflare</a>.</p>
+</body>
+</html>
