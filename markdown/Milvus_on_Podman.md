@@ -1,6 +1,6 @@
 # Milvus on Podman
 
-## Docker -> Podman
+## Docker $\to$ Podman
 
 **Mitanshu Sukhwani** • *07 June 2025*
 
