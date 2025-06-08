@@ -5,7 +5,7 @@
 **Mitanshu Sukhwani** • *08 June 2025*
 
 
-Please visit [tailscale_kual](https://github.com/mitanshu7/tailscale_kual) for the appropriate code. 
+Please visit [mitanshu7/tailscale_kual](https://github.com/mitanshu7/tailscale_kual) for the appropriate code. 
 
 
 ## Prerequisites:
