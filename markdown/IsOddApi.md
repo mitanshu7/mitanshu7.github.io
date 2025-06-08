@@ -21,11 +21,13 @@ The website uses [The smallest Docker image to serve static websites](https://li
 isOdd API is a RESTful API that returns json.
 
 API URL: [https://isoddapi.papermatch.me/api/](https://isoddapi.papermatch.me/api/)
+
 **GET /isodd/<number>/**
 
 Returns whether a given number is odd. Allowed numbers depend on your API tier. See Pricing below.
 
 **URL Parameters**
+
 number: the number you want to check
 
 **Example**
