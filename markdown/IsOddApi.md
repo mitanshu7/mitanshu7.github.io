@@ -22,7 +22,7 @@ isOdd API is a RESTful API that returns json.
 
 API URL: [https://isoddapi.papermatch.me/api/](https://isoddapi.papermatch.me/api/)
 
-**GET /isodd/<number>/**
+**GET `/isodd/<number>/`**
 
 Returns whether a given number is odd. Allowed numbers depend on your API tier. See Pricing below.
 
