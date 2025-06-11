@@ -4,7 +4,7 @@
 
 **Mitanshu Sukhwani** • *11 June 2025*
 
-![[3d.papermatch.me](https://3d.papermatch.me/)](../image/3d_umap_binary_all.webp)
+![[**3d.papermatch.me**](https://3d.papermatch.me/)](../image/3d_umap_binary_all.webp)
 
 This post is heavily inspired by this blog post, [Exploring Hacker News by mapping and analyzing 40 million posts and comments for fun](http://web.archive.org/web/20250324014115/https://blog.wilsonl.in/hackerverse/), by [Wilson Lin](http://web.archive.org/web/20240805173635/https://blog.wilsonl.in/).
 
@@ -12,7 +12,7 @@ In [Behind PaperMatch](html/Behind_PaperMatch.html), we saw a brief overview of 
 
 # Validation
 
-My open-source model of choice, [mixedbread-ai/mxbai-embed-large-v1](https://huggingface.co/mixedbread-ai/mxbai-embed-large-v1), was fairing at top spots on [MTEB](https://huggingface.co/spaces/mteb/leaderboard) leaderboard during the inception of PaperMatch (March 2024). It's a small, only 335 million parameters, embedding model compared to [newer](https://huggingface.co/Qwen/Qwen3-Embedding-8B) models with [billions](https://huggingface.co/GritLM/GritLM-8x7B) of [parameters](https://huggingface.co/nvidia/NV-Embed-v2). 
+My open-source model of choice, [mixedbread-ai/mxbai-embed-large-v1](https://huggingface.co/mixedbread-ai/mxbai-embed-large-v1), was fairing at top spots on [Massive Text Embedding Benchmark (MTEB)](https://huggingface.co/spaces/mteb/leaderboard) leaderboard during the inception of [PaperMatch](https://papermatch.me/) (March 2024). It's a small, only 335 million parameters, embedding model compared to [newer](https://huggingface.co/Qwen/Qwen3-Embedding-8B) [models](https://huggingface.co/Salesforce/SFR-Embedding-2_R) with [billions](https://huggingface.co/GritLM/GritLM-8x7B) of [parameters](https://huggingface.co/nvidia/NV-Embed-v2). 
 
 What do small models struggle with? Long context windows. `mxbai-embed-large-v1` only has a length of $512$ tokens. But how long are all the abstracts on arXiv anyway?
 
@@ -34,7 +34,7 @@ Average token count: 207.62
 Maximum token count: 1595
 ```
 
-Phew, escaped [Vector Databases Are the Wrong Abstraction](https://www.timescale.com/blog/vector-databases-are-the-wrong-abstraction), for now.
+Phew, escaped [**Vector Databases Are the Wrong Abstraction**](https://www.timescale.com/blog/vector-databases-are-the-wrong-abstraction), for now.
 
 # Performance
 
@@ -42,7 +42,7 @@ Phew, escaped [Vector Databases Are the Wrong Abstraction](https://www.timescale
 
 Then I wanted to check and turn all the knobs I had. When you are talking about semantic search, there are many metrics with which you can define the "distance" between two vectors. 
 
-The most common one is [Euclidean](https://en.wikipedia.org/wiki/Euclidean_distance). Imagine two points on a plane with coordinates $A := (x_1, y_1)$, and  $B := (x_2, y_2)$. The distance between $A$ and $B$ is:
+The most common one is [Euclidean](https://en.wikipedia.org/wiki/Euclidean_distance). Imagine two points on a plane with coordinates $A := (x_1, y_1)$, and  $B := (x_2, y_2)$. The square of distance between $A$ and $B$ is:
 $$ d(A,B)^2 =  (y_2 - y_1 )^2 + (x_2 - x_1)^2  $$
 Euclidean distance signifies how close (or far) two points are. Smaller the distance, closer the points, and hence more related they are.
 
@@ -52,7 +52,9 @@ However, when talking about semantic search, the most used metric is [Cosine Sim
 
 Cosine similarity ranges from $-1 \to 1$. Where $-1$ tells you that the vectors in question are facing opposite to each other, $0$ tells you orthogonal vector and $1$ tells you both the vectors are facing in the same direction. Embedding models also capture semantic meaning in terms of the direction. And hence, if two vectors are pointing in the same direction, they tend to mean similar things. 
 
-Another such metric is [Hamming distance](https://en.wikipedia.org/wiki/Hamming_distance). It exists for binary vectors, values of which are either $0$ or $1$. Hamming distance is defined by taking bitwise XOR of two binary vectors and then summing up the values in resulting vector. 
+![Cosine similarity graph](https://miro.medium.com/v2/resize:fit:824/1*GK56xmDIWtNQAD_jnBIt2g.png)
+
+Another such metric is [Hamming distance](https://en.wikipedia.org/wiki/Hamming_distance). It exists for binary vectors, values of which are either $0$ or $1$. Hamming distance is defined by taking bitwise [XOR](https://en.wikipedia.org/wiki/Exclusive_or) of two binary vectors and then summing up the values in resulting vector. 
 
 ![Hamming distance calulation](https://docs.oracle.com/en/database/oracle/oracle-database/23/vecse/img/hamming_similarity2.png)
 
@@ -60,7 +62,7 @@ Fun fact, [POPCNT](https://en.wikipedia.org/wiki/SSE4#POPCNT_and_LZCNT) - counts
 
 ## Index used by the Vector Database
 
-[Milvus](https://milvus.io/) offers a range of distance metrics and vector indices. We'll compare FLAT and IVF_FLAT.
+[Milvus](https://milvus.io/) offers a range of distance [metrics](https://milvus.io/docs/metric.md) and vector [indices](https://milvus.io/docs/index.md). We'll compare FLAT and IVF_FLAT.
 
 FLAT is a very simple index. It simply calculates the distance between the query vector and all the vectors in your database. This simplicity comes with the cost of having to compute a lot.
 
@@ -82,9 +84,9 @@ Armed with the above parameters, I tried to estimate how they affect the latency
 
 ![Latency vs Search limit](../image/papermatch_performance.webp)
 
-We get the best **quality** when we use `COSINE` similarity, `Float32` vectors, along with `FLAT` index, and **fastest** results on `HAMMING` distance, `Binary` vectors, and `IVF_FLAT` index. Naturally, [PaperMatch](https://papermatch.me/) uses the latter. 
+We get the best **quality** when we use `COSINE` similarity, `Float32` vectors, along with a `FLAT` index, and **fastest** results on `HAMMING` distance, `Binary` vectors, and `IVF_FLAT` index. Naturally, [PaperMatch](https://papermatch.me/) uses the latter. 
 
-But how much quality degradation do we see? Well, not much since **the top ten results of both the variants are the same**. And assuming most people do not look beyond the top 10 results when then top ones weren't worthwhile in the first place, this works out very well for user experience (UX).
+But how much quality degradation do we really see? Well, not much since **the top ten results of both the variants are the same**. And assuming most people do not look beyond the top 10 results when then top ones weren't worthwhile in the first place, this works out very well for user experience (UX).
 
 # What about the direction of science itself?
 
@@ -100,7 +102,7 @@ arXiv started in $1991$ with only about $300$ physics papers in its repo. Now it
 
 ![2025 Categories Histogram](../image/2025_category_distribution.webp)
 
-Now you know why arXiv has so many CS papers. They account for almost half of a year's worth!
+Now you know why arXiv has so many [CS](https://arxiv.org/archive/cs) papers. They account for almost half of a year's worth!
 
 ## Dimensionality reduction
 
@@ -154,7 +156,7 @@ However, there is another technique which gets itself a good name owing to it qu
 
 UMAP seems to giving much better seperation between subjects. It is quite interesting to see the "island" coming up for the year 2025.
 
-Bonus! [Mixedbread](https://www.mixedbread.com/) makes the case stronger for their model in the blog post: [64 bytes per embedding, yee-haw 🤠](https://www.mixedbread.com/blog/binary-mrl). Their embedding models is compatible with [Matryoshka Representation Learning (MRL)](https://arxiv.org/abs/2205.13147) and [Vector Quantization](https://www.huggingface.co/blog/embedding-quantization). Essentially, the vectors still hold strong when you convert the `float32` to `binary` ($1$ if they are greater than $0$ and to $0$ if they are not) and then chop the vectors in half ($1024 \to 512$). 
+Bonus! [Mixedbread](https://www.mixedbread.com/) makes the case for their model in the blog post: [64 bytes per embedding, yee-haw 🤠](https://www.mixedbread.com/blog/binary-mrl). Their embedding models is compatible with [Matryoshka Representation Learning (MRL)](https://arxiv.org/abs/2205.13147) and [Vector Quantization](https://www.huggingface.co/blog/embedding-quantization). Essentially, the vectors still hold strong when you convert `float32` to `binary` ($1$ if they are greater than $0$ and to $0$ if they are not) and then chop the vectors in half ($1024 \to 512$). 
 
 ## MRL
 

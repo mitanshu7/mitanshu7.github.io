@@ -236,11 +236,11 @@
 <body>
 <h1 id="papermatch-analysis">PaperMatch Analysis</h1>
 <h2 id="what-do-the-vectors-tell-us">What do the vectors tell us?</h2>
-<p><strong>Mitanshu Sukhwani</strong> • <em>10 June 2025</em></p>
+<p><strong>Mitanshu Sukhwani</strong> • <em>11 June 2025</em></p>
 <figure>
 <img src="../image/3d_umap_binary_all.webp" alt="3d.papermatch.me" />
 <figcaption aria-hidden="true"><a
-href="https://3d.papermatch.me/">3d.papermatch.me</a></figcaption>
+href="https://3d.papermatch.me/"><strong>3d.papermatch.me</strong></a></figcaption>
 </figure>
 <p>This post is heavily inspired by this blog post, <a
 href="http://web.archive.org/web/20250324014115/https://blog.wilsonl.in/hackerverse/">Exploring
@@ -259,10 +259,12 @@ evolves? Here is my attempt at it.</p>
 <p>My open-source model of choice, <a
 href="https://huggingface.co/mixedbread-ai/mxbai-embed-large-v1">mixedbread-ai/mxbai-embed-large-v1</a>,
 was fairing at top spots on <a
-href="https://huggingface.co/spaces/mteb/leaderboard">MTEB</a>
-leaderboard during the inception of PaperMatch (March 2024). It’s a
-small, only 335 million parameters, embedding model compared to <a
-href="https://huggingface.co/Qwen/Qwen3-Embedding-8B">newer</a> models
+href="https://huggingface.co/spaces/mteb/leaderboard">Massive Text
+Embedding Benchmark (MTEB)</a> leaderboard during the inception of <a
+href="https://papermatch.me/">PaperMatch</a> (March 2024). It’s a small,
+only 335 million parameters, embedding model compared to <a
+href="https://huggingface.co/Qwen/Qwen3-Embedding-8B">newer</a> <a
+href="https://huggingface.co/Salesforce/SFR-Embedding-2_R">models</a>
 with <a href="https://huggingface.co/GritLM/GritLM-8x7B">billions</a> of
 <a href="https://huggingface.co/nvidia/NV-Embed-v2">parameters</a>.</p>
 <p>What do small models struggle with? Long context windows.
@@ -290,8 +292,8 @@ class="sourceCode yaml"><code class="sourceCode yaml"><span id="cb1-1"><a href="
 <span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a><span class="fu">Average token count</span><span class="kw">:</span><span class="at"> </span><span class="fl">207.62</span></span>
 <span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a><span class="fu">Maximum token count</span><span class="kw">:</span><span class="at"> </span><span class="dv">1595</span></span></code></pre></div>
 <p>Phew, escaped <a
-href="https://www.timescale.com/blog/vector-databases-are-the-wrong-abstraction">Vector
-Databases Are the Wrong Abstraction</a>, for now.</p>
+href="https://www.timescale.com/blog/vector-databases-are-the-wrong-abstraction"><strong>Vector
+Databases Are the Wrong Abstraction</strong></a>, for now.</p>
 <h1 id="performance">Performance</h1>
 <h2 id="distance-metric">Distance Metric</h2>
 <p>Then I wanted to check and turn all the knobs I had. When you are
@@ -303,8 +305,9 @@ Imagine two points on a plane with coordinates <span
 class="math inline"><em>A</em> := (<em>x</em><sub>1</sub>, <em>y</em><sub>1</sub>)</span>,
 and <span
 class="math inline"><em>B</em> := (<em>x</em><sub>2</sub>, <em>y</em><sub>2</sub>)</span>.
-The distance between <span class="math inline"><em>A</em></span> and
-<span class="math inline"><em>B</em></span> is: <span
+The square of distance between <span
+class="math inline"><em>A</em></span> and <span
+class="math inline"><em>B</em></span> is: <span
 class="math display"><em>d</em>(<em>A</em>, <em>B</em>)<sup>2</sup> = (<em>y</em><sub>2</sub> − <em>y</em><sub>1</sub>)<sup>2</sup> + (<em>x</em><sub>2</sub> − <em>x</em><sub>1</sub>)<sup>2</sup></span>
 Euclidean distance signifies how close (or far) two points are. Smaller
 the distance, closer the points, and hence more related they are.</p>
@@ -326,13 +329,20 @@ both the vectors are facing in the same direction. Embedding models also
 capture semantic meaning in terms of the direction. And hence, if two
 vectors are pointing in the same direction, they tend to mean similar
 things.</p>
+<figure>
+<img
+src="https://miro.medium.com/v2/resize:fit:824/1*GK56xmDIWtNQAD_jnBIt2g.png"
+alt="Cosine similarity graph" />
+<figcaption aria-hidden="true">Cosine similarity graph</figcaption>
+</figure>
 <p>Another such metric is <a
 href="https://en.wikipedia.org/wiki/Hamming_distance">Hamming
 distance</a>. It exists for binary vectors, values of which are either
 <span class="math inline">0</span> or <span
 class="math inline">1</span>. Hamming distance is defined by taking
-bitwise XOR of two binary vectors and then summing up the values in
-resulting vector.</p>
+bitwise <a href="https://en.wikipedia.org/wiki/Exclusive_or">XOR</a> of
+two binary vectors and then summing up the values in resulting
+vector.</p>
 <figure>
 <img
 src="https://docs.oracle.com/en/database/oracle/oracle-database/23/vecse/img/hamming_similarity2.png"
@@ -346,8 +356,10 @@ href="https://vaibhavsagar.com/blog/2019/09/08/popcount/">The NSA
 Instruction</a>.</p>
 <h2 id="index-used-by-the-vector-database">Index used by the Vector
 Database</h2>
-<p><a href="https://milvus.io/">Milvus</a> offers a range of distance
-metrics and vector indices. We’ll compare FLAT and IVF_FLAT.</p>
+<p><a href="https://milvus.io/">Milvus</a> offers a range of distance <a
+href="https://milvus.io/docs/metric.md">metrics</a> and vector <a
+href="https://milvus.io/docs/index.md">indices</a>. We’ll compare FLAT
+and IVF_FLAT.</p>
 <p>FLAT is a very simple index. It simply calculates the distance
 between the query vector and all the vectors in your database. This
 simplicity comes with the cost of having to compute a lot.</p>
@@ -387,15 +399,15 @@ alt="Latency vs Search limit" />
 </figure>
 <p>We get the best <strong>quality</strong> when we use
 <code>COSINE</code> similarity, <code>Float32</code> vectors, along with
-<code>FLAT</code> index, and <strong>fastest</strong> results on
+a <code>FLAT</code> index, and <strong>fastest</strong> results on
 <code>HAMMING</code> distance, <code>Binary</code> vectors, and
 <code>IVF_FLAT</code> index. Naturally, <a
 href="https://papermatch.me/">PaperMatch</a> uses the latter.</p>
-<p>But how much quality degradation do we see? Well, not much since
-<strong>the top ten results of both the variants are the same</strong>.
-And assuming most people do not look beyond the top 10 results when then
-top ones weren’t worthwhile in the first place, this works out very well
-for user experience (UX).</p>
+<p>But how much quality degradation do we really see? Well, not much
+since <strong>the top ten results of both the variants are the
+same</strong>. And assuming most people do not look beyond the top 10
+results when then top ones weren’t worthwhile in the first place, this
+works out very well for user experience (UX).</p>
 <h1 id="what-about-the-direction-of-science-itself">What about the
 direction of science itself?</h1>
 <h2 id="category">Category</h2>
@@ -425,8 +437,9 @@ alt="2021 Categories Histogram" />
 alt="2025 Categories Histogram" />
 <figcaption aria-hidden="true">2025 Categories Histogram</figcaption>
 </figure>
-<p>Now you know why arXiv has so many CS papers. They account for almost
-half of a year’s worth!</p>
+<p>Now you know why arXiv has so many <a
+href="https://arxiv.org/archive/cs">CS</a> papers. They account for
+almost half of a year’s worth!</p>
 <h2 id="dimensionality-reduction">Dimensionality reduction</h2>
 <h3 id="pca">PCA</h3>
 <p><a
@@ -530,14 +543,14 @@ alt="Scatter plot UMAP of binary embeddings, 2025" />
 <p>UMAP seems to giving much better seperation between subjects. It is
 quite interesting to see the “island” coming up for the year 2025.</p>
 <p>Bonus! <a href="https://www.mixedbread.com/">Mixedbread</a> makes the
-case stronger for their model in the blog post: <a
+case for their model in the blog post: <a
 href="https://www.mixedbread.com/blog/binary-mrl">64 bytes per
 embedding, yee-haw 🤠</a>. Their embedding models is compatible with <a
 href="https://arxiv.org/abs/2205.13147">Matryoshka Representation
 Learning (MRL)</a> and <a
 href="https://www.huggingface.co/blog/embedding-quantization">Vector
 Quantization</a>. Essentially, the vectors still hold strong when you
-convert the <code>float32</code> to <code>binary</code> (<span
+convert <code>float32</code> to <code>binary</code> (<span
 class="math inline">1</span> if they are greater than <span
 class="math inline">0</span> and to <span class="math inline">0</span>
 if they are not) and then chop the vectors in half (<span
