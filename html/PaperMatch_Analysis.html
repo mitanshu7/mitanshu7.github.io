@@ -1,0 +1,594 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>PaperMatch_Analysis</title>
+  <style>
+    html {
+      color: #1a1a1a;
+      background-color: #fdfdfd;
+    }
+    body {
+      margin: 0 auto;
+      max-width: 36em;
+      padding-left: 50px;
+      padding-right: 50px;
+      padding-top: 50px;
+      padding-bottom: 50px;
+      hyphens: auto;
+      overflow-wrap: break-word;
+      text-rendering: optimizeLegibility;
+      font-kerning: normal;
+    }
+    @media (max-width: 600px) {
+      body {
+        font-size: 0.9em;
+        padding: 12px;
+      }
+      h1 {
+        font-size: 1.8em;
+      }
+    }
+    @media print {
+      html {
+        background-color: white;
+      }
+      body {
+        background-color: transparent;
+        color: black;
+        font-size: 12pt;
+      }
+      p, h2, h3 {
+        orphans: 3;
+        widows: 3;
+      }
+      h2, h3, h4 {
+        page-break-after: avoid;
+      }
+    }
+    p {
+      margin: 1em 0;
+    }
+    a {
+      color: #1a1a1a;
+    }
+    a:visited {
+      color: #1a1a1a;
+    }
+    img {
+      max-width: 100%;
+    }
+    svg {
+      height: auto;
+      max-width: 100%;
+    }
+    h1, h2, h3, h4, h5, h6 {
+      margin-top: 1.4em;
+    }
+    h5, h6 {
+      font-size: 1em;
+      font-style: italic;
+    }
+    h6 {
+      font-weight: normal;
+    }
+    ol, ul {
+      padding-left: 1.7em;
+      margin-top: 1em;
+    }
+    li > ol, li > ul {
+      margin-top: 0;
+    }
+    blockquote {
+      margin: 1em 0 1em 1.7em;
+      padding-left: 1em;
+      border-left: 2px solid #e6e6e6;
+      color: #606060;
+    }
+    code {
+      font-family: Menlo, Monaco, Consolas, 'Lucida Console', monospace;
+      font-size: 85%;
+      margin: 0;
+      hyphens: manual;
+    }
+    pre {
+      margin: 1em 0;
+      overflow: auto;
+    }
+    pre code {
+      padding: 0;
+      overflow: visible;
+      overflow-wrap: normal;
+    }
+    .sourceCode {
+     background-color: transparent;
+     overflow: visible;
+    }
+    hr {
+      border: none;
+      border-top: 1px solid #1a1a1a;
+      height: 1px;
+      margin: 1em 0;
+    }
+    table {
+      margin: 1em 0;
+      border-collapse: collapse;
+      width: 100%;
+      overflow-x: auto;
+      display: block;
+      font-variant-numeric: lining-nums tabular-nums;
+    }
+    table caption {
+      margin-bottom: 0.75em;
+    }
+    tbody {
+      margin-top: 0.5em;
+      border-top: 1px solid #1a1a1a;
+      border-bottom: 1px solid #1a1a1a;
+    }
+    th {
+      border-top: 1px solid #1a1a1a;
+      padding: 0.25em 0.5em 0.25em 0.5em;
+    }
+    td {
+      padding: 0.125em 0.5em 0.25em 0.5em;
+    }
+    header {
+      margin-bottom: 4em;
+      text-align: center;
+    }
+    #TOC li {
+      list-style: none;
+    }
+    #TOC ul {
+      padding-left: 1.3em;
+    }
+    #TOC > ul {
+      padding-left: 0;
+    }
+    #TOC a:not(:hover) {
+      text-decoration: none;
+    }
+    code{white-space: pre-wrap;}
+    span.smallcaps{font-variant: small-caps;}
+    div.columns{display: flex; gap: min(4vw, 1.5em);}
+    div.column{flex: auto; overflow-x: auto;}
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    /* The extra [class] is a hack that increases specificity enough to
+       override a similar rule in reveal.js */
+    ul.task-list[class]{list-style: none;}
+    ul.task-list li input[type="checkbox"] {
+      font-size: inherit;
+      width: 0.8em;
+      margin: 0 0.8em 0.2em -1.6em;
+      vertical-align: middle;
+    }
+    .display.math{display: block; text-align: center; margin: 0.5rem auto;}
+    /* CSS for syntax highlighting */
+    html { -webkit-text-size-adjust: 100%; }
+    pre > code.sourceCode { white-space: pre; position: relative; }
+    pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+    pre > code.sourceCode > span:empty { height: 1.2em; }
+    .sourceCode { overflow: visible; }
+    code.sourceCode > span { color: inherit; text-decoration: inherit; }
+    div.sourceCode { margin: 1em 0; }
+    pre.sourceCode { margin: 0; }
+    @media screen {
+    div.sourceCode { overflow: auto; }
+    }
+    @media print {
+    pre > code.sourceCode { white-space: pre-wrap; }
+    pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+    }
+    pre.numberSource code
+      { counter-reset: source-line 0; }
+    pre.numberSource code > span
+      { position: relative; left: -4em; counter-increment: source-line; }
+    pre.numberSource code > span > a:first-child::before
+      { content: counter(source-line);
+        position: relative; left: -1em; text-align: right; vertical-align: baseline;
+        border: none; display: inline-block;
+        -webkit-touch-callout: none; -webkit-user-select: none;
+        -khtml-user-select: none; -moz-user-select: none;
+        -ms-user-select: none; user-select: none;
+        padding: 0 4px; width: 4em;
+        color: #aaaaaa;
+      }
+    pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+    div.sourceCode
+      {   }
+    @media screen {
+    pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+    }
+    code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+    code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+    code span.at { color: #7d9029; } /* Attribute */
+    code span.bn { color: #40a070; } /* BaseN */
+    code span.bu { color: #008000; } /* BuiltIn */
+    code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+    code span.ch { color: #4070a0; } /* Char */
+    code span.cn { color: #880000; } /* Constant */
+    code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+    code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+    code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+    code span.dt { color: #902000; } /* DataType */
+    code span.dv { color: #40a070; } /* DecVal */
+    code span.er { color: #ff0000; font-weight: bold; } /* Error */
+    code span.ex { } /* Extension */
+    code span.fl { color: #40a070; } /* Float */
+    code span.fu { color: #06287e; } /* Function */
+    code span.im { color: #008000; font-weight: bold; } /* Import */
+    code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+    code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+    code span.op { color: #666666; } /* Operator */
+    code span.ot { color: #007020; } /* Other */
+    code span.pp { color: #bc7a00; } /* Preprocessor */
+    code span.sc { color: #4070a0; } /* SpecialChar */
+    code span.ss { color: #bb6688; } /* SpecialString */
+    code span.st { color: #4070a0; } /* String */
+    code span.va { color: #19177c; } /* Variable */
+    code span.vs { color: #4070a0; } /* VerbatimString */
+    code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+  </style>
+</head>
+<body>
+<h1 id="papermatch-analysis">PaperMatch Analysis</h1>
+<h2 id="what-do-the-vectors-tell-us">What do the vectors tell us?</h2>
+<p><strong>Mitanshu Sukhwani</strong> • <em>10 June 2025</em></p>
+<figure>
+<img src="../image/3d_umap_binary_all.webp" alt="3d.papermatch.me" />
+<figcaption aria-hidden="true"><a
+href="https://3d.papermatch.me/">3d.papermatch.me</a></figcaption>
+</figure>
+<p>This post is heavily inspired by this blog post, <a
+href="http://web.archive.org/web/20250324014115/https://blog.wilsonl.in/hackerverse/">Exploring
+Hacker News by mapping and analyzing 40 million posts and comments for
+fun</a>, by <a
+href="http://web.archive.org/web/20240805173635/https://blog.wilsonl.in/">Wilson
+Lin</a>.</p>
+<p>In <a href="html/Behind_PaperMatch.html">Behind PaperMatch</a>, we
+saw a brief overview of how to spin up a semantic search engine and in
+<a href="html/Behind_PaperMatchBio.html">Behind PaperMatchBio</a> we
+learned about some hacks that go into scraping when you are low on
+resources. But what about the data that these engines leave behind? Can
+we study something deeper about the research that we do and how it
+evolves? Here is my attempt at it.</p>
+<h1 id="validation">Validation</h1>
+<p>My open-source model of choice, <a
+href="https://huggingface.co/mixedbread-ai/mxbai-embed-large-v1">mixedbread-ai/mxbai-embed-large-v1</a>,
+was fairing at top spots on <a
+href="https://huggingface.co/spaces/mteb/leaderboard">MTEB</a>
+leaderboard during the inception of PaperMatch (March 2024). It’s a
+small, only 335 million parameters, embedding model compared to <a
+href="https://huggingface.co/Qwen/Qwen3-Embedding-8B">newer</a> models
+with <a href="https://huggingface.co/GritLM/GritLM-8x7B">billions</a> of
+<a href="https://huggingface.co/nvidia/NV-Embed-v2">parameters</a>.</p>
+<p>What do small models struggle with? Long context windows.
+<code>mxbai-embed-large-v1</code> only has a length of <span
+class="math inline">512</span> tokens. But how long are all the
+abstracts on arXiv anyway?</p>
+<figure>
+<img src="../image/papermatch_token_count_distribution.webp"
+alt="Histogram of token lengths" />
+<figcaption aria-hidden="true">Histogram of token lengths</figcaption>
+</figure>
+<p>On first look, bingo! most of the abstracts are covered by the
+model’s context window. But how many are actually out of context? Enjoy
+some stats below.</p>
+<div class="sourceCode" id="cb1"><pre
+class="sourceCode yaml"><code class="sourceCode yaml"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">Total number of papers (as of June 2025)</span><span class="kw">:</span><span class="at"> </span><span class="dv">2754926</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="fu">Number of papers with token count &gt; 512</span><span class="kw">:</span><span class="at"> </span><span class="dv">15548</span></span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="fu">Number of papers with token count &lt;= 512</span><span class="kw">:</span><span class="at"> </span><span class="dv">2739378</span></span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a><span class="fu">Percentage of papers with token count &gt; 512</span><span class="kw">:</span><span class="at"> 0.56%</span></span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a><span class="fu">Percentage of papers with token count &lt;= 512</span><span class="kw">:</span><span class="at"> 99.44%</span></span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a><span class="fu">Minimum token count</span><span class="kw">:</span><span class="at"> </span><span class="dv">2</span></span>
+<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a><span class="fu">Average token count</span><span class="kw">:</span><span class="at"> </span><span class="fl">207.62</span></span>
+<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a><span class="fu">Maximum token count</span><span class="kw">:</span><span class="at"> </span><span class="dv">1595</span></span></code></pre></div>
+<p>Phew, escaped <a
+href="https://www.timescale.com/blog/vector-databases-are-the-wrong-abstraction">Vector
+Databases Are the Wrong Abstraction</a>, for now.</p>
+<h1 id="performance">Performance</h1>
+<h2 id="distance-metric">Distance Metric</h2>
+<p>Then I wanted to check and turn all the knobs I had. When you are
+talking about semantic search, there are many metrics with which you can
+define the “distance” between two vectors.</p>
+<p>The most common one is <a
+href="https://en.wikipedia.org/wiki/Euclidean_distance">Euclidean</a>.
+Imagine two points on a plane with coordinates <span
+class="math inline"><em>A</em> := (<em>x</em><sub>1</sub>, <em>y</em><sub>1</sub>)</span>,
+and <span
+class="math inline"><em>B</em> := (<em>x</em><sub>2</sub>, <em>y</em><sub>2</sub>)</span>.
+The distance between <span class="math inline"><em>A</em></span> and
+<span class="math inline"><em>B</em></span> is: <span
+class="math display"><em>d</em>(<em>A</em>, <em>B</em>)<sup>2</sup> = (<em>y</em><sub>2</sub> − <em>y</em><sub>1</sub>)<sup>2</sup> + (<em>x</em><sub>2</sub> − <em>x</em><sub>1</sub>)<sup>2</sup></span>
+Euclidean distance signifies how close (or far) two points are. Smaller
+the distance, closer the points, and hence more related they are.</p>
+<p>However, when talking about semantic search, the most used metric is
+<a href="https://en.wikipedia.org/wiki/Cosine_similarity">Cosine
+Similarity</a>.</p>
+<figure>
+<img
+src="https://wikimedia.org/api/rest_v1/media/math/render/svg/15d11df2d48da4787ee86a4b8c14551fbf0bc96a"
+alt="Cosine similarity formula" />
+<figcaption aria-hidden="true">Cosine similarity formula</figcaption>
+</figure>
+<p>Cosine similarity ranges from <span
+class="math inline">−1 → 1</span>. Where <span
+class="math inline">−1</span> tells you that the vectors in question are
+facing opposite to each other, <span class="math inline">0</span> tells
+you orthogonal vector and <span class="math inline">1</span> tells you
+both the vectors are facing in the same direction. Embedding models also
+capture semantic meaning in terms of the direction. And hence, if two
+vectors are pointing in the same direction, they tend to mean similar
+things.</p>
+<p>Another such metric is <a
+href="https://en.wikipedia.org/wiki/Hamming_distance">Hamming
+distance</a>. It exists for binary vectors, values of which are either
+<span class="math inline">0</span> or <span
+class="math inline">1</span>. Hamming distance is defined by taking
+bitwise XOR of two binary vectors and then summing up the values in
+resulting vector.</p>
+<figure>
+<img
+src="https://docs.oracle.com/en/database/oracle/oracle-database/23/vecse/img/hamming_similarity2.png"
+alt="Hamming distance calulation" />
+<figcaption aria-hidden="true">Hamming distance calulation</figcaption>
+</figure>
+<p>Fun fact, <a
+href="https://en.wikipedia.org/wiki/SSE4#POPCNT_and_LZCNT">POPCNT</a> -
+counts the number of 1 bits, is actually <a
+href="https://vaibhavsagar.com/blog/2019/09/08/popcount/">The NSA
+Instruction</a>.</p>
+<h2 id="index-used-by-the-vector-database">Index used by the Vector
+Database</h2>
+<p><a href="https://milvus.io/">Milvus</a> offers a range of distance
+metrics and vector indices. We’ll compare FLAT and IVF_FLAT.</p>
+<p>FLAT is a very simple index. It simply calculates the distance
+between the query vector and all the vectors in your database. This
+simplicity comes with the cost of having to compute a lot.</p>
+<p>Inverted File FLAT (IVF-FLAT) allows for approximate nearest
+neighbour search. First you partition your embedding database, then
+calculate centroids of all the partitions.</p>
+<figure>
+<img src="https://assets.zilliz.com/centroid_09ce775136.png"
+alt="Partition" />
+<figcaption aria-hidden="true">Partition</figcaption>
+</figure>
+<p>Then, when a query vector comes, first you only query the centroids
+and when you find the closest centroid, you use FLAT search for all the
+vectors belonging to that cluster.</p>
+<figure>
+<img src="https://assets.zilliz.com/centroid_1_64417f3d6d.png"
+alt="IVF-FLAT search" />
+<figcaption aria-hidden="true">IVF-FLAT search</figcaption>
+</figure>
+<p>Source: <a
+href="https://zilliz.com/learn/how-to-pick-a-vector-index-in-milvus-visual-guide">How
+to Pick a Vector Index in Your Milvus Instance: A Visual Guide</a>.</p>
+<p>One last thing we need to know about is how the search in <a
+href="https://papermatch.me/">PaperMatch</a> works. The following
+flowchart should make it clear.</p>
+<figure>
+<img src="../image/papermatch_flowchart.webp"
+alt="How queries are handled" />
+<figcaption aria-hidden="true">How queries are handled</figcaption>
+</figure>
+<p>Armed with the above parameters, I tried to estimate how they affect
+the latency of the vector database.</p>
+<figure>
+<img src="../image/papermatch_performance.webp"
+alt="Latency vs Search limit" />
+<figcaption aria-hidden="true">Latency vs Search limit</figcaption>
+</figure>
+<p>We get the best <strong>quality</strong> when we use
+<code>COSINE</code> similarity, <code>Float32</code> vectors, along with
+<code>FLAT</code> index, and <strong>fastest</strong> results on
+<code>HAMMING</code> distance, <code>Binary</code> vectors, and
+<code>IVF_FLAT</code> index. Naturally, <a
+href="https://papermatch.me/">PaperMatch</a> uses the latter.</p>
+<p>But how much quality degradation do we see? Well, not much since
+<strong>the top ten results of both the variants are the same</strong>.
+And assuming most people do not look beyond the top 10 results when then
+top ones weren’t worthwhile in the first place, this works out very well
+for user experience (UX).</p>
+<h1 id="what-about-the-direction-of-science-itself">What about the
+direction of science itself?</h1>
+<h2 id="category">Category</h2>
+<p>arXiv started in <span class="math inline">1991</span> with only
+about <span class="math inline">300</span> physics papers in its repo.
+Now it is one of the biggest preprint repositories hosting close to
+<span class="math inline">3</span> million articles and growing at an
+average rate of about <span class="math inline">4.5<em>K</em></span>
+papers/week. How have the subjects evolved?</p>
+<figure>
+<img src="../image/2001_category_distribution.webp"
+alt="2001 Categories Histogram" />
+<figcaption aria-hidden="true">2001 Categories Histogram</figcaption>
+</figure>
+<figure>
+<img src="../image/2011_category_distribution.webp"
+alt="2011 Categories Histogram" />
+<figcaption aria-hidden="true">2011 Categories Histogram</figcaption>
+</figure>
+<figure>
+<img src="../image/2021_category_distribution.webp"
+alt="2021 Categories Histogram" />
+<figcaption aria-hidden="true">2021 Categories Histogram</figcaption>
+</figure>
+<figure>
+<img src="../image/2025_category_distribution.webp"
+alt="2025 Categories Histogram" />
+<figcaption aria-hidden="true">2025 Categories Histogram</figcaption>
+</figure>
+<p>Now you know why arXiv has so many CS papers. They account for almost
+half of a year’s worth!</p>
+<h2 id="dimensionality-reduction">Dimensionality reduction</h2>
+<h3 id="pca">PCA</h3>
+<p><a
+href="https://scikit-learn.org/stable/modules/generated/sklearn.decomposition.PCA.html">Principal
+Component Analysis</a>, is a statistical technique used to reduce the
+dimensionality of data (from a vector of size <span
+class="math inline">1024</span> to say <span
+class="math inline">2</span>) by identifying the most important features
+(principal components) that capture the most variance in a dataset.</p>
+<figure>
+<img
+src="https://numxl.com/wp-content/uploads/principal-component-analysis-pca-featured.png"
+alt="PCA in action" />
+<figcaption aria-hidden="true">PCA in action</figcaption>
+</figure>
+<p>We can apply pca to float and binary vectors to see the impact of
+conversion.</p>
+<h3 id="float">Float</h3>
+<figure>
+<img src="../image/2011_scatter_float_pca.webp"
+alt="Scatter plot PCA of float embeddings, 2011" />
+<figcaption aria-hidden="true">Scatter plot PCA of float embeddings,
+2011</figcaption>
+</figure>
+<figure>
+<img src="../image/2021_scatter_float_pca.webp"
+alt="Scatter plot PCA of float embeddings, 2021" />
+<figcaption aria-hidden="true">Scatter plot PCA of float embeddings,
+2021</figcaption>
+</figure>
+<figure>
+<img src="../image/2025_scatter_float_pca.webp"
+alt="Scatter plot PCA of float embeddings, 2025" />
+<figcaption aria-hidden="true">Scatter plot PCA of float embeddings,
+2025</figcaption>
+</figure>
+<h3 id="binary">Binary</h3>
+<figure>
+<img src="../image/2011_scatter_binary_pca.webp"
+alt="Scatter plot PCA of binary embeddings, 2011" />
+<figcaption aria-hidden="true">Scatter plot PCA of binary embeddings,
+2011</figcaption>
+</figure>
+<figure>
+<img src="../image/2021_scatter_binary_pca.webp"
+alt="Scatter plot PCA of binary embeddings, 2021" />
+<figcaption aria-hidden="true">Scatter plot PCA of binary embeddings,
+2021</figcaption>
+</figure>
+<figure>
+<img src="../image/2025_scatter_binary_pca.webp"
+alt="Scatter plot PCA of binary embeddings, 2025" />
+<figcaption aria-hidden="true">Scatter plot PCA of binary embeddings,
+2025</figcaption>
+</figure>
+<p>So that is why we get very good results in binary too!</p>
+<p>However, there is another technique which gets itself a good name
+owing to it quality of reductions.</p>
+<h2 id="umap">UMAP</h2>
+<p><a href="https://umap-learn.readthedocs.io/en/latest/">Uniform
+Manifold Approximation and Projection</a> is a novel manifold learning
+technique for dimension reduction.</p>
+<h3 id="float-euclidean">Float, Euclidean</h3>
+<figure>
+<img src="../image/2011_scatter_float_umap.webp"
+alt="Scatter plot UMAP of float embeddings, 2011" />
+<figcaption aria-hidden="true">Scatter plot UMAP of float embeddings,
+2011</figcaption>
+</figure>
+<figure>
+<img src="../image/2021_scatter_float_umap.webp"
+alt="Scatter plot UMAP of float embeddings, 2021" />
+<figcaption aria-hidden="true">Scatter plot UMAP of float embeddings,
+2021</figcaption>
+</figure>
+<figure>
+<img src="../image/2025_scatter_float_umap.webp"
+alt="Scatter plot UMAP of float embeddings, 2025" />
+<figcaption aria-hidden="true">Scatter plot UMAP of float embeddings,
+2025</figcaption>
+</figure>
+<h3 id="binary-hamming">Binary, Hamming</h3>
+<figure>
+<img src="../image/2011_scatter_binary_umap.webp"
+alt="Scatter plot UMAP of binary embeddings, 2011" />
+<figcaption aria-hidden="true">Scatter plot UMAP of binary embeddings,
+2011</figcaption>
+</figure>
+<figure>
+<img src="../image/2021_scatter_binary_umap.webp"
+alt="Scatter plot UMAP of binary embeddings, 2021" />
+<figcaption aria-hidden="true">Scatter plot UMAP of binary embeddings,
+2021</figcaption>
+</figure>
+<figure>
+<img src="../image/2025_scatter_binary_umap.webp"
+alt="Scatter plot UMAP of binary embeddings, 2025" />
+<figcaption aria-hidden="true">Scatter plot UMAP of binary embeddings,
+2025</figcaption>
+</figure>
+<p>UMAP seems to giving much better seperation between subjects. It is
+quite interesting to see the “island” coming up for the year 2025.</p>
+<p>Bonus! <a href="https://www.mixedbread.com/">Mixedbread</a> makes the
+case stronger for their model in the blog post: <a
+href="https://www.mixedbread.com/blog/binary-mrl">64 bytes per
+embedding, yee-haw 🤠</a>. Their embedding models is compatible with <a
+href="https://arxiv.org/abs/2205.13147">Matryoshka Representation
+Learning (MRL)</a> and <a
+href="https://www.huggingface.co/blog/embedding-quantization">Vector
+Quantization</a>. Essentially, the vectors still hold strong when you
+convert the <code>float32</code> to <code>binary</code> (<span
+class="math inline">1</span> if they are greater than <span
+class="math inline">0</span> and to <span class="math inline">0</span>
+if they are not) and then chop the vectors in half (<span
+class="math inline">1024 → 512</span>).</p>
+<h2 id="mrl">MRL</h2>
+<p>We simply take the first two elements of the embedded vectors
+directly.</p>
+<h3 id="float-1">Float</h3>
+<figure>
+<img src="../image/2011_scatter_float_mrl.webp"
+alt="Scatter plot MRL of float embeddings, 2011" />
+<figcaption aria-hidden="true">Scatter plot MRL of float embeddings,
+2011</figcaption>
+</figure>
+<figure>
+<img src="../image/2021_scatter_float_mrl.webp"
+alt="Scatter plot MRL of float embeddings, 2021" />
+<figcaption aria-hidden="true">Scatter plot MRL of float embeddings,
+2021</figcaption>
+</figure>
+<figure>
+<img src="../image/2025_scatter_float_mrl.webp"
+alt="Scatter plot MRL of float embeddings, 2025" />
+<figcaption aria-hidden="true">Scatter plot MRL of float embeddings,
+2025</figcaption>
+</figure>
+<h3 id="binary-1">Binary</h3>
+<figure>
+<img src="../image/2011_scatter_binary_mrl.webp"
+alt="Scatter plot MRL of binary embeddings, 2011" />
+<figcaption aria-hidden="true">Scatter plot MRL of binary embeddings,
+2011</figcaption>
+</figure>
+<figure>
+<img src="../image/2021_scatter_binary_mrl.webp"
+alt="Scatter plot MRL of binary embeddings, 2021" />
+<figcaption aria-hidden="true">Scatter plot MRL of binary embeddings,
+2021</figcaption>
+</figure>
+<figure>
+<img src="../image/2025_scatter_binary_mrl.webp"
+alt="Scatter plot MRL of binary embeddings, 2025" />
+<figcaption aria-hidden="true">Scatter plot MRL of binary embeddings,
+2025</figcaption>
+</figure>
+<p>Float performs quite well, but the binary one conveys no information
+whatsoever.</p>
+<h1 id="d-map">3D Map</h1>
+<p>For fun, I also performed UMAP for all of arXiv on the Binary vectors
+using Hamming distance as metric.</p>
+<p>Please explore it at: <a
+href="https://3d.papermatch.me/"><strong>3d.papermatch.me</strong></a></p>
+</body>
+</html>
