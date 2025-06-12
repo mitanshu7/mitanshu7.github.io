@@ -4,7 +4,7 @@
 
 **Mitanshu Sukhwani** • *11 June 2025*
 
-![[**3d.papermatch.me**](https://3d.papermatch.me/)](../image/3d_umap_binary_all.webp)
+![[**3D Map of arXiv**](../image/arxiv_3d_map_all_years.html)](../image/3d_umap_binary_all.webp)
 
 This post is heavily inspired by this blog post, [Exploring Hacker News by mapping and analyzing 40 million posts and comments for fun](http://web.archive.org/web/20250324014115/https://blog.wilsonl.in/hackerverse/), by [Wilson Lin](http://web.archive.org/web/20240805173635/https://blog.wilsonl.in/).
 
@@ -208,10 +208,10 @@ We simply take the first two elements of the embedded vectors directly.
 
 Float seems to performs quite well, but the binary one conveys no information whatsoever. 
 
-# [3D Map of arXiv](https://3d.papermatch.me/)
+# [**3D Map of arXiv**](../image/arxiv_3d_map_all_years.html)
 
 For fun, I also performed `UMAP` for *all of arXiv* on the `Binary` vectors using `Hamming` distance as metric. Peak memory usage reached 165 GB of RAM on `AMD EPYC 8434P` 48-Core Processor running `Ubuntu Server`. `Float` with `Cosine` exceeded the RAM+SWAP (256 + 200 GB) and hence could not be performed. 
 
-Please explore it at: [**3d.papermatch.me**](https://3d.papermatch.me/). Note that the number of points (papers) displayed are sampled to 1,00,000 for performance reasons.
+Please explore it at: [**3D Map of arXiv**](../image/arxiv_3d_map_all_years.html). Note that the number of points (papers) displayed are sampled to 1,00,000 for performance reasons.
 
 The source code & the data for the analysis is available at [mitanshu7/PaperMatch_Analysis](https://github.com/mitanshu7/PaperMatch_Analysis) and for the 3D map at [mitanshu7/arxiverse](https://github.com/mitanshu7/arxiverse).
