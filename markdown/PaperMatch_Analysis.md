@@ -182,7 +182,7 @@ However, there is another technique which gets itself a good name owing to it qu
 
 ![Scatter plot UMAP of binary embeddings, 2025](../image/2025_scatter_binary_umap.webp)
 
-UMAP seems to giving much better seperation between subjects. It is quite interesting to see the "island" coming up for the year 2025.
+UMAP seems to giving much better seperation between subjects. It is quite interesting to see the "**island**" coming up for the year 2025. The "**island**" originally appears in 2024. It can be seen even when we use `cosine` distance. 
 
 Bonus! [Mixedbread](https://www.mixedbread.com/) makes the case for their model in the blog post: [64 bytes per embedding, yee-haw 🤠](https://www.mixedbread.com/blog/binary-mrl). Their embedding models is compatible with [Matryoshka Representation Learning (MRL)](https://arxiv.org/abs/2205.13147) and [Vector Quantization](https://www.huggingface.co/blog/embedding-quantization). Essentially, the vectors still hold strong when you convert `float32` to `binary` ($1$ if they are greater than $0$ and to $0$ if they are not) and then chop the vectors in half ($1024 \to 512$) or so. 
 
