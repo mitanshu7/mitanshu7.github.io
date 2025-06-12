@@ -208,10 +208,10 @@ We simply take the first two elements of the embedded vectors directly.
 
 Float seems to performs quite well, but the binary one conveys no information whatsoever. 
 
-# 3D Map
+# [3D Map of arXiv](https://3d.papermatch.me/)
 
-For fun, I also performed UMAP for all of arXiv on the Binary vectors using Hamming distance as metric. Peak memory usage reached 165 GB of RAM on AMD EPYC 8434P 48-Core Processor running Ubuntu Server. Float with cosine excedding the RAM+SWAP and hence could not be performed. 
+For fun, I also performed `UMAP` for *all of arXiv* on the `Binary` vectors using `Hamming` distance as metric. Peak memory usage reached 165 GB of RAM on `AMD EPYC 8434P` 48-Core Processor running `Ubuntu Server`. `Float` with `Cosine` exceeded the RAM+SWAP (256 + 200 GB) and hence could not be performed. 
 
-Please explore it at: [**3d.papermatch.me**](https://3d.papermatch.me/).
+Please explore it at: [**3d.papermatch.me**](https://3d.papermatch.me/). Note that the number of points (papers) displayed are sampled to 1,00,000 for performance reasons.
 
-Note that the number of points (papers) displayed are sampled to 1,00,000 for performance reasons.
+The source code & the data for the analysis is available at [mitanshu7/PaperMatch_Analysis](https://github.com/mitanshu7/PaperMatch_Analysis) and for the 3D map at [mitanshu7/arxiverse](https://github.com/mitanshu7/arxiverse).
