@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>What_about_the_Island</title>
+  <style>
+    html {
+      color: #1a1a1a;
+      background-color: #fdfdfd;
+    }
+    body {
+      margin: 0 auto;
+      max-width: 36em;
+      padding-left: 50px;
+      padding-right: 50px;
+      padding-top: 50px;
+      padding-bottom: 50px;
+      hyphens: auto;
+      overflow-wrap: break-word;
+      text-rendering: optimizeLegibility;
+      font-kerning: normal;
+    }
+    @media (max-width: 600px) {
+      body {
+        font-size: 0.9em;
+        padding: 12px;
+      }
+      h1 {
+        font-size: 1.8em;
+      }
+    }
+    @media print {
+      html {
+        background-color: white;
+      }
+      body {
+        background-color: transparent;
+        color: black;
+        font-size: 12pt;
+      }
+      p, h2, h3 {
+        orphans: 3;
+        widows: 3;
+      }
+      h2, h3, h4 {
+        page-break-after: avoid;
+      }
+    }
+    p {
+      margin: 1em 0;
+    }
+    a {
+      color: #1a1a1a;
+    }
+    a:visited {
+      color: #1a1a1a;
+    }
+    img {
+      max-width: 100%;
+    }
+    svg {
+      height: auto;
+      max-width: 100%;
+    }
+    h1, h2, h3, h4, h5, h6 {
+      margin-top: 1.4em;
+    }
+    h5, h6 {
+      font-size: 1em;
+      font-style: italic;
+    }
+    h6 {
+      font-weight: normal;
+    }
+    ol, ul {
+      padding-left: 1.7em;
+      margin-top: 1em;
+    }
+    li > ol, li > ul {
+      margin-top: 0;
+    }
+    blockquote {
+      margin: 1em 0 1em 1.7em;
+      padding-left: 1em;
+      border-left: 2px solid #e6e6e6;
+      color: #606060;
+    }
+    code {
+      font-family: Menlo, Monaco, Consolas, 'Lucida Console', monospace;
+      font-size: 85%;
+      margin: 0;
+      hyphens: manual;
+    }
+    pre {
+      margin: 1em 0;
+      overflow: auto;
+    }
+    pre code {
+      padding: 0;
+      overflow: visible;
+      overflow-wrap: normal;
+    }
+    .sourceCode {
+     background-color: transparent;
+     overflow: visible;
+    }
+    hr {
+      border: none;
+      border-top: 1px solid #1a1a1a;
+      height: 1px;
+      margin: 1em 0;
+    }
+    table {
+      margin: 1em 0;
+      border-collapse: collapse;
+      width: 100%;
+      overflow-x: auto;
+      display: block;
+      font-variant-numeric: lining-nums tabular-nums;
+    }
+    table caption {
+      margin-bottom: 0.75em;
+    }
+    tbody {
+      margin-top: 0.5em;
+      border-top: 1px solid #1a1a1a;
+      border-bottom: 1px solid #1a1a1a;
+    }
+    th {
+      border-top: 1px solid #1a1a1a;
+      padding: 0.25em 0.5em 0.25em 0.5em;
+    }
+    td {
+      padding: 0.125em 0.5em 0.25em 0.5em;
+    }
+    header {
+      margin-bottom: 4em;
+      text-align: center;
+    }
+    #TOC li {
+      list-style: none;
+    }
+    #TOC ul {
+      padding-left: 1.3em;
+    }
+    #TOC > ul {
+      padding-left: 0;
+    }
+    #TOC a:not(:hover) {
+      text-decoration: none;
+    }
+    code{white-space: pre-wrap;}
+    span.smallcaps{font-variant: small-caps;}
+    div.columns{display: flex; gap: min(4vw, 1.5em);}
+    div.column{flex: auto; overflow-x: auto;}
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    /* The extra [class] is a hack that increases specificity enough to
+       override a similar rule in reveal.js */
+    ul.task-list[class]{list-style: none;}
+    ul.task-list li input[type="checkbox"] {
+      font-size: inherit;
+      width: 0.8em;
+      margin: 0 0.8em 0.2em -1.6em;
+      vertical-align: middle;
+    }
+    .display.math{display: block; text-align: center; margin: 0.5rem auto;}
+  </style>
+</head>
+<body>
+<h1 id="what-about-the-island">What about the Island?</h1>
+<h2 id="did-aliens-try-to-divert-the-direction-of-arxiv">Did aliens try
+to divert the direction of arxiv?</h2>
+<ul>
+<li><strong>Mitanshu Sukhwani</strong> • <em>13 June 2025</em></li>
+</ul>
+<p>In the previous blog post, <a
+href="html/PaperMatch_Analysis.html"><strong>PaperMatch
+Analysis</strong></a>, we saw how when we analyse the embedding vectors
+from arXiv abstracts and use dimensionality reduction techniques, we can
+effectively map out how academia has evolved, at least in the eyes of
+arXiv. There was even a <a
+href="../image/arxiv_3d_map_all_years.html"><strong>3D map of
+arXiv</strong></a> to play around with and discover papers visually.</p>
+<p>One interesting feature that was talked about was an
+“<strong>island</strong>” popping up. Technically, now we have 2
+disjoint islands without a lone swimmer in sight. This was only seen in
+UMAP (&amp; PCA) projections for the year <span
+class="math inline">2024</span> and <span
+class="math inline">2025</span>, and never before!</p>
+<figure>
+<img src="../image/2024_scatter_float_umap.webp"
+alt="Scatter plot UMAP of float embeddings, 2024" />
+<figcaption aria-hidden="true">Scatter plot UMAP of float embeddings,
+2024</figcaption>
+</figure>
+<figure>
+<img src="../image/2025_scatter_float_umap.webp"
+alt="Scatter plot UMAP of float embeddings, 2025" />
+<figcaption aria-hidden="true">Scatter plot UMAP of float embeddings,
+2025</figcaption>
+</figure>
+<p>However, I had presented PaperMatch at <a
+href="https://casml.cc/">CASML 2024</a> in December. My analysis was
+cut-off at October 2024, where I shown a map of arXiv for the year
+2024.</p>
+<figure>
+<img src="../image/papermatch_poster_kde_umap_2024.webp"
+alt="KDE of UMAP, October 2024" />
+<figcaption aria-hidden="true">KDE of UMAP, October 2024</figcaption>
+</figure>
+<p>My part time friend <a
+href="https://scholar.google.com/citations?user=ZoH8YT4AAAAJ&amp;hl=en&amp;oi=sra">Kshitij</a>,
+and a full time physics lover, noted that this means that the new island
+has to have appeared in the months after. Digging into this hypothesis
+revealed something deeper. All the papers in the new island were from
+November 2024 to February 2024.</p>
+<p>So we projected the first dimension from UMAP, which is supposed to
+carry the most information, to notice the trends.</p>
+<p><a
+href="../image/arxiv_umap_euclidean_Nov_2024_to_Feb_2025_1d.html"><img
+src="../image/arxiv_umap_euclidean_Nov_2024_to_Feb_2025_1d.webp" /></a></p>
+<p>Click on the image to go to an interactive version of it.</p>
+<p>X-Axis has the value of ‘x’, the first dimension of UMAP. Y-Axis is
+simply <code>range(df.shape[0])</code>. The thing to notice is, when you
+move upwards you also happen to travel in time. The papers near the
+x-axis are early november and their <a
+href="https://info.arxiv.org/help/arxiv_identifier.html">arXiv ID</a>
+increase linearly without fail. Now do you want to guess which patch is
+the island?</p>
+<details>
+<summary>
+Click to reveal.
+</summary>
+It’s the right one!
+</details>
+<p>Since we are going up in time, and we notice that the new island only
+occurs between November to February, it has to be the discountinous
+patch in between. The dates for the 4 distinct patches (leaving the
+start and end since that continue on) are:</p>
+<ul>
+<li><em>14th November 2024</em></li>
+<li><em>27th November 2024</em></li>
+<li><em>5th December 2024</em></li>
+<li><em>12th February 2025</em></li>
+</ul>
+<p>Kshitij’s leading theory was aliens controlling all of humanity to
+publish differently for a bit, then not, and then on and off again. But
+just before making this blog live, he changed it to arXiv changing
+something to the way they collect abstracts.</p>
+<p><strong>What are your thoughts on this?</strong></p>
+</body>
+</html>
