@@ -14,7 +14,7 @@ In [Behind PaperMatch](html/Behind_PaperMatch.html), we saw a brief overview of 
 
 My open-source model of choice, [mixedbread-ai/mxbai-embed-large-v1](https://huggingface.co/mixedbread-ai/mxbai-embed-large-v1), was fairing at top spots on [Massive Text Embedding Benchmark (MTEB)](https://huggingface.co/spaces/mteb/leaderboard) leaderboard during the inception of [PaperMatch](https://papermatch.me/) (March 2024). It's a small, only 335 million parameters, embedding model compared to [newer](https://huggingface.co/Qwen/Qwen3-Embedding-8B) [models](https://huggingface.co/Salesforce/SFR-Embedding-2_R) with [billions](https://huggingface.co/GritLM/GritLM-8x7B) of [parameters](https://huggingface.co/nvidia/NV-Embed-v2). 
 
-What do small models struggle with? Long context windows. `mxbai-embed-large-v1` only has a length of $512$ tokens. But how long are all the abstracts on arXiv anyway?
+What do small models struggle with? Long [context windows](https://docs.anthropic.com/en/docs/build-with-claude/context-windows). `mxbai-embed-large-v1` only has a length of $512$ tokens. But how long are all the abstracts on arXiv anyway?
 
 ![Histogram of token lengths](../image/papermatch_token_count_distribution.webp)
 
@@ -34,7 +34,35 @@ Average token count: 207.62
 Maximum token count: 1595
 ```
 
-Phew, escaped [**Vector Databases Are the Wrong Abstraction**](https://www.timescale.com/blog/vector-databases-are-the-wrong-abstraction), for now.
+Papers with the shortest abstract length:
+
+1. [**Are theoretical results 'Results'?**](https://arxiv.org/abs/1807.11336)
+
+    > **Raymond E. Goldstein** | *July 2018*
+
+    Yes. 
+
+2. [**Is AmI (Attacks Meet Interpretability) Robust to Adversarial Examples?**](https://arxiv.org/abs/1902.02322)
+
+    > **Nicholas Carlini** | *February 2019*
+
+    No.
+
+Paper with the longest abstract length:
+
+1. [**On the generation of Arveson weakly continuous semigroups**](https://arxiv.org/abs/1709.05218)
+
+    > **Jean Esterle** (IMB) | *September 2017*
+
+    We consider here one-parameter semigroups
+
+    ...
+
+    we indeed have $F(-A_T)=A_T.$
+
+Phew, model migrations are a pain.
+
+[**Vector Databases Are the Wrong Abstraction**](https://www.timescale.com/blog/vector-databases-are-the-wrong-abstraction) has some good insights!
 
 # Performance
 
@@ -78,7 +106,7 @@ Source: [How to Pick a Vector Index in Your Milvus Instance: A Visual Guide](htt
 
 One last thing we need to know about is how the search in [PaperMatch](https://papermatch.me/) works. The following flowchart should make it clear.
 
-![How queries are handled](../image/papermatch_flowchart.webp)
+![How queries are handled in PaperMatch.](../image/papermatch_flowchart.webp)
 
 Armed with the above parameters, I tried to estimate how they affect the latency of the vector database. 
 
@@ -156,7 +184,7 @@ However, there is another technique which gets itself a good name owing to it qu
 
 UMAP seems to giving much better seperation between subjects. It is quite interesting to see the "island" coming up for the year 2025.
 
-Bonus! [Mixedbread](https://www.mixedbread.com/) makes the case for their model in the blog post: [64 bytes per embedding, yee-haw 🤠](https://www.mixedbread.com/blog/binary-mrl). Their embedding models is compatible with [Matryoshka Representation Learning (MRL)](https://arxiv.org/abs/2205.13147) and [Vector Quantization](https://www.huggingface.co/blog/embedding-quantization). Essentially, the vectors still hold strong when you convert `float32` to `binary` ($1$ if they are greater than $0$ and to $0$ if they are not) and then chop the vectors in half ($1024 \to 512$). 
+Bonus! [Mixedbread](https://www.mixedbread.com/) makes the case for their model in the blog post: [64 bytes per embedding, yee-haw 🤠](https://www.mixedbread.com/blog/binary-mrl). Their embedding models is compatible with [Matryoshka Representation Learning (MRL)](https://arxiv.org/abs/2205.13147) and [Vector Quantization](https://www.huggingface.co/blog/embedding-quantization). Essentially, the vectors still hold strong when you convert `float32` to `binary` ($1$ if they are greater than $0$ and to $0$ if they are not) and then chop the vectors in half ($1024 \to 512$) or so. 
 
 ## MRL
 
@@ -178,10 +206,12 @@ We simply take the first two elements of the embedded vectors directly.
 
 ![Scatter plot MRL of binary embeddings, 2025](../image/2025_scatter_binary_mrl.webp)
 
-Float performs quite well, but the binary one conveys no information whatsoever. 
+Float seems to performs quite well, but the binary one conveys no information whatsoever. 
 
 # 3D Map
 
-For fun, I also performed UMAP for all of arXiv on the Binary vectors using Hamming distance as metric. 
+For fun, I also performed UMAP for all of arXiv on the Binary vectors using Hamming distance as metric. Peak memory usage reached 165 GB of RAM on AMD EPYC 8434P 48-Core Processor running Ubuntu Server. Float with cosine excedding the RAM+SWAP and hence could not be performed. 
 
-Please explore it at: [**3d.papermatch.me**](https://3d.papermatch.me/)
+Please explore it at: [**3d.papermatch.me**](https://3d.papermatch.me/).
+
+Note that the number of points (papers) displayed are sampled to 1,00,000 for performance reasons.

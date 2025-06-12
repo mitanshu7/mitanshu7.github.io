@@ -267,9 +267,10 @@ href="https://huggingface.co/Qwen/Qwen3-Embedding-8B">newer</a> <a
 href="https://huggingface.co/Salesforce/SFR-Embedding-2_R">models</a>
 with <a href="https://huggingface.co/GritLM/GritLM-8x7B">billions</a> of
 <a href="https://huggingface.co/nvidia/NV-Embed-v2">parameters</a>.</p>
-<p>What do small models struggle with? Long context windows.
-<code>mxbai-embed-large-v1</code> only has a length of <span
-class="math inline">512</span> tokens. But how long are all the
+<p>What do small models struggle with? Long <a
+href="https://docs.anthropic.com/en/docs/build-with-claude/context-windows">context
+windows</a>. <code>mxbai-embed-large-v1</code> only has a length of
+<span class="math inline">512</span> tokens. But how long are all the
 abstracts on arXiv anyway?</p>
 <figure>
 <img src="../image/papermatch_token_count_distribution.webp"
@@ -291,9 +292,39 @@ class="sourceCode yaml"><code class="sourceCode yaml"><span id="cb1-1"><a href="
 <span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a><span class="fu">Minimum token count</span><span class="kw">:</span><span class="at"> </span><span class="dv">2</span></span>
 <span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a><span class="fu">Average token count</span><span class="kw">:</span><span class="at"> </span><span class="fl">207.62</span></span>
 <span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a><span class="fu">Maximum token count</span><span class="kw">:</span><span class="at"> </span><span class="dv">1595</span></span></code></pre></div>
-<p>Phew, escaped <a
+<p>Papers with the shortest abstract length:</p>
+<ol type="1">
+<li><p><a href="https://arxiv.org/abs/1807.11336"><strong>Are
+theoretical results ‘Results’?</strong></a></p>
+<blockquote>
+<p><strong>Raymond E. Goldstein</strong> | <em>July 2018</em></p>
+</blockquote>
+<p>Yes.</p></li>
+<li><p><a href="https://arxiv.org/abs/1902.02322"><strong>Is AmI
+(Attacks Meet Interpretability) Robust to Adversarial
+Examples?</strong></a></p>
+<blockquote>
+<p><strong>Nicholas Carlini</strong> | <em>February 2019</em></p>
+</blockquote>
+<p>No.</p></li>
+</ol>
+<p>Paper with the longest abstract length:</p>
+<ol type="1">
+<li><p><a href="https://arxiv.org/abs/1709.05218"><strong>On the
+generation of Arveson weakly continuous semigroups</strong></a></p>
+<blockquote>
+<p><strong>Jean Esterle</strong> (IMB) | <em>September 2017</em></p>
+</blockquote>
+<p>We consider here one-parameter semigroups</p>
+<p>…</p>
+<p>we indeed have <span
+class="math inline"><em>F</em>(−<em>A</em><sub><em>T</em></sub>) = <em>A</em><sub><em>T</em></sub>.</span></p></li>
+</ol>
+<p>Phew, model migrations are a pain.</p>
+<p><a
 href="https://www.timescale.com/blog/vector-databases-are-the-wrong-abstraction"><strong>Vector
-Databases Are the Wrong Abstraction</strong></a>, for now.</p>
+Databases Are the Wrong Abstraction</strong></a> has some good
+insights!</p>
 <h1 id="performance">Performance</h1>
 <h2 id="distance-metric">Distance Metric</h2>
 <p>Then I wanted to check and turn all the knobs I had. When you are
@@ -387,8 +418,9 @@ href="https://papermatch.me/">PaperMatch</a> works. The following
 flowchart should make it clear.</p>
 <figure>
 <img src="../image/papermatch_flowchart.webp"
-alt="How queries are handled" />
-<figcaption aria-hidden="true">How queries are handled</figcaption>
+alt="How queries are handled in PaperMatch." />
+<figcaption aria-hidden="true">How queries are handled in
+PaperMatch.</figcaption>
 </figure>
 <p>Armed with the above parameters, I tried to estimate how they affect
 the latency of the vector database.</p>
@@ -554,7 +586,7 @@ convert <code>float32</code> to <code>binary</code> (<span
 class="math inline">1</span> if they are greater than <span
 class="math inline">0</span> and to <span class="math inline">0</span>
 if they are not) and then chop the vectors in half (<span
-class="math inline">1024 → 512</span>).</p>
+class="math inline">1024 → 512</span>) or so.</p>
 <h2 id="mrl">MRL</h2>
 <p>We simply take the first two elements of the embedded vectors
 directly.</p>
@@ -596,12 +628,16 @@ alt="Scatter plot MRL of binary embeddings, 2025" />
 <figcaption aria-hidden="true">Scatter plot MRL of binary embeddings,
 2025</figcaption>
 </figure>
-<p>Float performs quite well, but the binary one conveys no information
-whatsoever.</p>
+<p>Float seems to performs quite well, but the binary one conveys no
+information whatsoever.</p>
 <h1 id="d-map">3D Map</h1>
 <p>For fun, I also performed UMAP for all of arXiv on the Binary vectors
-using Hamming distance as metric.</p>
+using Hamming distance as metric. Peak memory usage reached 165 GB of
+RAM on AMD EPYC 8434P 48-Core Processor running Ubuntu Server. Float
+with cosine excedding the RAM+SWAP and hence could not be performed.</p>
 <p>Please explore it at: <a
-href="https://3d.papermatch.me/"><strong>3d.papermatch.me</strong></a></p>
+href="https://3d.papermatch.me/"><strong>3d.papermatch.me</strong></a>.</p>
+<p>Note that the number of points (papers) displayed are sampled to
+1,00,000 for performance reasons.</p>
 </body>
 </html>
