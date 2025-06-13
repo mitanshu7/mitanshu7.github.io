@@ -8,7 +8,7 @@
 
 This post is heavily inspired by this blog post, [Exploring Hacker News by mapping and analyzing 40 million posts and comments for fun](http://web.archive.org/web/20250324014115/https://blog.wilsonl.in/hackerverse/), by [Wilson Lin](http://web.archive.org/web/20240805173635/https://blog.wilsonl.in/).
 
-In [Behind PaperMatch](html/Behind_PaperMatch.html), we saw a brief overview of how to spin up a semantic search engine and in [Behind PaperMatchBio](html/Behind_PaperMatchBio.html) we learned about some hacks that go into scraping when you are low on resources. But what about the data that these engines leave behind? Can we study something deeper about the research that we do and how it evolves? Here is my attempt at it.
+In [Behind PaperMatch](Behind_PaperMatch.html), we saw a brief overview of how to spin up a semantic search engine and in [Behind PaperMatchBio](Behind_PaperMatchBio.html) we learned about some hacks that go into scraping when you are low on resources. But what about the data that these engines leave behind? Can we study something deeper about the research that we do and how it evolves? Here is my attempt at it.
 
 # Validation
 

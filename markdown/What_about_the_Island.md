@@ -4,7 +4,7 @@
 
 - **Mitanshu Sukhwani** • *13 June 2025*
 
-In the previous blog post, [**PaperMatch Analysis**](html/PaperMatch_Analysis.html), we saw how when we analyse the embedding vectors from arXiv abstracts and use dimensionality reduction techniques, we can effectively map out how academia has evolved, at least in the eyes of arXiv. There was even a [**3D map of arXiv**](../image/arxiv_3d_map_all_years.html) to play around with and discover papers visually.
+In the previous blog post, [**PaperMatch Analysis**](PaperMatch_Analysis.html), we saw how when we analyse the embedding vectors from arXiv abstracts and use dimensionality reduction techniques, we can effectively map out how academia has evolved, at least in the eyes of arXiv. There was even a [**3D map of arXiv**](../image/arxiv_3d_map_all_years.html) to play around with and discover papers visually.
 
 One interesting feature that was talked about was an "**island**" popping up. Technically, now we have 2 disjoint islands without a lone swimmer in sight. This was only seen in UMAP (& PCA) projections for the year $2024$ and $2025$, and never before!
 
