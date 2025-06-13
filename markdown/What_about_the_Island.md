@@ -20,9 +20,19 @@ My part time friend [Kshitij](https://scholar.google.com/citations?user=ZoH8YT4A
 
 So we projected the first dimension from UMAP, which is supposed to carry the most information, to notice the trends.
 
-[![](../image/arxiv_umap_euclidean_Nov_2024_to_Feb_2025_1d.webp)](../image/arxiv_umap_euclidean_Nov_2024_to_Feb_2025_1d.html)
+[![](../image/arxiv_umap_euclidean_Nov_2024_to_Feb_2025_1d_x.webp)](../image/arxiv_umap_euclidean_Nov_2024_to_Feb_2025_1d_x.html)
 
-Click on the image to go to an interactive version of it. 
+Next is the second most (y) 
+
+[![](../image/arxiv_umap_euclidean_Nov_2024_to_Feb_2025_1d_y.webp)](../image/arxiv_umap_euclidean_Nov_2024_to_Feb_2025_1d_y.html)
+
+and third most (z) 1D plots of the same.
+
+[![](../image/arxiv_umap_euclidean_Nov_2024_to_Feb_2025_1d_y.webp)](../image/arxiv_umap_euclidean_Nov_2024_to_Feb_2025_1d_y.html)
+
+*Click on the images to go to an interactive version of it.*
+
+As noticed, the gap muddles a bit as you go into higher dimensions but the distinct lines remain!
 
 X-Axis has the value of 'x', the first dimension of UMAP. Y-Axis is simply `range(df.shape[0])`. The thing to notice is, when you move upwards you also happen to travel in time. The papers near the x-axis are early november and their [arXiv ID](https://info.arxiv.org/help/arxiv_identifier.html) increase linearly without fail. Now do you want to guess which patch is the island? 
 
