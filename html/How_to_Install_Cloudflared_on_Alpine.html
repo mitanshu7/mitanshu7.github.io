@@ -246,8 +246,8 @@ Pi Zero 2W</a></h2>
 system.</p>
 <h2 id="pre-requisites">Pre-Requisites</h2>
 <p>You need to have administrative (doas) access to your system.</p>
-<p>Add nano editor using:
-<code>doas apk update &amp;&amp; doas apk add nano</code></p>
+<p>Add nano editor using:</p>
+<p><code>doas apk update &amp;&amp; doas apk add nano</code></p>
 <p>Here are the steps to install Cloudflared.</p>
 <div class="sourceCode" id="cb1"><pre
 class="sourceCode bash"><code class="sourceCode bash"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Download the latest version of cloudflared, change `arm64` to `arm` at the end of the URL for 32-bit version.</span></span>
@@ -262,16 +262,16 @@ class="sourceCode bash"><code class="sourceCode bash"><span id="cb1-1"><a href="
 <p>After installing Cloudflared, you need to create a Cloudflare
 tunnel.</p>
 <ol type="1">
-<li>Visit <a
-href="https://one.dash.cloudflare.com">https://one.dash.cloudflare.com</a>.</li>
-<li>Navigate to
-<code>Networks -&gt; Tunnels -&gt; Create a tunnel</code>.</li>
-<li>Fill in a name you like and save the tunnel.</li>
-<li>Find the code block below
-<code>After you have installed cloudflared on your machine, you can install a service to automatically run your tunnel whenever your machine starts:</code>.</li>
-<li>Replace <code>sudo</code> with <code>doas</code> before executing.
-Make note of the your <code>&lt;TOKEN&gt;</code> which comes after
-<code>sudo cloudflared service install</code></li>
+<li><p>Visit <a
+href="https://one.dash.cloudflare.com">https://one.dash.cloudflare.com</a>.</p></li>
+<li><p>Navigate to
+<code>Networks -&gt; Tunnels -&gt; Create a tunnel</code>.</p></li>
+<li><p>Fill in a name you like and save the tunnel.</p></li>
+<li><p>Find the code block below
+<code>After you have installed cloudflared on your machine, you can install a service to automatically run your tunnel whenever your machine starts:</code>.</p></li>
+<li><p>Replace <code>sudo</code> with <code>doas</code> before
+executing. Make note of the your <code>&lt;TOKEN&gt;</code> which comes
+after <code>sudo cloudflared service install</code></p></li>
 </ol>
 <h2
 id="starting-the-cloudflared-service-while-sustaining-reboots">Starting
@@ -327,5 +327,6 @@ href="https://developers.cloudflare.com/cloudflare-one/connections/connect-apps/
 documentation</a> for further help.</p>
 <p>Checkout OpenRC service init guide:
 https://github.com/OpenRC/openrc/blob/master/service-script-guide.md</p>
+<div style="text-align: center;"><a href="../index.html">Back to Home</a></div>
 </body>
 </html>
