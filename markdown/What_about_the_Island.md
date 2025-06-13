@@ -28,11 +28,9 @@ Next is the second most (y)
 
 and third most (z) 1D plots of the same.
 
-[![](../image/arxiv_umap_euclidean_Nov_2024_to_Feb_2025_1d_y.webp)](../image/arxiv_umap_euclidean_Nov_2024_to_Feb_2025_1d_y.html)
+[![](../image/arxiv_umap_euclidean_Nov_2024_to_Feb_2025_1d_z.webp)](../image/arxiv_umap_euclidean_Nov_2024_to_Feb_2025_1d_z.html)
 
 *Click on the images to go to an interactive version of it.*
-
-As noticed, the gap muddles a bit as you go into higher dimensions but the distinct lines remain!
 
 X-Axis has the value of 'x', the first dimension of UMAP. Y-Axis is simply `range(df.shape[0])`. The thing to notice is, when you move upwards you also happen to travel in time. The papers near the x-axis are early november and their [arXiv ID](https://info.arxiv.org/help/arxiv_identifier.html) increase linearly without fail. Now do you want to guess which patch is the island? 
 
@@ -44,6 +42,8 @@ Since we are going up in time, and we notice that the new island only occurs bet
 - *27th November 2024*
 - *5th December 2024*
 - *12th February 2025*
+
+As noticed, the gap muddles a bit as you go into higher dimensions but the distinct lines remain!
 
 Kshitij's leading theory was aliens controlling all of humanity to publish differently for a bit, then not, and then on and off again. But just before making this blog live, he changed it to arXiv changing something to the way they collect abstracts. 
 
