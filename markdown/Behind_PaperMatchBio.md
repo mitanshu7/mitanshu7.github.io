@@ -2,23 +2,23 @@
 
 ## Why only arXiv?
 
-**Mitanshu Sukhwani** • *08 June 2025*
+**Mitanshu Sukhwani** • _08 June 2025_
 
 # Why bioRxiv?
 
-If you have used [PaperMatch](https://papermatch.me/) before, you would know you can only use the semantic search on the [arXiv](https://arxiv.org/) repository. One of the main features of a literature search is scope. How broad can you search? Can you search all the big name journals to only look for top peer-reviewed journals/conferences? Well, I am not there yet. So let's look at a sister preprint repository, [biorxiv.org](https://www.biorxiv.org/). 
+If you have used [PaperMatch](https://papermatch.me/) before, you would know you can only use the semantic search on the [arXiv](https://arxiv.org/) repository. One of the main features of a literature search is scope. How broad can you search? Can you search all the big name journals to only look for top peer-reviewed journals/conferences? Well, I am not there yet. So let's look at a sister preprint repository, [biorxiv.org](https://www.biorxiv.org/).
 
-Simply stated, bioRxiv is arXiv but for bio. 
+Simply stated, bioRxiv is arXiv but for bio.
 
 # How to gather the data?
 
-bioRxiv allows for [machine access](https://www.biorxiv.org/tdm) via Amazon S3 at a [requester pays bucket](https://docs.aws.amazon.com/AmazonS3/latest/dev/RequesterPaysBuckets.html). So this requires us to have an aws account with a working card to be able to mine the bucket for full text access and relinquish our fortunes. Just kidding, its quite cheap to be making all those requests. It cost me about ₹66.24 ($0.77) for all of bioRxiv till April 2025. 
+bioRxiv allows for [machine access](https://www.biorxiv.org/tdm) via Amazon S3 at a [requester pays bucket](https://docs.aws.amazon.com/AmazonS3/latest/dev/RequesterPaysBuckets.html). So this requires us to have an aws account with a working card to be able to mine the bucket for full text access and relinquish our fortunes. Just kidding, its quite cheap to be making all those requests. It cost me about ₹66.24 ($0.77) for all of bioRxiv till April 2025.
 
 I'll be honest. I do not have the kind of stable electricity nor the bandwidth (internet one) to be mining all of bioRxiv on my laptop. Thankfully, good friends at [HuggingFace](https://huggingface.co/) let you host your [gradio](https://www.gradio.app/) apps for free! These demo's basically run on small VMs. So, I used their [Hello World](https://www.gradio.app/) example to have a fake storefront while downloading the bioRxiv repo in the background. Thanks 🤗 :)
 
 Assuming You have your aws account [created](https://docs.aws.amazon.com/accounts/latest/reference/manage-acct-creating.html) and [billing](https://docs.aws.amazon.com/account-billing/) setup, we'll move onto getting the sweet sweet data.
 
-[Python](https://www.python.org/) is the language of choice for AI/ML and that is the one I know, so we'll be using that. 
+[Python](https://www.python.org/) is the language of choice for AI/ML and that is the one I know, so we'll be using that.
 
 [Boto3](https://boto3.amazonaws.com/v1/documentation/api/latest/index.html) is a python library to use when interactive with AWS S3 buckets. bioRxiv hosts there bucket at `s3://biorxiv-src-monthly` in the `us-east-1` region.
 
@@ -87,7 +87,7 @@ import shutil
 from tqdm.auto import tqdm
 
 def download_biorxiv(Prefix=""):
-    
+
     print("Downloading Biorxiv files.")
 
     # Output folders for downloaded files
@@ -117,7 +117,7 @@ def download_biorxiv(Prefix=""):
 
                 # Download the file
                 s3_client.download_file(biorxiv_bucket_name, file, 'tmp_bio.meca', ExtraArgs={'RequestPayer':'requester'})
-                    
+
                 # Unzip meca file
                 with zipfile.ZipFile('tmp_bio.meca', 'r') as zip_ref:
                     zip_ref.extractall("tmp_bio")
@@ -143,7 +143,7 @@ def download_biorxiv(Prefix=""):
     # Upload the zip files to Hugging Face
     print(f"Uploading {biorxiv_output_folder}.zip to Hugging Face repo {repo_id}.")
     hugging_face_api.upload_file(path_or_fileobj=f'{biorxiv_output_folder}.zip', path_in_repo=f'{biorxiv_output_folder}.zip', repo_id=repo_id, repo_type="dataset")
-    
+
     print("Biorxiv Done.")
 ```
 
@@ -182,7 +182,7 @@ All of this code is available on [mitanshu7/tdm](https://github.com/mitanshu7/td
 
 # How to get the metadata?
 
-In PaperMatchBio, I use abstracts as the source data for calculating vector embeddings. To learn more. checkout my post on [Behind PaperMatch](Behind_PaperMatch.html). 
+In PaperMatchBio, I use abstracts as the source data for calculating vector embeddings. To learn more. checkout my post on [Behind PaperMatch](Behind_PaperMatch.html).
 
 Good thing about `XML`s is that they have a nice structure to them and you can use that to find the needed information quickly. For this, we use [BeautifulSoup4](https://www.crummy.com/software/BeautifulSoup/bs4/doc/).
 
@@ -190,7 +190,7 @@ Good thing about `XML`s is that they have a nice structure to them and you can u
 def extract_info(xml_file):
 
     try:
-    
+
         # Open and read the XML file
         with open(xml_file, 'r') as f:
             data = f.read()
@@ -209,10 +209,10 @@ def extract_info(xml_file):
 
         # Get author names
         authors = soup.find_all('contrib', {'contrib-type':"author"})
-        author_names = [res.get_text(separator=" ", strip=True) 
-                for author in authors 
+        author_names = [res.get_text(separator=" ", strip=True)
+                for author in authors
                 if (res := author.find('name')) is not None]
-        
+
         # Return dictionary
         return {
             "id": doi,
@@ -221,7 +221,7 @@ def extract_info(xml_file):
             "Abstract": abstract,
             "URL": f"https://doi.org/{doi}" # Construct URL from DOI
         }
-    
+
     except Exception as e:
         with open(f'{prefix}rxiv_metadata_errors.txt', 'a') as f:
             f.write(f"Error processing file {xml_file}: {e}\n")
@@ -253,12 +253,12 @@ if __name__ == '__main__':
 
 # What about vectors?
 
-To start with, we (again) extract the abstract from the XMLs (I don't know why I did not reuse the metadata above) and embed the abstracts saving their doi along with them. 
+To start with, we (again) extract the abstract from the XMLs (I don't know why I did not reuse the metadata above) and embed the abstracts saving their doi along with them.
 
 ```python
-# Function to 
+# Function to
 def extract_abstract_doi(xml_file):
-    
+
     with open(xml_file, 'r') as f:
         data = f.read()
 
@@ -277,7 +277,7 @@ def extract_abstract_doi(xml_file):
 
 # Function that does the embedding
 def embed(input_text):
-    
+
     # Calculate embeddings by calling model.encode(), specifying the device
     embedding = model.encode(input_text, device=device)
 

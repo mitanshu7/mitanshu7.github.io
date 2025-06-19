@@ -2,7 +2,7 @@
 
 ## For [Raspberri Pi Zero 2W](https://www.raspberrypi.com/products/raspberry-pi-zero-2-w/)
 
-**Mitanshu Sukhwani** • *07 June 2025*
+**Mitanshu Sukhwani** • _07 June 2025_
 
 # Cloudflared Setup Guide
 
@@ -10,7 +10,7 @@ This guide will walk you through setting up Cloudflared on your system.
 
 ## Pre-Requisites
 
-You need to have administrative (doas) access to your system. 
+You need to have administrative (doas) access to your system.
 
 Add nano editor using:
 
@@ -54,7 +54,9 @@ doas mv /etc/init.d/cloudflared /etc/init.d/cloudflared.bak
 # Create a new service file using:
 doas nano /etc/init.d/cloudflared
 ```
+
 With the following contents, replace `<TOKEN>` with the one noted above:
+
 ```bash
 #!/sbin/openrc-run
 

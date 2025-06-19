@@ -2,11 +2,11 @@
 
 ## Free the portrait
 
-**Mitanshu Sukhwani** • *07 June 2025*
+**Mitanshu Sukhwani** • _07 June 2025_
 
-Following is a copy of the [Reddit post](https://www.reddit.com/r/Android/comments/13c4pum/tutorial_how_to_stop_apps_like_authy_venmo_etc/) by  [u/MishaalRahman](https://www.reddit.com/user/MishaalRahman/):
+Following is a copy of the [Reddit post](https://www.reddit.com/r/Android/comments/13c4pum/tutorial_how_to_stop_apps_like_authy_venmo_etc/) by [u/MishaalRahman](https://www.reddit.com/user/MishaalRahman/):
 
-**Tutorial**: *How to stop apps like Authy, Venmo etc. from being locked to portrait mode on Android tablets/foldables*
+**Tutorial**: _How to stop apps like Authy, Venmo etc. from being locked to portrait mode on Android tablets/foldables_
 
 One of the most annoying parts about using most Android tablets or foldables is being forced to flip the device over because an app doesn't support landscape mode. This is a big issue on the OPPO Find N2, for example. [Fortunately, there's a fix. Here's how it works.](https://pbs.twimg.com/media/FvoVWk9aQAIai5S?format=jpg&name=4096x4096)
 

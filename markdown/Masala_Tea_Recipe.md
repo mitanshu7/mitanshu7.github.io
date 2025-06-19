@@ -2,7 +2,7 @@
 
 ## My dialed down recipe
 
-**Mitanshu Sukhwani** • *07 June 2025*
+**Mitanshu Sukhwani** • _07 June 2025_
 
 # Ingredients:
 
@@ -15,7 +15,6 @@
 4. 40 gms freshly boiled water, preferrably from [Aquaguard](https://www.croma.com/eureka-forbes-aquaguard-6-litres-water-purifier-geneus-xpert-white-/p/189782).
 
 5. 100 gms [Full Cream Milk (6% fat minimum)](https://www.amul.com/products/amul-gold-info.php).
-
 
 # Instructions:
 

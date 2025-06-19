@@ -4,7 +4,7 @@
 
 ### - Random sentence generated from a Jane Austen bigram model
 
-**Mitanshu Sukhwani** • *08 June 2025*
+**Mitanshu Sukhwani** • _08 June 2025_
 
 Right off the bat, for learning Natural Language Processing (NLP), checkout [Speech and Language Processing](https://web.stanford.edu/~jurafsky/slp3/) by [Dan Jurafsky](http://web.stanford.edu/people/jurafsky/) and [James H. Martin](http://www.cs.colorado.edu/~martin/).
 
@@ -12,18 +12,17 @@ Right off the bat, for learning Natural Language Processing (NLP), checkout [Spe
 
 Ever since ChatGPT got viral in November 2022, Language models have taked the world by a storm. AI is being shoved into each and every application, even the ones that really don't need it. Applied AI has become finding solutions to problems that do not exist. But today, I would like to shine some light on LLMs humble beginnings. N-Grams.
 
-One thing to know about LLMs is that they are [autoregressive models](https://en.wikipedia.org/wiki/Autoregressive_model). They try to predict the next word given some past words. For example, LLMs have to learn to predict that the word coming after *'The cat sat on a'* is *'mat'*. 
+One thing to know about LLMs is that they are [autoregressive models](https://en.wikipedia.org/wiki/Autoregressive_model). They try to predict the next word given some past words. For example, LLMs have to learn to predict that the word coming after _'The cat sat on a'_ is _'mat'_.
 
 N-gram models are a very simple form of language models. An n-gram model estimates the probability of the next item given the n−1 previous items.
 
-$$ P(w_i | w_{i - (n-1)}, ..., w_{i-1}) = count(w_{i - (n-1)}, ..., w_{i-1},w_i) \ / \ count(w_{i - (n-1)}, ..., w_{i-1}) $$
+$$ P(w*i | w*{i - (n-1)}, ..., w*{i-1}) = count(w*{i - (n-1)}, ..., w*{i-1},w_i) \ / \ count(w*{i - (n-1)}, ..., w\_{i-1}) $$
 
 For a bigram, $N = 2$,
 
 $$ P(I, saw, the, red, house) \approx P(I|\langle s \rangle) \times P(saw|I) \times P(the|saw) \times P(red|the) \times P(house|red) \times P(\langle /s \rangle | house) $$
 
 where start and end of sentence markers are denoted by $\langle s \rangle$ & $\langle /s \rangle$ respectively.
-
 
 [Markov Processes](https://en.wikipedia.org/wiki/Markov_chain) lean into the same idea. A Markov chain assumes that future states depend only on the current state, not on the events that occurred before it.
 
@@ -77,11 +76,11 @@ with open(file='pride_and_prejudice.txt', mode="r") as file:
 ...
 ```
 
-
 ```python
 # Replace newlines with a space
 corpus_no_enter = corpus.replace("\n"," ")
 ```
+
 ```
 ...
 PRIDE.                                   and                                PREJUDICE                                    by                              Jane Austen,                             with a Preface by                            George Saintsbury                                   and                            Illustrations by                              Hugh Thomson                           [Illustration: 1894]                         Ruskin       156. Charing                        House.        Cross Road.                                  London                              George Allen.
@@ -97,6 +96,7 @@ Let's do a very basic form of tokenization. Tokenization is nothing but a way to
 
 corpus_split = re.split(r"(\.|!|\?)[^(\b(www\.)?\w+\.\w+{2,6}(\.\w{2,6})?\b){,253}]", corpus_no_enter)
 ```
+
 ```
 ['\ufeffThe Project Gutenberg eBook of Pride and Prejudice      This ebook is for the use of anyone anywhere in the United States and most other parts of the world at no cost and with almost no restrictions whatsoever',
  '.',
@@ -104,20 +104,21 @@ corpus_split = re.split(r"(\.|!|\?)[^(\b(www\.)?\w+\.\w+{2,6}(\.\w{2,6})?\b){,25
  '.',...]
 ```
 
-This splits our text into sentences and punctuation. 
+This splits our text into sentences and punctuation.
 
 ```python
 # Add back the punctuation
 corpus_split_refined = []
 
 for i in range(0, len(corpus_split), 2):
-    
+
     try:
         corpus_split_refined.append(corpus_split[i]+corpus_split[i+1])
 
     except IndexError:
         pass
 ```
+
 ```
 ['\ufeffThe Project Gutenberg eBook of Pride and Prejudice      This ebook is for the use of anyone anywhere in the United States and most other parts of the world at no cost and with almost no restrictions whatsoever.',
  'You may copy it, give it away or re-use it under the terms of the Project Gutenberg License included with this ebook or online at www.gutenberg.org.',...]
@@ -126,7 +127,7 @@ for i in range(0, len(corpus_split), 2):
 Now that we have a list of sentences, we can spruce it up a little.
 
 ```python
-# Fix the refined text 
+# Fix the refined text
 for i in range(len(corpus_split_refined)):
 
     # Remove whitespace around the text
@@ -138,6 +139,7 @@ for i in range(len(corpus_split_refined)):
     # Add start and end of sentence markers
     corpus_split_refined[i] = ['<s>'] + corpus_split_refined[i] + ['</s>']
 ```
+
 ```
 [['<s>',
   '\ufeffThe',
@@ -157,9 +159,9 @@ for i in range(len(corpus_split_refined)):
   'copy',
   ...]
 ]
-``` 
+```
 
-For a bigram, we need pairs of words, since we only use the immediate history to predict the next word. 
+For a bigram, we need pairs of words, since we only use the immediate history to predict the next word.
 
 ```python
 pairs = []
@@ -174,6 +176,7 @@ for sentence in corpus_split_refined:
         except IndexError:
             pass
 ```
+
 ```
 [('<s>', '\ufeffThe'),
  ('\ufeffThe', 'Project'),
@@ -196,6 +199,7 @@ for inner_list in sample:
 
         sample_restructured.append(token)
 ```
+
 ```
 ['<s>',
  '\ufeffThe',
@@ -218,10 +222,11 @@ Now let's precompute the probability of each pair of words occuring in the whole
 pair_probability = {}
 
 for pair in pairs:
-    
+
     probab = pairs.count(pair) / sample_restructured.count(pair[0])
     pair_probability[pair] = probab
 ```
+
 ```
 {('<s>', '\ufeffThe'): 0.001,
  ('\ufeffThe', 'Project'): 1.0,
@@ -232,7 +237,7 @@ for pair in pairs:
  ...]
 ```
 
-We are almost done, now we just need a function to predict the next word, given a probability distribution. We select the top candidate in the list. This is where the concept of temperature comes into picture. Here we select the most probable word, grounding our model in data and keeping the temperature 0. Had we played roullete with the list of possible candidates, we would have generated more *creative* answers, thereby increasing the temperature of the model.
+We are almost done, now we just need a function to predict the next word, given a probability distribution. We select the top candidate in the list. This is where the concept of temperature comes into picture. Here we select the most probable word, grounding our model in data and keeping the temperature 0. Had we played roullete with the list of possible candidates, we would have generated more _creative_ answers, thereby increasing the temperature of the model.
 
 ```python
 def bigram(current_word:str) -> str:
@@ -280,6 +285,7 @@ for i in range(100):
 
     generated_word = bigram(generated_word)
 ```
+
 ```
 'We can avail himself, appear unpleasant in acknowledgment that Edmund only took Fanny because Mary shocked him, if many men appears) is small, and PREJUDICE by Jane Austen Release date: June 1, 1998 [eBook #1342] Most recently updated: October 29, 2024 Language: English Credits: Chuck Greif and PREJUDICE by Jane Austen Release date: June 1, 1998 [eBook #1342] Most recently updated: October 29, 2024 Language: English Credits: Chuck Greif and PREJUDICE by Jane Austen Release date: June 1, 1998 [eBook #1342] Most recently updated: October 29, 2024 Language: English Credits: Chuck Greif and PREJUDICE by Jane Austen Release date: June '
 ```

@@ -2,7 +2,7 @@
 
 ## From memory
 
-**Mitanshu Sukhwani** • *09 June 2025*
+**Mitanshu Sukhwani** • _09 June 2025_
 
 - [Sapiens](https://www.goodreads.com/book/show/23692271-sapiens) by Yuval Noah Harari
 
@@ -58,4 +58,4 @@
 
 - [Fifty Shades of Grey](https://www.goodreads.com/series/63134-fifty-shades) by E.L. James
 
-- [Hyperbole and a half](https://www.goodreads.com/book/show/17571564-hyperbole-and-a-half?ac=1&from_search=true&qid=dAETQmAYeF&rank=1) by Allie Brosh 
+- [Hyperbole and a half](https://www.goodreads.com/book/show/17571564-hyperbole-and-a-half?ac=1&from_search=true&qid=dAETQmAYeF&rank=1) by Allie Brosh

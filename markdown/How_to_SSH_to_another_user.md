@@ -2,7 +2,7 @@
 
 ## Or copy your public SSH key to another user in the same system
 
-**Mitanshu Sukhwani** • *07 June 2025*
+**Mitanshu Sukhwani** • _07 June 2025_
 
 To copy your public SSH key to another user in the same system, you can follow these steps. Assuming you have **sudo** rights, you can perform actions as another user.
 
@@ -14,7 +14,7 @@ Let's also assume:
 Here's how you can do it:
 
 1. **Switch to the target user:**
-   
+
    Open a terminal and switch to the target user. You can use `sudo` to execute commands as another user.
 
    ```bash

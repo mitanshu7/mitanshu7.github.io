@@ -1,12 +1,13 @@
 # [Hello](index.html)
 
-I'm **Mitanshu Sukhwani**, creator of [**PaperMatch**](https://papermatch.me/) with a Master’s in Physics from [IIT Madras](https://physics.iitm.ac.in). I’ve worked at [IISER Tirupati](https://www.iisertirupati.ac.in) on EEG data, network science, and brain modeling. I enjoy exploring ML, Linux, and the intersection of neuroscience, software, and data. 
+I'm **Mitanshu Sukhwani**, creator of [**PaperMatch**](https://papermatch.me/) with a Master’s in Physics from [IIT Madras](https://physics.iitm.ac.in). I’ve worked at [IISER Tirupati](https://www.iisertirupati.ac.in) on EEG data, network science, and brain modeling. I enjoy exploring ML, Linux, and the intersection of neuroscience, software, and data.
 
 This blog is where I share thoughts/How-Tos on software, high-performance computing, and coffee - with a side of cats.
 
-***
+---
 
 # Index for the website
+
 1. [Project Wishlist](html/Project_Wishlist.html)
 
 2. [Stop podman containers from getting killed](html/Stop_podman_containers_from_getting_killed.html)
@@ -59,7 +60,9 @@ This blog is where I share thoughts/How-Tos on software, high-performance comput
 
 26. [What about the Island?](html/What_about_the_Island.html)
 
-***
+27. [Setup Nebula](html/Setup_Nebula.html)
+
+---
 
 # Contact
 
@@ -68,4 +71,4 @@ This blog is where I share thoughts/How-Tos on software, high-performance comput
 - GitHub: [mitanshu7](https://github.com/mitanshu7)
 - [Curriculum Vitae](https://raw.githubusercontent.com/mitanshu7/dumpyard/refs/heads/main/mitanshu_cv.pdf)
 
-*Thanks for stopping by!*
+_Thanks for stopping by!_

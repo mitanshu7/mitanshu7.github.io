@@ -2,7 +2,7 @@
 
 ## By James Hoffmann
 
-**Mitanshu Sukhwani** • *07 June 2025*
+**Mitanshu Sukhwani** • _07 June 2025_
 
 Pick your Brewer:
 

@@ -2,12 +2,12 @@
 
 ## Things I Wish to Do
 
-**Mitanshu Sukhwani** • *06 June 2025*
+**Mitanshu Sukhwani** • _06 June 2025_
 
 - [ ] Make a silent trimmer.
 
-  - People with Autism generally have sensory issues. 
-  - They get agitated quickly to changing sounds, the feel of material, and lights. 
+  - People with Autism generally have sensory issues.
+  - They get agitated quickly to changing sounds, the feel of material, and lights.
   - The Idea is to have a trimmer that feels calming when rubbed against skin. Silicone comes to mind.
   - Then have the trimmer cut hair (since these are very quick and becoming the de facto) with very little noise.
 
@@ -18,7 +18,7 @@
 
 - [ ] Add [NextCloud](https://nextcloud.com/) support to [BeanConqueror](https://beanconqueror.com/)
 
-  - BeanConqueror is an amazing app for coffee journaling. 
+  - BeanConqueror is an amazing app for coffee journaling.
   - I love traking my brews and rate them to see how and what change in elements produced better coffee.
   - The app lacks WebDav integration to be able to sync your brews, which is essential to journaling.
   - The developer has denied adding sync support to the app.

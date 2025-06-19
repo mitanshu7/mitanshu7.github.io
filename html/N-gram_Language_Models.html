@@ -264,7 +264,7 @@ example, LLMs have to learn to predict that the word coming after
 model estimates the probability of the next item given the n−1 previous
 items.</p>
 <p><span
-class="math display"><em>P</em>(<em>w</em><sub><em>i</em></sub>|<em>w</em><sub><em>i</em> − (<em>n</em> − 1)</sub>, ..., <em>w</em><sub><em>i</em> − 1</sub>) = <em>c</em><em>o</em><em>u</em><em>n</em><em>t</em>(<em>w</em><sub><em>i</em> − (<em>n</em> − 1)</sub>, ..., <em>w</em><sub><em>i</em> − 1</sub>, <em>w</em><sub><em>i</em></sub>) / <em>c</em><em>o</em><em>u</em><em>n</em><em>t</em>(<em>w</em><sub><em>i</em> − (<em>n</em> − 1)</sub>, ..., <em>w</em><sub><em>i</em> − 1</sub>)</span></p>
+class="math display"><em>P</em>(<em>w</em> * <em>i</em>|<em>w</em> * <em>i</em> − (<em>n</em> − 1), ..., <em>w</em> * <em>i</em> − 1) = <em>c</em><em>o</em><em>u</em><em>n</em><em>t</em>(<em>w</em> * <em>i</em> − (<em>n</em> − 1), ..., <em>w</em> * <em>i</em> − 1, <em>w</em><sub><em>i</em></sub>) / <em>c</em><em>o</em><em>u</em><em>n</em><em>t</em>(<em>w</em> * <em>i</em> − (<em>n</em> − 1), ..., <em>w</em>_<em>i</em> − 1)</span></p>
 <p>For a bigram, <span class="math inline"><em>N</em> = 2</span>,</p>
 <p><span
 class="math display"><em>P</em>(<em>I</em>, <em>s</em><em>a</em><em>w</em>, <em>t</em><em>h</em><em>e</em>, <em>r</em><em>e</em><em>d</em>, <em>h</em><em>o</em><em>u</em><em>s</em><em>e</em>) ≈ <em>P</em>(<em>I</em>|⟨<em>s</em>⟩) × <em>P</em>(<em>s</em><em>a</em><em>w</em>|<em>I</em>) × <em>P</em>(<em>t</em><em>h</em><em>e</em>|<em>s</em><em>a</em><em>w</em>) × <em>P</em>(<em>r</em><em>e</em><em>d</em>|<em>t</em><em>h</em><em>e</em>) × <em>P</em>(<em>h</em><em>o</em><em>u</em><em>s</em><em>e</em>|<em>r</em><em>e</em><em>d</em>) × <em>P</em>(⟨/<em>s</em>⟩|<em>h</em><em>o</em><em>u</em><em>s</em><em>e</em>)</span></p>
@@ -347,7 +347,7 @@ class="sourceCode python"><code class="sourceCode python"><span id="cb8-1"><a hr
 <span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a>corpus_split_refined <span class="op">=</span> []</span>
 <span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> i <span class="kw">in</span> <span class="bu">range</span>(<span class="dv">0</span>, <span class="bu">len</span>(corpus_split), <span class="dv">2</span>):</span>
-<span id="cb8-5"><a href="#cb8-5" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb8-5"><a href="#cb8-5" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb8-6"><a href="#cb8-6" aria-hidden="true" tabindex="-1"></a>    <span class="cf">try</span>:</span>
 <span id="cb8-7"><a href="#cb8-7" aria-hidden="true" tabindex="-1"></a>        corpus_split_refined.append(corpus_split[i]<span class="op">+</span>corpus_split[i<span class="op">+</span><span class="dv">1</span>])</span>
 <span id="cb8-8"><a href="#cb8-8" aria-hidden="true" tabindex="-1"></a></span>
@@ -358,7 +358,7 @@ class="sourceCode python"><code class="sourceCode python"><span id="cb8-1"><a hr
 <p>Now that we have a list of sentences, we can spruce it up a
 little.</p>
 <div class="sourceCode" id="cb10"><pre
-class="sourceCode python"><code class="sourceCode python"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Fix the refined text </span></span>
+class="sourceCode python"><code class="sourceCode python"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Fix the refined text</span></span>
 <span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> i <span class="kw">in</span> <span class="bu">range</span>(<span class="bu">len</span>(corpus_split_refined)):</span>
 <span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb10-4"><a href="#cb10-4" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Remove whitespace around the text</span></span>
@@ -437,7 +437,7 @@ in the whole corpus.</p>
 class="sourceCode python"><code class="sourceCode python"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a>pair_probability <span class="op">=</span> {}</span>
 <span id="cb16-2"><a href="#cb16-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb16-3"><a href="#cb16-3" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> pair <span class="kw">in</span> pairs:</span>
-<span id="cb16-4"><a href="#cb16-4" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb16-4"><a href="#cb16-4" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb16-5"><a href="#cb16-5" aria-hidden="true" tabindex="-1"></a>    probab <span class="op">=</span> pairs.count(pair) <span class="op">/</span> sample_restructured.count(pair[<span class="dv">0</span>])</span>
 <span id="cb16-6"><a href="#cb16-6" aria-hidden="true" tabindex="-1"></a>    pair_probability[pair] <span class="op">=</span> probab</span></code></pre></div>
 <pre><code>{(&#39;&lt;s&gt;&#39;, &#39;\ufeffThe&#39;): 0.001,
