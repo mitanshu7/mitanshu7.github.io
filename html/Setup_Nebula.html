@@ -1,0 +1,336 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>Setup_Nebula</title>
+  <style>
+    html {
+      color: #1a1a1a;
+      background-color: #fdfdfd;
+    }
+    body {
+      margin: 0 auto;
+      max-width: 36em;
+      padding-left: 50px;
+      padding-right: 50px;
+      padding-top: 50px;
+      padding-bottom: 50px;
+      hyphens: auto;
+      overflow-wrap: break-word;
+      text-rendering: optimizeLegibility;
+      font-kerning: normal;
+    }
+    @media (max-width: 600px) {
+      body {
+        font-size: 0.9em;
+        padding: 12px;
+      }
+      h1 {
+        font-size: 1.8em;
+      }
+    }
+    @media print {
+      html {
+        background-color: white;
+      }
+      body {
+        background-color: transparent;
+        color: black;
+        font-size: 12pt;
+      }
+      p, h2, h3 {
+        orphans: 3;
+        widows: 3;
+      }
+      h2, h3, h4 {
+        page-break-after: avoid;
+      }
+    }
+    p {
+      margin: 1em 0;
+    }
+    a {
+      color: #1a1a1a;
+    }
+    a:visited {
+      color: #1a1a1a;
+    }
+    img {
+      max-width: 100%;
+    }
+    svg {
+      height: auto;
+      max-width: 100%;
+    }
+    h1, h2, h3, h4, h5, h6 {
+      margin-top: 1.4em;
+    }
+    h5, h6 {
+      font-size: 1em;
+      font-style: italic;
+    }
+    h6 {
+      font-weight: normal;
+    }
+    ol, ul {
+      padding-left: 1.7em;
+      margin-top: 1em;
+    }
+    li > ol, li > ul {
+      margin-top: 0;
+    }
+    blockquote {
+      margin: 1em 0 1em 1.7em;
+      padding-left: 1em;
+      border-left: 2px solid #e6e6e6;
+      color: #606060;
+    }
+    code {
+      font-family: Menlo, Monaco, Consolas, 'Lucida Console', monospace;
+      font-size: 85%;
+      margin: 0;
+      hyphens: manual;
+    }
+    pre {
+      margin: 1em 0;
+      overflow: auto;
+    }
+    pre code {
+      padding: 0;
+      overflow: visible;
+      overflow-wrap: normal;
+    }
+    .sourceCode {
+     background-color: transparent;
+     overflow: visible;
+    }
+    hr {
+      border: none;
+      border-top: 1px solid #1a1a1a;
+      height: 1px;
+      margin: 1em 0;
+    }
+    table {
+      margin: 1em 0;
+      border-collapse: collapse;
+      width: 100%;
+      overflow-x: auto;
+      display: block;
+      font-variant-numeric: lining-nums tabular-nums;
+    }
+    table caption {
+      margin-bottom: 0.75em;
+    }
+    tbody {
+      margin-top: 0.5em;
+      border-top: 1px solid #1a1a1a;
+      border-bottom: 1px solid #1a1a1a;
+    }
+    th {
+      border-top: 1px solid #1a1a1a;
+      padding: 0.25em 0.5em 0.25em 0.5em;
+    }
+    td {
+      padding: 0.125em 0.5em 0.25em 0.5em;
+    }
+    header {
+      margin-bottom: 4em;
+      text-align: center;
+    }
+    #TOC li {
+      list-style: none;
+    }
+    #TOC ul {
+      padding-left: 1.3em;
+    }
+    #TOC > ul {
+      padding-left: 0;
+    }
+    #TOC a:not(:hover) {
+      text-decoration: none;
+    }
+    code{white-space: pre-wrap;}
+    span.smallcaps{font-variant: small-caps;}
+    div.columns{display: flex; gap: min(4vw, 1.5em);}
+    div.column{flex: auto; overflow-x: auto;}
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    /* The extra [class] is a hack that increases specificity enough to
+       override a similar rule in reveal.js */
+    ul.task-list[class]{list-style: none;}
+    ul.task-list li input[type="checkbox"] {
+      font-size: inherit;
+      width: 0.8em;
+      margin: 0 0.8em 0.2em -1.6em;
+      vertical-align: middle;
+    }
+    .display.math{display: block; text-align: center; margin: 0.5rem auto;}
+    /* CSS for syntax highlighting */
+    html { -webkit-text-size-adjust: 100%; }
+    pre > code.sourceCode { white-space: pre; position: relative; }
+    pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+    pre > code.sourceCode > span:empty { height: 1.2em; }
+    .sourceCode { overflow: visible; }
+    code.sourceCode > span { color: inherit; text-decoration: inherit; }
+    div.sourceCode { margin: 1em 0; }
+    pre.sourceCode { margin: 0; }
+    @media screen {
+    div.sourceCode { overflow: auto; }
+    }
+    @media print {
+    pre > code.sourceCode { white-space: pre-wrap; }
+    pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+    }
+    pre.numberSource code
+      { counter-reset: source-line 0; }
+    pre.numberSource code > span
+      { position: relative; left: -4em; counter-increment: source-line; }
+    pre.numberSource code > span > a:first-child::before
+      { content: counter(source-line);
+        position: relative; left: -1em; text-align: right; vertical-align: baseline;
+        border: none; display: inline-block;
+        -webkit-touch-callout: none; -webkit-user-select: none;
+        -khtml-user-select: none; -moz-user-select: none;
+        -ms-user-select: none; user-select: none;
+        padding: 0 4px; width: 4em;
+        color: #aaaaaa;
+      }
+    pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+    div.sourceCode
+      {   }
+    @media screen {
+    pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+    }
+    code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+    code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+    code span.at { color: #7d9029; } /* Attribute */
+    code span.bn { color: #40a070; } /* BaseN */
+    code span.bu { color: #008000; } /* BuiltIn */
+    code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+    code span.ch { color: #4070a0; } /* Char */
+    code span.cn { color: #880000; } /* Constant */
+    code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+    code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+    code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+    code span.dt { color: #902000; } /* DataType */
+    code span.dv { color: #40a070; } /* DecVal */
+    code span.er { color: #ff0000; font-weight: bold; } /* Error */
+    code span.ex { } /* Extension */
+    code span.fl { color: #40a070; } /* Float */
+    code span.fu { color: #06287e; } /* Function */
+    code span.im { color: #008000; font-weight: bold; } /* Import */
+    code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+    code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+    code span.op { color: #666666; } /* Operator */
+    code span.ot { color: #007020; } /* Other */
+    code span.pp { color: #bc7a00; } /* Preprocessor */
+    code span.sc { color: #4070a0; } /* SpecialChar */
+    code span.ss { color: #bb6688; } /* SpecialString */
+    code span.st { color: #4070a0; } /* String */
+    code span.va { color: #19177c; } /* Variable */
+    code span.vs { color: #4070a0; } /* VerbatimString */
+    code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+  </style>
+</head>
+<body>
+<h1 id="setup-nebula">Setup <a
+href="https://nebula.defined.net/docs/">Nebula</a></h1>
+<h2 id="the-open-source-tailscale-alternative">The Open-Source <a
+href="https://tailscale.com/">Tailscale</a> Alternative</h2>
+<p><strong>Mitanshu Sukhwani</strong> • <em>19 June 2025</em></p>
+<p>Traditionally, VPNs have had a hub-and-spoke architecture. There are
+multiple clients, who want to talk to multiple servers. You would then
+setup a designated server as the VPN server. This server can access
+both, the internet and your office network, which is how you can
+<em>relay</em> your <code>ssh</code> connections to the destination.</p>
+<figure>
+<img
+src="https://cdn.sanity.io/images/w77i7m8x/production/3cbc3fa27f0b798d3a0bc98f57829a9083dad769-1400x1080.svg?w=3840&amp;q=75&amp;fit=clip&amp;auto=format"
+alt="Hub-and-Spoke VPN. Source: Tailscale" />
+<figcaption aria-hidden="true">Hub-and-Spoke VPN. Source: <a
+href="https://tailscale.com/blog/how-tailscale-works">Tailscale</a></figcaption>
+</figure>
+<p>However, there is a single point of failure with this model, and
+latency can take a huge hit if both the machines are geographically
+closer but the hub is in some far-away land.</p>
+<figure>
+<img
+src="https://cdn.sanity.io/images/w77i7m8x/production/d0363ebfb736fa6e394aef3cb26585cecd842cd2-1320x980.svg?w=3840&amp;q=75&amp;fit=clip&amp;auto=format"
+alt="Latency hits. Source: Tailscale" />
+<figcaption aria-hidden="true">Latency hits. Source: <a
+href="https://tailscale.com/blog/how-tailscale-works">Tailscale</a></figcaption>
+</figure>
+<p>Thus, newer generation of VPNs solve this by using a mesh network.
+Where every machine (node) is connected to every other node
+(machine).</p>
+<figure>
+<img
+src="https://cdn.sanity.io/images/w77i7m8x/production/e989a4a69acd182abbd662d0de93cb31c4c4d210-1600x1080.svg?w=3840&amp;q=75&amp;fit=clip&amp;auto=format"
+alt="Mesh network. Source: Tailscale" />
+<figcaption aria-hidden="true">Mesh network. Source: <a
+href="https://tailscale.com/blog/how-tailscale-works">Tailscale</a></figcaption>
+</figure>
+<p>But how do the clients know with whom to talk to? That is handled by
+a Coordination Server (closed-source), which is essentially a dropbox to
+exchange public keys.</p>
+<figure>
+<img
+src="https://cdn.sanity.io/images/w77i7m8x/production/dbba97845c1ad1955669cc6a84c94f9d5fb78ade-1600x1080.svg?w=3840&amp;q=75&amp;fit=clip&amp;auto=format"
+alt="Coordination Server. Source: Tailscale" />
+<figcaption aria-hidden="true">Coordination Server. Source: <a
+href="https://tailscale.com/blog/how-tailscale-works">Tailscale</a></figcaption>
+</figure>
+<p>This looks like a Hub and Spoke model again, but its only the keys
+that are transferred through this server, the data plane remains the
+mesh.</p>
+<p>There are some NAT punching tricks that help with traversal and
+firewalls, which is beautifully explained in this blogpost by Tailscale:
+<a href="https://tailscale.com/blog/how-nat-traversal-works">How NAT
+traversal works</a>.</p>
+<p>Tailscale makes this setup very convenient, all you have to do is
+install the app (which is open-source) and sign in using your available
+<a href="https://en.wikipedia.org/wiki/Single_sign-on">SSO</a>
+(gmail/microsoft/github/apple/email). This is what I would recommend if
+you are new to networking or want a hands-off approach. Here is a
+detailed comparison between <a
+href="https://tailscale.com/compare/nebula">Nebula
+vs. Tailscale</a>.</p>
+<p><a href="https://github.com/slackhq/nebula">Nebula</a> has all of
+it’s components open-source, which gives you the peace of mind when it
+comes to trusting your networking. Nebula, as listed on their <a
+href="https://nebula.defined.net/docs/guides/quick-start/">quick-start</a>
+page, has the following components:</p>
+<ol type="1">
+<li>Lighthouse - similar to the coordination server above, it helps find
+other hosts on the network.</li>
+<li>Hosts - any device added to the Nebula network.</li>
+<li>Certificate Authority - a trusted entity that issues and manages
+digital certificates.</li>
+</ol>
+<p>Now, nebula assumes we already have a Lighthouse setup with a public
+facing ip. Let’s get that sorted. On the github page they recommend a
+$6/month digital ocean vm, but I don’t have that kind of money so we’ll
+look for free things. <a
+href="https://cloud.google.com/free/docs/free-cloud-features#compute">Google
+compute</a> has a free tier which gives you a e2-micro VM. This is more
+than enough for our task.</p>
+<p>After <a
+href="https://console.cloud.google.com/getting-started?pli=1">signing
+up</a> for an account, spin up a VM using: <a
+href="https://cloud.google.com/compute/docs/instances/create-start-instance">Create
+and start a Compute Engine instance</a>. I used a Debian 12 image for
+light ram usage, and make sure to change the disk type to
+<code>standard persistent disk</code> to not incur any charges.</p>
+<p>After the VM spins up, login to your instance using <a
+href="https://cloud.google.com/sdk/docs/install-sdk">gcloud-cli</a>:</p>
+<div class="sourceCode" id="cb1"><pre
+class="sourceCode bash"><code class="sourceCode bash"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="ex">gcloud</span> compute ssh <span class="at">--zone</span> <span class="st">&quot;zone_name&quot;</span> <span class="st">&quot;instance_name&quot;</span> <span class="at">--project</span> <span class="st">&quot;project_name&quot;</span></span></code></pre></div>
+<p>You may want to run
+<code>sudo apt update &amp;&amp; sudo apt upgrade -y</code> to update
+your VM install. Since Google thresholds your usage, this will take a
+long time to complete, so you may want to grab some coffee while this
+finishes.</p>
+<div style="text-align: center;"><a href="../index.html">Back to Home</a></div>
+</body>
+</html>
