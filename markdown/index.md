@@ -60,7 +60,7 @@ This blog is where I share thoughts/How-Tos on software, high-performance comput
 
 26. [What about the Island?](html/What_about_the_Island.html)
 
-27. [Setup Nebula](html/Setup_Nebula.html)
+27. [Setup Nebula (in-progress)](html/Setup_Nebula.html)
 
 ---
 
