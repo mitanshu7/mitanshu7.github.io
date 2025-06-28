@@ -62,6 +62,8 @@ This blog is where I share thoughts/How-Tos on software, high-performance comput
 
 27. [Setup Nebula (in-progress)](html/Setup_Nebula.html)
 
+28. [Wash your Cocktails](html/Wash_your_Cocktails.html)
+
 ---
 
 # Contact
