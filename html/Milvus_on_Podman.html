@@ -397,7 +397,9 @@ class="sourceCode bash"><code class="sourceCode bash"><span id="cb2-1"><a href="
 <ol type="1">
 <li><p>remove sudo for use with podman rootless</p></li>
 <li><p>add <code>:Z</code> in the end of mapped volumes for SELinux
-Context Handling</p>
+Context Handling</p></li>
+<li><p>Add <code>docker.io</code> infront of
+<code>milvusdb/milvus</code> for name resolution</p>
 <div class="sourceCode" id="cb3"><pre
 class="sourceCode bash"><code class="sourceCode bash"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="co">#!/usr/bin/env bash</span></span>
 <span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a></span>

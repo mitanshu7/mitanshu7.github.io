@@ -172,6 +172,8 @@
 
 2. add `:Z` in the end of mapped volumes for SELinux Context Handling
 
+3. Add `docker.io` infront of `milvusdb/milvus` for name resolution
+
    ```bash
    #!/usr/bin/env bash
 
