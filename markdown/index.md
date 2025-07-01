@@ -72,8 +72,11 @@ This blog is where I share thoughts/How-Tos on software, high-performance comput
 # Contact
 
 - Email: [mitanshu.sukhwani@gmail.com](mailto:mitanshu.sukhwani@gmail.com)
+
 - LinkedIn: [Mitanshu Sukhwani](https://linkedin.com/in/mitanshusukhwani)
+
 - GitHub: [mitanshu7](https://github.com/mitanshu7)
+
 - [Curriculum Vitae](https://raw.githubusercontent.com/mitanshu7/dumpyard/refs/heads/main/mitanshu_cv.pdf)
 
 _Thanks for stopping by!_
