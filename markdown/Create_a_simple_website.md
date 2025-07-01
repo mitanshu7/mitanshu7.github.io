@@ -1,11 +1,15 @@
 ---
+# 1. Basic Identification
 title: "Create a simple website"
+subtitle: "**Like this one**"
+author: "_Mitanshu Sukhwani_"
+date: "`2025-06-07`"
+lang: en
+
+# 2. Metadata / SEO
 description: "Step-by-step guide to build a free personal website using GitHub Pages and Markdown. Convert your content with Pandoc and publish easily without writing raw HTML. Ideal for developers and writers familiar with git."
+keywords: "GitHub Pages, Markdown, Pandoc, HTML, website, free, personal, developer, writer, git"
 ---
-
-## Like this one
-
-**Mitanshu Sukhwani** • _07 June 2025_
 
 To create a simple (and free) website we will be using [Github Pages](https://pages.github.com/).
 
@@ -27,20 +31,47 @@ The following assumptions are made:
 
 4. Create a blog post in the `markdown` folder with title `post_title.md`.
 
-5. Convert the Markdown blog post to HTML using pandoc (execute in the repo folder):
+5. In the top of the `post_title.md`, create a YAML front matter with the following fields:
+
+   ```yaml
+   ---
+   # 1. Basic Identification
+   title: Post Title
+   subtitle: Post Subtitle
+   author: Your Name
+   date: YYYY-MM-DD
+   lang: en
+
+   # 2. Metadata / SEO
+   description: Post Description
+   keywords: [keyword1, keyword2, keyword3]
+   ---
+   ```
+
+   to make the blog post SEO friendly. You may skip adding keywords if you don't have any.
+
+6. Convert the Markdown blog post to HTML using pandoc (execute in the repo folder):
 
    `pandoc --standalone --output html/post_title.html markdown/post_title.md`
 
-6. Create an `index.md` file in `markdown` folder. Create the index by hyperlinking the posts:
+7. Create an `index.md` file in `markdown` folder. Create the index by hyperlinking the posts:
 
    `1. [Post Title](html/post_title.html)`
 
-7. Convert `index.md` to HTML using pandoc (execute in the repo folder):
+8. Convert `index.md` to HTML using pandoc (execute in the repo folder):
 
    `pandoc --standalone --output index.html markdown/index.md`
 
    You need to create the index file at the root of your repository. Since GitHub does now allow you to host the site from folder titled other than `docs` trivially.
 
-8. Commit, push, wait a bit, and see your website live!
+9. Commit, push, wait a bit, and see your website live!
+
+You can check the quality of your website on [PageSpeed Insights](https://pagespeed.web.dev/). 
+
+See [this report](https://pagespeed.web.dev/analysis/https-mitanshu7-github-io/qzwymb5f33?form_factor=mobile) for [mitanshu7.github.io](https://mitanshu7.github.io/). 
 
 ### For more information, see [GitHub Pages documentation ](https://docs.github.com/en/pages)
+
+# Bonus!
+
+I have created a python script to convert all markdown files to html to easy the process. The script also uses `template.html` to add _Back to Home_ links on the bottom of every page. Please visit [mitanshu7/mitanshu7.github.io](https://github.com/mitanshu7/mitanshu7.github.io)!
