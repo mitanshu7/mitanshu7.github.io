@@ -1,4 +1,7 @@
-# Books Read
+---
+title: "Books Read"
+description: "A personal reading list spanning memoirs, fiction, science, and philosophy — from 'Sapiens' and 'Educated' to 'The Martian' and 'Thinking, Fast and Slow'. A mix of thought-provoking, entertaining, and reflective reads remembered from memory."
+---
 
 ## From memory
 

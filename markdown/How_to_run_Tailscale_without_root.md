@@ -1,4 +1,7 @@
-# How to run [Tailscale](https://tailscale.com/) without root
+---
+title: "How to run Tailscale without root"
+description: "Learn how to set up and run Tailscale in user-space without root access. Includes steps for downloading static binaries, configuring tailscaled with a custom socket and port, automating startup via cron, and troubleshooting multi-user setups."
+---
 
 ## Longing to connect to your lab server?
 

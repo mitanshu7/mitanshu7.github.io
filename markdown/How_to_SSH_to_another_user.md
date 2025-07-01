@@ -1,4 +1,7 @@
-# How to SSH to another user
+---
+title: "How to SSH to another user"
+description: "Learn how to copy your SSH public key to another user on the same system using sudo. Includes manual steps and a shell script to automate directory setup, permission handling, and key transfer for passwordless SSH access."
+---
 
 ## Or copy your public SSH key to another user in the same system
 

@@ -1,4 +1,7 @@
-# How to run Jupyter on compute node
+---
+title: "How to run Jupyter on compute node"
+description: "Step-by-step guide to run JupyterLab on HPC compute nodes at IISER Tirupati, using or bypassing PBS. Includes SSH tunneling setup, port forwarding, and automated scripts for seamless access from local machine."
+---
 
 ## Using [PBS](https://altair.com/pbs-professional) or not :)
 

@@ -1,4 +1,7 @@
-# [N-gram Language Models](https://web.stanford.edu/~jurafsky/slp3/3.pdf)
+---
+title: "N-gram Language Models"
+description: "Explore the basics of N-gram models—simple yet powerful tools in NLP—through a hands-on bigram generator built on Jane Austen's 'Pride and Prejudice'. A look back at language modeling before the LLM era."
+---
 
 ## “We can avail himself, appear unpleasant in acknowledgment that Edmund only took Fanny because Mary shocked him”
 

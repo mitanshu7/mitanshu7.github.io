@@ -1,4 +1,7 @@
-# Automate with Ansible
+---
+title: "Automate with Ansible"
+description-meta: "Automate system management with Ansible using Playbooks to define desired states. Learn installation, idempotent tasks, and secure automation with Vault. Based on tutorials from LearnLinuxTV."
+---
 
 ## Hello IT. Did you try turning it on and off again?
 

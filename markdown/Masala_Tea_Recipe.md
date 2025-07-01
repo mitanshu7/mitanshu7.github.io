@@ -1,4 +1,7 @@
-# Masala Tea Recipe
+---
+title: "Masala Tea Recipe"
+description: "A simple, personal masala chai recipe using Taj Mahal Tea, Everest Tea Masala, and full cream milk. Steep, boil, strain, and enjoy this aromatic Indian classic. Sweetener optional, but sugar tastes best!"
+---
 
 ## My dialed down recipe
 

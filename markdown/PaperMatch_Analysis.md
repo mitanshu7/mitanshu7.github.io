@@ -1,4 +1,7 @@
-# PaperMatch Analysis
+---
+title: "PaperMatch Analysis"
+description: "Exploring how vector embeddings reveal insights about scientific research on arXiv. From distance metrics and vector DB performance to category shifts and dimensionality reduction using PCA, UMAP, and MRL on millions of abstracts."
+---
 
 ## What do the vectors tell us?
 

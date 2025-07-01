@@ -1,4 +1,7 @@
-# Update podman containers manually
+---
+title: "Update podman containers manually"
+description: "Manually update Podman containers by stopping them, pulling new images, restarting with original commands, and regenerating systemd service files if auto-update isn't working."
+---
 
 ## When I couldn't figure out [auto-update](https://docs.podman.io/en/latest/markdown/podman-auto-update.1.html)
 

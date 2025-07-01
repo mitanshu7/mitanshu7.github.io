@@ -1,4 +1,7 @@
-# Tailscale on Kindle
+---
+title: "Tailscale on Kindle"
+description: "Guide to running Tailscale on a jailbroken Kindle using KUAL and USBNetworking. Includes setup steps, binary placement, login, and remote SSH access via Tailscale IP."
+---
 
 ## It's a rite of passage to run tailscale on weird devices.
 

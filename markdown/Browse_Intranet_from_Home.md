@@ -1,4 +1,7 @@
-# Browse Intranet from Home
+---
+title: "Browse Intranet from Home"
+description: "Guide to securely access the IISER Tirupati intranet from home using Tailscale VPN and sshuttle. Works with a campus-connected workstation and a Linux/Mac device with sudo access. Quick setup for remote intranet browsing."
+---
 
 ## When you need to get forms after leaving abrubtly
 

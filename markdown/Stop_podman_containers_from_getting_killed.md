@@ -1,4 +1,7 @@
-# Stop podman containers from getting killed
+---
+title: "Stop podman containers from getting killed"
+description: "Keep rootless Podman containers running after logout or reboot using systemd user services, linger sessions, and generated unit files. Note: systemd support is deprecated; consider using Quadlets."
+---
 
 ## After logout/reboot
 

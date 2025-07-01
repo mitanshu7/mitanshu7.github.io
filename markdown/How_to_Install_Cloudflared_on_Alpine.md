@@ -1,4 +1,7 @@
-# How to Install [Cloudflared](https://developers.cloudflare.com/cloudflare-one/connections/connect-networks/) on [Alpine](https://www.alpinelinux.org/)
+---
+title: "How to Install Cloudflared on Alpine"
+description: "Guide to install and run Cloudflared on Alpine Linux for Raspberry Pi Zero 2W using OpenRC. Includes tunnel setup, systemd replacement with OpenRC, and startup configuration."
+---
 
 ## For [Raspberri Pi Zero 2W](https://www.raspberrypi.com/products/raspberry-pi-zero-2-w/)
 

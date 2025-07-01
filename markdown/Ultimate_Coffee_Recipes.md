@@ -1,4 +1,7 @@
-# Ultimate Coffee Recipes
+---
+title: "Ultimate Coffee Recipes"
+description: "Brew like a pro with James Hoffmann’s top techniques for V60, Chemex, AeroPress, French Press, and more. Includes links to brewers and a curated YouTube playlist."
+---
 
 ## By James Hoffmann
 

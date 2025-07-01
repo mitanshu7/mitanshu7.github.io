@@ -1,4 +1,7 @@
-# Selfhosting Setup
+---
+title: "Selfhosting Setup"
+description: "A personal journey into selfhosting—repurposing old hardware, running Debian with Docker, and hosting Nextcloud & Audiobookshelf using Cloudflare Tunnel and Tailscale to own your data and reduce reliance on Big Tech."
+---
 
 ## Own your data
 

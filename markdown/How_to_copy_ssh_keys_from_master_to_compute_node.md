@@ -1,4 +1,7 @@
-# How to copy ssh keys from master to compute node
+---
+title: "How to copy ssh keys from master to compute node"
+description: "Quick guide to set up passwordless SSH access from the master to compute nodes in an HPC cluster. Covers key generation, retrieving node IPs, and using ssh-copy-id."
+---
 
 ## Fix when you run `ssh-keygen` on brand new HPC access
 

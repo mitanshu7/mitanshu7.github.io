@@ -1,4 +1,7 @@
-# What about the Island?
+---
+title: "What about the Island?"
+description: "A mysterious cluster of arXiv papers formed a new 'island' in UMAP projections between Nov 2024–Feb 2025. Data suggests a systemic shift—was it aliens or just arXiv changing something?"
+---
 
 ## Did aliens try to divert the direction of arxiv?
 

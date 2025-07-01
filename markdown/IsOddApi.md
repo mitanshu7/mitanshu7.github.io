@@ -1,4 +1,7 @@
-# [IsOddApi](https://isodd.papermatch.me/)
+---
+title: "IsOddApi"
+description: "A playful REST API that tells you if a number is odd—powered by isEven API under the hood and built with Flask and Docker. Visit isodd.papermatch.me for docs, source code, and usage examples."
+---
 
 ## API to tell if a number is [Odd](https://simple.wikipedia.org/wiki/Odd_number)
 

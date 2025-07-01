@@ -4,7 +4,8 @@
   <meta charset="utf-8" />
   <meta name="generator" content="pandoc" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
-  <title>Milvus_on_Podman</title>
+  <meta name="description" content="Guide to running Milvus using Podman instead of Docker by modifying Milvus’s official standalone script. Adjustments include removing sudo, adding SELinux ‘:Z’ flags for volume mounts, and using fully qualified image names for compatibility." />
+  <title>Milvus on Podman</title>
   <style>
     html {
       color: #1a1a1a;
@@ -234,7 +235,9 @@
   </style>
 </head>
 <body>
-<h1 id="milvus-on-podman">Milvus on Podman</h1>
+<header id="title-block-header">
+<h1 class="title">Milvus on Podman</h1>
+</header>
 <h2 id="docker-to-podman">Docker <span class="math inline">→</span>
 Podman</h2>
 <p><strong>Mitanshu Sukhwani</strong> • <em>07 June 2025</em></p>

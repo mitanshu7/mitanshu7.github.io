@@ -1,4 +1,7 @@
-# How to change SSH Port on OCI
+---
+title: "How to change SSH Port on OCI"
+description: "Guide to securely change the SSH port on Oracle Cloud Infrastructure (OCI). Includes SELinux adjustments, firewall and security list updates, and troubleshooting via Cloud Shell."
+---
 
 ## A tutorial
 
@@ -17,7 +20,6 @@
 3. Now when you restart the sshd service using: `sudo systemctl restart sshd`, it should happen without any issues However you still will not be able to connect, just yet.
 
 4. Now modiify firewall rules to allow the mentioned port.
-
    1. List firewall rules using: `sudo firewall-cmd --list-all`
    2. Add rule for the port: `sudo firewall-cmd --zone=public --permanent --add-port=<port-number>/tcp`
    3. Reload firewall: `sudo firewall-cmd --reload`
@@ -26,7 +28,6 @@
 5. Now go to https://cloud.oracle.com/compute/instances, Find your instance and go to the clickable subnet under primary vnic.
 
 6. There select the default security list and add an ingress rule:
-
    1. Select Add Ingress rule
    2. In Source CIDR, enter `0.0.0.0/0` to allow every ip.
    3. Enter the `<port-number>` in Destination Port Range.

@@ -1,4 +1,7 @@
-# Setup [Nebula](https://nebula.defined.net/docs/)
+---
+title: "Setup Nebula"
+description: "Learn how to self-host a mesh VPN using Nebula, the open-source Tailscale alternative. Set up a lighthouse node on Google Cloud’s free tier, configure firewall rules, and connect devices securely."
+---
 
 ## The Open-Source [Tailscale](https://tailscale.com/) Alternative
 

@@ -1,4 +1,7 @@
-# Behind [PaperMatch](https://papermatch.me)
+---
+title: "Behind PaperMatch"
+description: "How I built PaperMatch: a paper recommendation engine using arXiv abstracts, transformer embeddings, and Milvus. Learn about the embedding pipeline, vector search, and Gradio-powered UI at papermatch.me."
+---
 
 ## Building a Paper Recommendation Engine with arXiv Abstracts and Milvus
 
@@ -27,7 +30,6 @@ I utilized a rather straightforward embedding process:
 1. **Source data**: Download arXiv metadata from [kaggle](https://www.kaggle.com/datasets/Cornell-University/arxiv).
 
 2. **Preprocessing**:
-
    1. Convert the downloaded `json` to `parquet` since python does not play nice to `json` and is a memory hog.
 
    2. Trim the dataframe to keep only arXiv ID and abstract.

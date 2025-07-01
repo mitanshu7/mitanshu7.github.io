@@ -1,4 +1,7 @@
-# [Hello](index.html)
+---
+title: Mitanshu Sukhwani's Blog
+description-meta: I'm Mitanshu Sukhwani, creator of PaperMatch. With a Master's in Physics from IIT Madras, I explore neuroscience, ML, and data. This blog shares thoughts on software, HPC, coffee, and cats.
+---
 
 I'm **Mitanshu Sukhwani**, creator of [**PaperMatch**](https://papermatch.me/) with a Master’s in Physics from [IIT Madras](https://physics.iitm.ac.in). I’ve worked at [IISER Tirupati](https://www.iisertirupati.ac.in) on EEG data, network science, and brain modeling. I enjoy exploring ML, Linux, and the intersection of neuroscience, software, and data.
 
