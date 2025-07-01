@@ -4,7 +4,7 @@ title: "Mitanshu Sukhwani's Blog"
 subtitle: "**Nice To Meet You!**"
 # author: "_Mitanshu Sukhwani_"
 # date: "`2025-06-07`"
-# lang: en
+lang: en
 
 # 2. Metadata / SEO
 description-meta: "I'm Mitanshu Sukhwani, creator of PaperMatch. With a Master's in Physics from IIT Madras, I explore neuroscience, ML, and data. This blog shares thoughts on software, HPC, coffee, and cats."
