@@ -52,12 +52,12 @@ for markdown_file in markdown_files:
         output_file = 'index.html'
 
         # Convert the markdown file to HTML without a template
-        convert_markdown_to_html(markdown_file, output_file, arguments='--standalone')
+        convert_markdown_to_html(markdown_file, output_file, arguments='--standalone --variable lang=en')
 
     else:
 
         # Convert the markdown file to HTML
-        convert_markdown_to_html(markdown_file, output_file, arguments='--standalone --template=html/template.html')
+        convert_markdown_to_html(markdown_file, output_file, arguments='--standalone --template=html/template.html --variable lang=en')
 
 
 # Print a completion message
