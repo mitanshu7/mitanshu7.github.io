@@ -1,11 +1,15 @@
 ---
+# 1. Basic Identification
 title: "Books Read"
+subtitle: "**From memory**"
+author: "_Mitanshu Sukhwani_"
+date: "`2025-06-09`"
+lang: en
+
+# 2. Metadata / SEO
 description: "A personal reading list spanning memoirs, fiction, science, and philosophy — from 'Sapiens' and 'Educated' to 'The Martian' and 'Thinking, Fast and Slow'. A mix of thought-provoking, entertaining, and reflective reads remembered from memory."
+keywords: "books, reading list, memoirs, fiction, science, philosophy, personal reflection"
 ---
-
-## From memory
-
-**Mitanshu Sukhwani** • _09 June 2025_
 
 - [Sapiens](https://www.goodreads.com/book/show/23692271-sapiens) by Yuval Noah Harari
 

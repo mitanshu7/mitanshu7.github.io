@@ -48,7 +48,7 @@ The following assumptions are made:
    ---
    ```
 
-   to make the blog post SEO friendly. You may skip adding keywords if you don't have any.
+   to make the blog post SEO friendly. You may skip adding keywords if you don't have any. Is is safer to add `""` around the values of `title`, `subtitle`, `author`, and `description` fields.
 
 6. Convert the Markdown blog post to HTML using pandoc (execute in the repo folder):
 
@@ -66,9 +66,9 @@ The following assumptions are made:
 
 9. Commit, push, wait a bit, and see your website live!
 
-You can check the quality of your website on [PageSpeed Insights](https://pagespeed.web.dev/). 
+You can check the quality of your website on [PageSpeed Insights](https://pagespeed.web.dev/).
 
-See [this report](https://pagespeed.web.dev/analysis/https-mitanshu7-github-io/qzwymb5f33?form_factor=mobile) for [mitanshu7.github.io](https://mitanshu7.github.io/). 
+See [this report](https://pagespeed.web.dev/analysis/https-mitanshu7-github-io/qzwymb5f33?form_factor=mobile) for [mitanshu7.github.io](https://mitanshu7.github.io/).
 
 ### For more information, see [GitHub Pages documentation ](https://docs.github.com/en/pages)
 

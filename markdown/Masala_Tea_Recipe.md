@@ -1,11 +1,15 @@
 ---
+# 1. Basic Identification
 title: "Masala Tea Recipe"
+subtitle: "**My dialed down recipe**"
+author: "_Mitanshu Sukhwani_"
+date: "`2025-06-07`"
+lang: en
+
+# 2. Metadata / SEO
 description: "A simple, personal masala chai recipe using Taj Mahal Tea, Everest Tea Masala, and full cream milk. Steep, boil, strain, and enjoy this aromatic Indian classic. Sweetener optional, but sugar tastes best!"
+keywords: "Masala Tea, Chai Recipe, Indian Tea, Taj Mahal Tea, Everest Tea Masala, Full Cream Milk"
 ---
-
-## My dialed down recipe
-
-**Mitanshu Sukhwani** • _07 June 2025_
 
 # Ingredients:
 

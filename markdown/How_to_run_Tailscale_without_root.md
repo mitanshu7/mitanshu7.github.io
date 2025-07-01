@@ -1,11 +1,15 @@
 ---
+# 1. Basic Identification
 title: "How to run Tailscale without root"
+subtitle: "**Longing to connect to your lab server?**"
+author: "_Mitanshu Sukhwani_"
+date: "`2025-06-07`"
+lang: en
+
+# 2. Metadata / SEO
 description: "Learn how to set up and run Tailscale in user-space without root access. Includes steps for downloading static binaries, configuring tailscaled with a custom socket and port, automating startup via cron, and troubleshooting multi-user setups."
+keywords: "Tailscale, user-space networking, tailscaled, cron job, Linux, static binaries, multi-user setup"
 ---
-
-## Longing to connect to your lab server?
-
-**Mitanshu Sukhwani** • _07 June 2025_
 
 # Steps:
 

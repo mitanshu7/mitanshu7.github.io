@@ -1,11 +1,15 @@
 ---
+# 1. Basic Identification
 title: "Setup Nebula"
+subtitle: "**The Open-Source Tailscale Alternative**"
+author: "_Mitanshu Sukhwani_"
+date: "`2025-06-19`"
+lang: en
+
+# 2. Metadata / SEO
 description: "Learn how to self-host a mesh VPN using Nebula, the open-source Tailscale alternative. Set up a lighthouse node on Google Cloud’s free tier, configure firewall rules, and connect devices securely."
+keywords: "Nebula, mesh VPN, self-hosting, Tailscale alternative, Google Cloud, firewall rules"
 ---
-
-## The Open-Source [Tailscale](https://tailscale.com/) Alternative
-
-**Mitanshu Sukhwani** • _19 June 2025_
 
 ## Background
 

@@ -1,11 +1,15 @@
 ---
+# 1. Basic Identification
 title: "Behind PaperMatchBio"
+subtitle: "**Extending PaperMatch to bioRxiv**"
+author: "_Mitanshu Sukhwani_"
+date: "`2025-06-08`"
+lang: en
+
+# 2. Metadata / SEO
 description: "How I extended PaperMatch to bioRxiv: mining full-text XMLs from AWS S3, extracting metadata, embedding abstracts, and uploading everything to Hugging Face Datasets. Includes code for downloading, parsing, and vectorizing bioRxiv preprints."
+keywords: "bioRxiv, Hugging Face, datasets, embeddings, vector database, paper recommendation, machine learning, gradio"
 ---
-
-## Why only arXiv?
-
-**Mitanshu Sukhwani** • _08 June 2025_
 
 # Why bioRxiv?
 

@@ -4,6 +4,10 @@
   <meta charset="utf-8" />
   <meta name="generator" content="pandoc" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <meta name="author" content="Mitanshu Sukhwani" />
+  <meta name="dcterms.date" content="2025-06-07" />
+  <meta name="keywords" content="Milvus, Podman, Docker, standalone
+script, SELinux, rootless container, image name resolution" />
   <meta name="description" content="Guide to running Milvus using Podman instead of Docker by modifying Milvus’s official standalone script. Adjustments include removing sudo, adding SELinux ‘:Z’ flags for volume mounts, and using fully qualified image names for compatibility." />
   <title>Milvus on Podman</title>
   <style>
@@ -237,10 +241,11 @@
 <body>
 <header id="title-block-header">
 <h1 class="title">Milvus on Podman</h1>
+<p class="subtitle"><strong>Guide to running Milvus using Podman instead
+of Docker</strong></p>
+<p class="author"><em>Mitanshu Sukhwani</em></p>
+<p class="date"><code>2025-06-07</code></p>
 </header>
-<h2 id="docker-to-podman">Docker <span class="math inline">→</span>
-Podman</h2>
-<p><strong>Mitanshu Sukhwani</strong> • <em>07 June 2025</em></p>
 <h1 id="original">Original:</h1>
 <ol type="1">
 <li><p>Download from:</p>

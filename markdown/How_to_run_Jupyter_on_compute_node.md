@@ -1,13 +1,17 @@
 ---
+# 1. Basic Identification
 title: "How to run Jupyter on compute node"
+subtitle: "**Step-by-step guide for IISER Tirupati HPC**"
+author: "_Mitanshu Sukhwani_"
+date: "`2025-06-07`"
+lang: en
+
+# 2. Metadata / SEO
 description: "Step-by-step guide to run JupyterLab on HPC compute nodes at IISER Tirupati, using or bypassing PBS. Includes SSH tunneling setup, port forwarding, and automated scripts for seamless access from local machine."
+keywords: "Jupyter, HPC, PBS, SSH tunneling, IISER Tirupati, compute nodes, port forwarding, interactive session"
 ---
 
-## Using [PBS](https://altair.com/pbs-professional) or not :)
-
 ### For IISER Tirupati HPC, should work elsewhere with little modifications
-
-**Mitanshu Sukhwani** • _07 June 2025_
 
 # Prerequisites
 

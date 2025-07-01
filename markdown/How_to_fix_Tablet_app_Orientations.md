@@ -1,11 +1,15 @@
 ---
+# 1. Basic Identification
 title: "How to fix Tablet app Orientations"
+subtitle: "**Free the portrait-locked apps**"
+author: "_Mitanshu Sukhwani_"
+date: "`2025-06-07`"
+lang: en
+
+# 2. Metadata / SEO
 description: "Force portrait-locked apps like Venmo or Authy to run in landscape on Android tablets and foldables using a simple ADB command. Works on Android 12+ with letterboxing support."
+keywords: "Android, tablet, foldable, landscape, portrait, Venmo, Authy, ADB command, letterboxing"
 ---
-
-## Free the portrait
-
-**Mitanshu Sukhwani** • _07 June 2025_
 
 Following is a copy of the [Reddit post](https://www.reddit.com/r/Android/comments/13c4pum/tutorial_how_to_stop_apps_like_authy_venmo_etc/) by [u/MishaalRahman](https://www.reddit.com/user/MishaalRahman/):
 

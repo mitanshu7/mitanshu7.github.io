@@ -1,11 +1,15 @@
 ---
+# 1. Basic Identification
 title: "IsOddApi"
+subtitle: "**A playful REST API to check if a number is odd**"
+author: "_Mitanshu Sukhwani_"
+date: "`2025-06-09`"
+lang: en
+
+# 2. Metadata / SEO
 description: "A playful REST API that tells you if a number is odd—powered by isEven API under the hood and built with Flask and Docker. Visit isodd.papermatch.me for docs, source code, and usage examples."
+keywords: "IsOddApi, REST API, Flask, Docker, isEven API, odd number checker, playful API"
 ---
-
-## API to tell if a number is [Odd](https://simple.wikipedia.org/wiki/Odd_number)
-
-**Mitanshu Sukhwani** • _09 June 2025_
 
 # Backstory
 

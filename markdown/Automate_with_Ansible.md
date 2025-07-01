@@ -1,11 +1,15 @@
 ---
+# 1. Basic Identification
 title: "Automate with Ansible"
+subtitle: "**Hello IT. Did you try turning it on and off again?**"
+author: "_Mitanshu Sukhwani_"
+date: "`2025-06-09`"
+lang: en
+
+# 2. Metadata / SEO
 description-meta: "Automate system management with Ansible using Playbooks to define desired states. Learn installation, idempotent tasks, and secure automation with Vault. Based on tutorials from LearnLinuxTV."
+keywords: "ansible, automation, playbook, idempotent, vault"
 ---
-
-## Hello IT. Did you try turning it on and off again?
-
-**Mitanshu Sukhwani** • _09 June 2025_
 
 I learned all about [ansible](https://docs.ansible.com/ansible/latest/getting_started/index.html), which automates the management of remote systems and controls their desired state, from this fantastic YouTube Channel - [LearnLinuxTV](https://www.youtube.com/@LearnLinuxTV).
 

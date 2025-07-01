@@ -4,6 +4,11 @@
   <meta charset="utf-8" />
   <meta name="generator" content="pandoc" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <meta name="author" content="Mitanshu Sukhwani" />
+  <meta name="dcterms.date" content="2025-06-08" />
+  <meta name="keywords" content="bioRxiv, Hugging Face, datasets,
+embeddings, vector database, paper recommendation, machine learning,
+gradio" />
   <meta name="description" content="How I extended PaperMatch to bioRxiv: mining full-text XMLs from AWS S3, extracting metadata, embedding abstracts, and uploading everything to Hugging Face Datasets. Includes code for downloading, parsing, and vectorizing bioRxiv preprints." />
   <title>Behind PaperMatchBio</title>
   <style>
@@ -237,9 +242,10 @@
 <body>
 <header id="title-block-header">
 <h1 class="title">Behind PaperMatchBio</h1>
+<p class="subtitle"><strong>Extending PaperMatch to bioRxiv</strong></p>
+<p class="author"><em>Mitanshu Sukhwani</em></p>
+<p class="date"><code>2025-06-08</code></p>
 </header>
-<h2 id="why-only-arxiv">Why only arXiv?</h2>
-<p><strong>Mitanshu Sukhwani</strong> • <em>08 June 2025</em></p>
 <h1 id="why-biorxiv">Why bioRxiv?</h1>
 <p>If you have used <a href="https://papermatch.me/">PaperMatch</a>
 before, you would know you can only use the semantic search on the <a

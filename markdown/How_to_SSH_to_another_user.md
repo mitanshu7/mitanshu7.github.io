@@ -1,11 +1,15 @@
 ---
+# 1. Basic Identification
 title: "How to SSH to another user"
-description: "Learn how to copy your SSH public key to another user on the same system using sudo. Includes manual steps and a shell script to automate directory setup, permission handling, and key transfer for passwordless SSH access."
+subtitle: "**Or copy your public SSH key to another user in the same system**"
+author: "_Mitanshu Sukhwani_"
+date: "`2025-06-07`"
+lang: en
+
+# 2. Metadata / SEO
+description: "Learn how to copy your SSH public key to another user on the same system using sudo. Includes manual steps and a shell script to automate directory setup, permission handling, and key transfer for passwordless SSH access"
+keywords: "SSH, public key, copy SSH key, sudo, Linux, passwordless SSH, authorized_keys"
 ---
-
-## Or copy your public SSH key to another user in the same system
-
-**Mitanshu Sukhwani** • _07 June 2025_
 
 To copy your public SSH key to another user in the same system, you can follow these steps. Assuming you have **sudo** rights, you can perform actions as another user.
 

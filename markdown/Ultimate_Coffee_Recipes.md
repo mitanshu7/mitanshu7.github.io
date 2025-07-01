@@ -1,11 +1,15 @@
 ---
+# 1. Basic Identification
 title: "Ultimate Coffee Recipes"
+subtitle: "**Brew like a pro with James Hoffmann’s top techniques**"
+author: "_Mitanshu Sukhwani_"
+date: "`2025-06-07`"
+lang: en
+
+# 2. Metadata / SEO
 description: "Brew like a pro with James Hoffmann’s top techniques for V60, Chemex, AeroPress, French Press, and more. Includes links to brewers and a curated YouTube playlist."
+keywords: "coffee, brewing, V60, Chemex, AeroPress, French Press, James Hoffmann"
 ---
-
-## By James Hoffmann
-
-**Mitanshu Sukhwani** • _07 June 2025_
 
 Pick your Brewer:
 

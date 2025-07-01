@@ -1,11 +1,15 @@
 ---
+# 1. Basic Identification
 title: "Wash your Cocktails"
+subtitle: "**With Milk**"
+author: "_Mitanshu Sukhwani_"
+date: "`2025-06-28`"
+lang: en
+
+# 2. Metadata / SEO
 description: "Make a clarified coffee cocktail using milk washing. Infuse vodka with coffee and masala, curdle with milk and lemon, filter slowly, and enjoy a smooth, flavorful punch—budget-friendly and delicious."
+keywords: "cocktail, coffee liqueur, milk washing, clarified punch, James Hoffmann, cocktail recipe, budget-friendly cocktail"
 ---
-
-## with Milk
-
-**Mitanshu Sukhwani** • _28 June 2025_
 
 During my last days in a non-dry-state (the opposite sounded off), where alcohol isn't banned, I wanted to create some cocktail of my own. It had to have coffee involved, since I had nice dark roasted beans from Honduras. I did a quick search for [James Hoffmann](https://www.jameshoffmann.co.uk/) and [coffee liqueur](https://en.wikipedia.org/wiki/Liqueur_coffee). This led me to a recipe for [Coffee Amaro](https://youtu.be/4LO8IpK3C3U).
 

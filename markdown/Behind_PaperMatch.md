@@ -1,11 +1,15 @@
 ---
+# 1. Basic Identification
 title: "Behind PaperMatch"
+subtitle: "**Building a Paper Recommendation Engine with arXiv Abstracts and Milvus**"
+author: "_Mitanshu Sukhwani_"
+date: "`2025-06-07`"
+lang: en
+
+# 2. Metadata / SEO
 description: "How I built PaperMatch: a paper recommendation engine using arXiv abstracts, transformer embeddings, and Milvus. Learn about the embedding pipeline, vector search, and Gradio-powered UI at papermatch.me."
+keywords: "arxiv, milvus, embeddings, vector database, paper recommendation, machine learning, gradio"
 ---
-
-## Building a Paper Recommendation Engine with arXiv Abstracts and Milvus
-
-**Mitanshu Sukhwani** • _07 June 2025_
 
 In this post, I'll walk you through how I created a paper discovery tool using vector embeddings of scientific papers from [arXiv](https://arxiv.org) and [milvus](https://milvus.io), an open-source vector database.
 

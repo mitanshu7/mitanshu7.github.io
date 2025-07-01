@@ -1,11 +1,15 @@
 ---
+# 1. Basic Identification
 title: "What about the Island?"
+subtitle: "**Did aliens try to divert the direction of arxiv?**"
+author: "_Mitanshu Sukhwani_"
+date: "`2025-06-13`"
+lang: en
+
+# 2. Metadata / SEO
 description: "A mysterious cluster of arXiv papers formed a new 'island' in UMAP projections between Nov 2024–Feb 2025. Data suggests a systemic shift—was it aliens or just arXiv changing something?"
+keywords: "arXiv, UMAP, dimensionality reduction, PaperMatch, academia evolution, arXiv island, alien theory, data analysis"
 ---
-
-## Did aliens try to divert the direction of arxiv?
-
-- **Mitanshu Sukhwani** • _13 June 2025_
 
 In the previous blog post, [**PaperMatch Analysis**](PaperMatch_Analysis.html), we saw how when we analyse the embedding vectors from arXiv abstracts and use dimensionality reduction techniques, we can effectively map out how academia has evolved, at least in the eyes of arXiv. There was even a [**3D map of arXiv**](../image/arxiv_3d_map_all_years.html) to play around with and discover papers visually.
 

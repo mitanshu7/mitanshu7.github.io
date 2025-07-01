@@ -1,11 +1,15 @@
 ---
+# 1. Basic Identification
 title: "Tailscale on Kindle"
+subtitle: "**It's a rite of passage to run tailscale on weird devices.**"
+author: "_Mitanshu Sukhwani_"
+date: "`2025-06-08`"
+lang: en
+
+# 2. Metadata / SEO
 description: "Guide to running Tailscale on a jailbroken Kindle using KUAL and USBNetworking. Includes setup steps, binary placement, login, and remote SSH access via Tailscale IP."
+keywords: "Tailscale, Kindle, KUAL, USBNetworking, jailbroken Kindle, SSH access, Tailscale setup"
 ---
-
-## It's a rite of passage to run tailscale on weird devices.
-
-**Mitanshu Sukhwani** • _08 June 2025_
 
 Please visit [mitanshu7/tailscale_kual](https://github.com/mitanshu7/tailscale_kual) for the appropriate code.
 

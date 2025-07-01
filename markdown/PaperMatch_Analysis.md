@@ -1,11 +1,15 @@
 ---
+# 1. Basic Identification
 title: "PaperMatch Analysis"
+subtitle: "**What do the vectors tell us?**"
+author: "_Mitanshu Sukhwani_"
+date: "`2025-06-11`"
+lang: en
+
+# 2. Metadata / SEO
 description: "Exploring how vector embeddings reveal insights about scientific research on arXiv. From distance metrics and vector DB performance to category shifts and dimensionality reduction using PCA, UMAP, and MRL on millions of abstracts."
+keywords: "PaperMatch, arXiv, vector embeddings, semantic search, distance metrics, vector database performance, PCA, UMAP, MRL, scientific research"
 ---
-
-## What do the vectors tell us?
-
-**Mitanshu Sukhwani** • _11 June 2025_
 
 ![[**3D Map of arXiv**](../image/arxiv_3d_map_all_years.html)](../image/3d_umap_binary_all.webp)
 

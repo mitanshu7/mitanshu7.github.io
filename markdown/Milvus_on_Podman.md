@@ -1,11 +1,15 @@
 ---
+# 1. Basic Identification
 title: "Milvus on Podman"
+subtitle: "**Guide to running Milvus using Podman instead of Docker**"
+author: "_Mitanshu Sukhwani_"
+date: "`2025-06-07`"
+lang: en
+
+# 2. Metadata / SEO
 description: "Guide to running Milvus using Podman instead of Docker by modifying Milvus's official standalone script. Adjustments include removing sudo, adding SELinux ':Z' flags for volume mounts, and using fully qualified image names for compatibility."
+keywords: "Milvus, Podman, Docker, standalone script, SELinux, rootless container, image name resolution"
 ---
-
-## Docker $\to$ Podman
-
-**Mitanshu Sukhwani** • _07 June 2025_
 
 # Original:
 

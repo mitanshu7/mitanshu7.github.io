@@ -1,11 +1,15 @@
 ---
+# 1. Basic Identification
 title: "How to change SSH Port on OCI"
+subtitle: "**A tutorial**"
+author: "_Mitanshu Sukhwani_"
+date: "`2025-06-07`"
+lang: en
+
+# 2. Metadata / SEO
 description: "Guide to securely change the SSH port on Oracle Cloud Infrastructure (OCI). Includes SELinux adjustments, firewall and security list updates, and troubleshooting via Cloud Shell."
+keywords: "OCI, SSH, port change, SELinux, firewall, security list, Cloud Shell, Oracle Cloud Infrastructure"
 ---
-
-## A tutorial
-
-**Mitanshu Sukhwani** • _07 June 2025_
 
 # Steps
 

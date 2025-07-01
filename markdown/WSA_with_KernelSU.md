@@ -1,11 +1,15 @@
 ---
+# 1. Basic Identification
 title: "WSA with KernelSU"
+subtitle: "**Run rooted Android on Windows using WSA with KernelSU**"
+author: "_Mitanshu Sukhwani_"
+date: "`2025-06-07`"
+lang: en
+
+# 2. Metadata / SEO
 description: "Run rooted Android on Windows using WSA with KernelSU. Includes Google Play, sideloading, ZygiskNext, LSPosed, and Pixelify to unlock unlimited Google Photos storage."
+keywords: "WSA, Windows Subsystem for Android, KernelSU, rooted Android, Google Play Store, sideloading apps, ZygiskNext, LSPosed, Pixelify, unlimited Google Photos storage"
 ---
-
-## How to have a rooted Android in Windows
-
-**Mitanshu Sukhwani** • _07 June 2025_
 
 1.  Make sure the install is [clean](https://github.com/MustardChef/WSABuilds/blob/master/Documentation/WSABuilds/Uninstallation.md).
 

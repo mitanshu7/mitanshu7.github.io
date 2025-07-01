@@ -1,13 +1,19 @@
 ---
+# 1. Basic Identification
 title: "N-gram Language Models"
+subtitle: "**A Bigram Model on Jane Austen's Pride and Prejudice**"
+author: "_Mitanshu Sukhwani_"
+date: "`2025-06-08`"
+lang: en
+
+# 2. Metadata / SEO
 description: "Explore the basics of N-gram models—simple yet powerful tools in NLP—through a hands-on bigram generator built on Jane Austen's 'Pride and Prejudice'. A look back at language modeling before the LLM era."
+keywords: "N-gram models, bigram model, Jane Austen, Pride and Prejudice, language modeling, NLP, autoregressive models, Markov processes"
 ---
 
 ## “We can avail himself, appear unpleasant in acknowledgment that Edmund only took Fanny because Mary shocked him”
 
 ### - Random sentence generated from a Jane Austen bigram model
-
-**Mitanshu Sukhwani** • _08 June 2025_
 
 Right off the bat, for learning Natural Language Processing (NLP), checkout [Speech and Language Processing](https://web.stanford.edu/~jurafsky/slp3/) by [Dan Jurafsky](http://web.stanford.edu/people/jurafsky/) and [James H. Martin](http://www.cs.colorado.edu/~martin/).
 

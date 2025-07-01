@@ -1,11 +1,15 @@
 ---
+# 1. Basic Identification
 title: "Selfhosting Setup"
+subtitle: "**Own your data, reduce reliance on Big Tech**"
+author: "_Mitanshu Sukhwani_"
+date: "`2025-06-09`"
+lang: en
+
+# 2. Metadata / SEO
 description: "A personal journey into selfhosting—repurposing old hardware, running Debian with Docker, and hosting Nextcloud & Audiobookshelf using Cloudflare Tunnel and Tailscale to own your data and reduce reliance on Big Tech."
+keywords: "selfhosting, Nextcloud, Audiobookshelf, Docker, Tailscale, Cloudflare Tunnel, Debian, own your data, Big Tech alternatives"
 ---
-
-## Own your data
-
-**Mitanshu Sukhwani** • _09 June 2025_
 
 Anyone saw this documentary called [Social Dillema (2020)](https://www.imdb.com/title/tt11464826/)?
 

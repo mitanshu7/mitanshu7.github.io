@@ -287,7 +287,9 @@ class="sourceCode yaml"><code class="sourceCode yaml"><span id="cb1-1"><a href="
 <span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a><span class="fu">keywords</span><span class="kw">:</span><span class="at"> </span><span class="kw">[</span><span class="at">keyword1</span><span class="kw">,</span><span class="at"> keyword2</span><span class="kw">,</span><span class="at"> keyword3</span><span class="kw">]</span></span>
 <span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a><span class="pp">---</span></span></code></pre></div>
 <p>to make the blog post SEO friendly. You may skip adding keywords if
-you don’t have any.</p></li>
+you don’t have any. Is is safer to add <code>""</code> around the values
+of <code>title</code>, <code>subtitle</code>, <code>author</code>, and
+<code>description</code> fields.</p></li>
 <li><p>Convert the Markdown blog post to HTML using pandoc (execute in
 the repo folder):</p>
 <p><code>pandoc --standalone --output html/post_title.html markdown/post_title.md</code></p></li>

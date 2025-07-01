@@ -4,6 +4,10 @@
   <meta charset="utf-8" />
   <meta name="generator" content="pandoc" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <meta name="author" content="Mitanshu Sukhwani" />
+  <meta name="dcterms.date" content="2025-06-06" />
+  <meta name="keywords" content="Podman, container update, manual
+update, systemd service, auto-update, rootless Podman" />
   <meta name="description" content="Manually update Podman containers by stopping them, pulling new images, restarting with original commands, and regenerating systemd service files if auto-update isn’t working." />
   <title>Update podman containers manually</title>
   <style>
@@ -172,11 +176,10 @@
 <body>
 <header id="title-block-header">
 <h1 class="title">Update podman containers manually</h1>
+<p class="subtitle"><strong>When auto-update isn’t working</strong></p>
+<p class="author"><em>Mitanshu Sukhwani</em></p>
+<p class="date"><code>2025-06-06</code></p>
 </header>
-<h2 id="when-i-couldnt-figure-out-auto-update">When I couldn’t figure
-out <a
-href="https://docs.podman.io/en/latest/markdown/podman-auto-update.1.html">auto-update</a></h2>
-<p><strong>Mitanshu Sukhwani</strong> • <em>06 June 2025</em></p>
 <ol type="1">
 <li><p>Stop running containers using:</p>
 <p><code>podman stop CONTAINER_ID</code></p>

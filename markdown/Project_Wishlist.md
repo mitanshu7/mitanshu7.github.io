@@ -1,11 +1,15 @@
 ---
+# 1. Basic Identification
 title: "Project Wishlist"
+subtitle: "**Things I Wish to Do**"
+author: "_Mitanshu Sukhwani_"
+date: "`2025-06-06`"
+lang: en
+
+# 2. Metadata / SEO
 description: "A wishlist of personal tech projects—from building a silent trimmer for sensory sensitivity to syncing BeanConqueror with NextCloud, making a OnePlus pencil work with a phone, and running DuckDB on Kindle."
+keywords: "Project Wishlist, silent trimmer, OnePlus Stylo 2, NextCloud, BeanConqueror, DuckDB, Kindle, Tailscale KUAL"
 ---
-
-## Things I Wish to Do
-
-**Mitanshu Sukhwani** • _06 June 2025_
 
 - [ ] Make a silent trimmer.
   - People with Autism generally have sensory issues.

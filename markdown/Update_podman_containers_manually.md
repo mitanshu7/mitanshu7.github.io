@@ -1,11 +1,15 @@
 ---
+# 1. Basic Identification
 title: "Update podman containers manually"
+subtitle: "**When auto-update isn't working**"
+author: "_Mitanshu Sukhwani_"
+date: "`2025-06-06`"
+lang: en
+
+# 2. Metadata / SEO
 description: "Manually update Podman containers by stopping them, pulling new images, restarting with original commands, and regenerating systemd service files if auto-update isn't working."
+keywords: "Podman, container update, manual update, systemd service, auto-update, rootless Podman"
 ---
-
-## When I couldn't figure out [auto-update](https://docs.podman.io/en/latest/markdown/podman-auto-update.1.html)
-
-**Mitanshu Sukhwani** • _06 June 2025_
 
 1. Stop running containers using:
 

@@ -1,11 +1,15 @@
 ---
+# 1. Basic Identification
 title: "Stop podman containers from getting killed"
+subtitle: "**Keep rootless Podman containers running after logout or reboot**"
+author: "_Mitanshu Sukhwani_"
+date: "`2025-06-06`"
+lang: en
+
+# 2. Metadata / SEO
 description: "Keep rootless Podman containers running after logout or reboot using systemd user services, linger sessions, and generated unit files. Note: systemd support is deprecated; consider using Quadlets."
+keywords: "Podman, rootless containers, systemd user services, linger sessions, Podman generate systemd, Quadlets, container management"
 ---
-
-## After logout/reboot
-
-**Mitanshu Sukhwani** • _06 June 2025_
 
 1.  Run the podman containers **without** a restart policy.
 

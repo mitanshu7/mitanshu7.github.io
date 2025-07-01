@@ -4,6 +4,11 @@
   <meta charset="utf-8" />
   <meta name="generator" content="pandoc" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <meta name="author" content="Mitanshu Sukhwani" />
+  <meta name="dcterms.date" content="2025-06-06" />
+  <meta name="keywords" content="Podman, rootless containers, systemd
+user services, linger sessions, Podman generate systemd, Quadlets,
+container management" />
   <meta name="description" content="Keep rootless Podman containers running after logout or reboot using systemd user services, linger sessions, and generated unit files. Note: systemd support is deprecated; consider using Quadlets." />
   <title>Stop podman containers from getting killed</title>
   <style>
@@ -237,9 +242,11 @@
 <body>
 <header id="title-block-header">
 <h1 class="title">Stop podman containers from getting killed</h1>
+<p class="subtitle"><strong>Keep rootless Podman containers running
+after logout or reboot</strong></p>
+<p class="author"><em>Mitanshu Sukhwani</em></p>
+<p class="date"><code>2025-06-06</code></p>
 </header>
-<h2 id="after-logoutreboot">After logout/reboot</h2>
-<p><strong>Mitanshu Sukhwani</strong> • <em>06 June 2025</em></p>
 <ol type="1">
 <li><p>Run the podman containers <strong>without</strong> a restart
 policy.</p></li>

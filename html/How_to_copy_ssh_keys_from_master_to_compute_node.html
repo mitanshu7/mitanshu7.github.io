@@ -4,6 +4,10 @@
   <meta charset="utf-8" />
   <meta name="generator" content="pandoc" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <meta name="author" content="Mitanshu Sukhwani" />
+  <meta name="dcterms.date" content="2025-06-07" />
+  <meta name="keywords" content="HPC, SSH, passwordless access, key
+generation, ssh-copy-id" />
   <meta name="description" content="Quick guide to set up passwordless SSH access from the master to compute nodes in an HPC cluster. Covers key generation, retrieving node IPs, and using ssh-copy-id." />
   <title>How to copy ssh keys from master to compute node</title>
   <style>
@@ -172,10 +176,11 @@
 <body>
 <header id="title-block-header">
 <h1 class="title">How to copy ssh keys from master to compute node</h1>
+<p class="subtitle"><strong>Fix when you run <code>ssh-keygen</code> on
+brand new HPC access</strong></p>
+<p class="author"><em>Mitanshu Sukhwani</em></p>
+<p class="date"><code>2025-06-07</code></p>
 </header>
-<h2 id="fix-when-you-run-ssh-keygen-on-brand-new-hpc-access">Fix when
-you run <code>ssh-keygen</code> on brand new HPC access</h2>
-<p><strong>Mitanshu Sukhwani</strong> • <em>07 June 2025</em></p>
 <p>Learn more about HPC Architecture <a
 href="https://phoenixnap.com/kb/hpc-architecture">here</a>.</p>
 <p>Generally, only the master node is connect to the internet, and the
