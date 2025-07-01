@@ -68,7 +68,7 @@ The following assumptions are made:
 
 You can check the quality of your website on [PageSpeed Insights](https://pagespeed.web.dev/).
 
-See [this report](https://pagespeed.web.dev/analysis/https-mitanshu7-github-io/qzwymb5f33?form_factor=mobile) for [mitanshu7.github.io](https://mitanshu7.github.io/).
+See [this report](https://pagespeed.web.dev/analysis/https-blog-papermatch-me/xfzuhinhkq?form_factor=mobile) for [mitanshu7.github.io](https://mitanshu7.github.io/).
 
 ### For more information, see [GitHub Pages documentation ](https://docs.github.com/en/pages)
 
