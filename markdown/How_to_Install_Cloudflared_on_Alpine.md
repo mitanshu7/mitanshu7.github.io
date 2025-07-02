@@ -89,6 +89,12 @@ depend() {
 
 ```
 
+Make the service file executable:
+
+```
+doas chmod +x /etc/init.d/cloudflared
+```
+
 Now, add the service file to OpenRC:
 
 ```bash
