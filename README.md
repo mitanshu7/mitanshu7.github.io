@@ -1,13 +1,3 @@
-# mitanshu7.github.io
+# Personal Blog
 
-## Convert individual markdown files using:
-
-```bash
-pandoc --standalone --output html/<BLOG_POST>.html markdown/<BLOG_POST>.md
-```
-
-## Create index using:
-
-```bash
-pandoc --standalone --output index.html markdown/index.md
-```
+To create a blog like this one, see detailed post at: [Create a simple website](https://mitanshu7.github.io/html/Create_a_simple_website.html)
