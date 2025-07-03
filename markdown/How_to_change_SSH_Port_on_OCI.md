@@ -18,7 +18,8 @@ keywords: "OCI, SSH, port change, SELinux, firewall, security list, Cloud Shell,
 1. Back up the original config file:
    `sudo cp /etc/ssh/sshd_config /etc/ssh/sshd_config.bak`
 
-2. Run `sudo nano /etc/ssh/sshd_config` to change the SSH port. Replace `#Port 22` with `Port <port-number>`. Save the file, and do not restart the `sshd` service.
+2. Run `sudo nano /etc/ssh/sshd_config` to edit the SSH config file.
+   Replace `#Port 22` with `Port <port-number>`. Save the file, and do not restart the `sshd` service.
 
 3. If you restart the sshd service, it'll show the error that selinux is preventing sshd from binding to new port. You now allow selinux using the command:
 

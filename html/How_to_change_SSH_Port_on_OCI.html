@@ -190,8 +190,8 @@ Shell</a> in case things go awry. (Which is how this whole tutorial was
 executed :))</p></li>
 <li><p>Back up the original config file:
 <code>sudo cp /etc/ssh/sshd_config /etc/ssh/sshd_config.bak</code></p></li>
-<li><p>Run <code>sudo nano /etc/ssh/sshd_config</code> to change the SSH
-port. Replace <code>#Port 22</code> with
+<li><p>Run <code>sudo nano /etc/ssh/sshd_config</code> to edit the SSH
+config file. Replace <code>#Port 22</code> with
 <code>Port &lt;port-number&gt;</code>. Save the file, and do not restart
 the <code>sshd</code> service.</p></li>
 <li><p>If you restart the sshd service, it’ll show the error that
