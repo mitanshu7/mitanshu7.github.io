@@ -189,10 +189,11 @@ href="https://docs.oracle.com/en-us/iaas/Content/API/Concepts/devcloudshellgetti
 Shell</a> in case things go awry. (Which is how this whole tutorial was
 executed :))</p></li>
 <li><p>Back up the original config file:
-<code>sudo cp /etc/ssh/sshd_config cp /etc/ssh/sshd_config.bak</code></p></li>
-<li><p>Change the SSH port by finding the line <code>#Port 22</code> and
-changing it to <code>Port &lt;port-number&gt;</code>. Save the file, and
-do not restart the <code>sshd</code> service.</p></li>
+<code>sudo cp /etc/ssh/sshd_config /etc/ssh/sshd_config.bak</code></p></li>
+<li><p>Run <code>sudo nano /etc/ssh/sshd_config</code> to change the SSH
+port. Replace <code>#Port 22</code> with
+<code>Port &lt;port-number&gt;</code>. Save the file, and do not restart
+the <code>sshd</code> service.</p></li>
 <li><p>If you restart the sshd service, it’ll show the error that
 selinux is preventing sshd from binding to new port. You now allow
 selinux using the command:</p>

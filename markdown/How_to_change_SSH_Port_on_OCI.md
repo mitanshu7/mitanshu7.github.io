@@ -16,9 +16,9 @@ keywords: "OCI, SSH, port change, SELinux, firewall, security list, Cloud Shell,
 0. **NEEDED**: have a new user in sudo/wheel group with a password ready before doing anything here. It will be handy in troubleshooting via the [Cloud Shell](https://docs.oracle.com/en-us/iaas/Content/API/Concepts/devcloudshellgettingstarted.htm) in case things go awry. (Which is how this whole tutorial was executed :))
 
 1. Back up the original config file:
-   `sudo cp /etc/ssh/sshd_config cp /etc/ssh/sshd_config.bak`
+   `sudo cp /etc/ssh/sshd_config /etc/ssh/sshd_config.bak`
 
-2. Change the SSH port by finding the line `#Port 22` and changing it to `Port <port-number>`. Save the file, and do not restart the `sshd` service.
+2. Run `sudo nano /etc/ssh/sshd_config` to change the SSH port. Replace `#Port 22` with `Port <port-number>`. Save the file, and do not restart the `sshd` service.
 
 3. If you restart the sshd service, it'll show the error that selinux is preventing sshd from binding to new port. You now allow selinux using the command:
 
