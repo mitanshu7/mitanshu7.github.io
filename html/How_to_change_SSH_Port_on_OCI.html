@@ -182,22 +182,24 @@ firewall, security list, Cloud Shell, Oracle Cloud Infrastructure" />
 </header>
 <h1 id="steps">Steps</h1>
 <ol start="0" type="1">
-<li><p><strong>NEEDED</strong>: have a new user in sudo group with a
-password handy before doing anything here. It will be handy in
+<li><p><strong>NEEDED</strong>: have a new user in sudo/wheel group with
+a password ready before doing anything here. It will be handy in
 troubleshooting via the <a
 href="https://docs.oracle.com/en-us/iaas/Content/API/Concepts/devcloudshellgettingstarted.htm">Cloud
 Shell</a> in case things go awry. (Which is how this whole tutorial was
 executed :))</p></li>
-<li><p>Harden ssh using tips in <a
-href="https://www.redhat.com/en/blog/eight-ways-secure-ssh">Eight ways
-to protect SSH access on your system | Enable Sysadmin</a></p></li>
+<li><p>Back up the original config file:
+<code>sudo cp /etc/ssh/sshd_config cp /etc/ssh/sshd_config.bak</code></p></li>
+<li><p>Change the SSH port by finding the line <code>#Port 22</code> and
+changing it to <code>Port &lt;port-number&gt;</code>. Save the file, and
+do not restart the <code>sshd</code> service.</p></li>
 <li><p>If you restart the sshd service, it’ll show the error that
-selinux is preventing sshd from binding to new port. Then you allow
+selinux is preventing sshd from binding to new port. You now allow
 selinux using the command:</p>
 <p><code>sudo semanage port -a -t ssh_port_t -p tcp &lt;port-number&gt;</code></p></li>
-<li><p>Now when you restart the sshd service using:
-<code>sudo systemctl restart sshd</code>, it should happen without any
-issues However you still will not be able to connect, just yet.</p></li>
+<li><p>Now when you restart the sshd service, it should happen without
+any issues. However, you still will not be able to connect, just yet. So
+don’t do it.</p></li>
 <li><p>Now modiify firewall rules to allow the mentioned port.</p>
 <ol type="1">
 <li>List firewall rules using:
@@ -218,10 +220,16 @@ rule:</p>
 <li>Enter the <code>&lt;port-number&gt;</code> in Destination Port
 Range.</li>
 </ol></li>
+<li><p>Restart the sshd service using:
+<code>sudo systemctl restart sshd</code>.</p></li>
 <li><p>Voila!, now you can connect to your instance on a custom ssh
-port.</p></li>
-<li><p>Bonus, delete ingress rule for port 22. (YET TO TEST)</p></li>
+port. Go on, try it!</p></li>
+<li><p>You may delete ingress rule for port 22 once you can connect
+using the new port.</p></li>
 </ol>
+<p>For more, see: <a
+href="https://www.redhat.com/en/blog/eight-ways-secure-ssh">Eight ways
+to protect SSH access on your system | Enable Sysadmin</a></p>
 <h1 id="references">References:</h1>
 <ol type="1">
 <li><p><a href="https://youtu.be/GL3FcUCkM_s">How to Update the Default
