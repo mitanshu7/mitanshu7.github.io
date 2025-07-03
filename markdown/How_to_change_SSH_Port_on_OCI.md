@@ -13,7 +13,8 @@ keywords: "OCI, SSH, port change, SELinux, firewall, security list, Cloud Shell,
 
 # Steps
 
-0. **NEEDED**: have a new user in sudo/wheel group with a password ready before doing anything here. It will be handy in troubleshooting via the [Cloud Shell](https://docs.oracle.com/en-us/iaas/Content/API/Concepts/devcloudshellgettingstarted.htm) in case things go awry. (Which is how this whole tutorial was executed :))
+0. **NEEDED**: have a [new user](https://docs.redhat.com/en/documentation/red_hat_enterprise_linux/4/html/system_administration_guide/s2-users-add) in sudo/wheel group with a password ready before doing anything here. Test the connection before proceeding.
+   It will be handy in troubleshooting via the [Cloud Shell](https://docs.oracle.com/en-us/iaas/Content/Compute/References/serialconsole.htm#cloud-shell) in case things go awry. (Which is how this whole tutorial was executed :))
 
 1. Back up the original config file:
    `sudo cp /etc/ssh/sshd_config /etc/ssh/sshd_config.bak`
