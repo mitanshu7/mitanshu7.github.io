@@ -349,8 +349,8 @@ your <a href="console.cloud.google.com/compute/instances">Compute Engine
 <code>View gcloud command</code>.</p>
 <p>You may want to run
 <code>sudo apt update &amp;&amp; sudo apt upgrade -y</code> to update
-your VM install. Since Google thresholds your usage, this will take a
-long time to complete, so you may want to grab some coffee while this
+your VM install. Since Google thresholds your CPU usage, this will take
+a long time to complete, so you may want to grab some coffee while this
 finishes.</p>
 <h3 id="firewall-rule">Firewall Rule</h3>
 <p>Nebula needs the <code>udp/4242</code> port open which can be setup
@@ -368,7 +368,203 @@ already done so. Change the <code>Targets</code> to
 <code>Specified protocols and ports</code> radio and enable
 <code>UDP</code> while also adding <code>4242</code> in the textbox
 below it. Save this rule for immediate effect.</p>
-<h3 id="local-setup">Local Setup</h3>
+<h3 id="local-setup-trusted-laptopdesktop">Local Setup (Trusted
+laptop/desktop)</h3>
+<p>Download and untar(?) the latest version of nebula using (amd64):</p>
+<div class="sourceCode" id="cb2"><pre
+class="sourceCode bash"><code class="sourceCode bash"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="fu">wget</span> https://github.com/slackhq/nebula/releases/latest/download/nebula-linux-amd64.tar.gz</span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="fu">tar</span> <span class="at">-xvf</span> nebula-linux-amd64.tar.gz</span></code></pre></div>
+<p>For other architectures, visit <a
+href="https://github.com/slackhq/nebula/releases">Nebula Releases</a>
+page.</p>
+<p>Move the binaries to <code>usr/local/sbin</code> to ensure only
+sudoers can run nebula:</p>
+<div class="sourceCode" id="cb3"><pre
+class="sourceCode bash"><code class="sourceCode bash"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="fu">sudo</span> mv nebula /usr/local/sbin/</span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="fu">sudo</span> mv nebula-cert /usr/local/sbin/</span></code></pre></div>
+<p>Nebula uses certificate authorities to add trusted devices on the
+Nebula network.</p>
+<p>Create a new folder to save <code>ca.crt</code> and
+<code>ca.key</code>.</p>
+<div class="sourceCode" id="cb4"><pre
+class="sourceCode bash"><code class="sourceCode bash"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="fu">sudo</span> mkdir /etc/nebula</span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Create the Certificate Authority</span></span>
+<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a><span class="fu">sudo</span> nebula-cert ca <span class="at">-encrypt</span> <span class="at">-name</span> <span class="st">&quot;Myorganization, Inc&quot;</span> <span class="at">-out-qr</span> ca.png <span class="at">-out-crt</span> /etc/nebula/ca.crt <span class="at">-out-key</span> /etc/nebula/ca.key</span></code></pre></div>
+<p>This will ask you for a password to encrypt your key file with. You
+can choose not to encrypt your key if you’ll be using some sort of
+secure storage. By default, this CA will be created with a one-year
+expiration, and all certificates signed will be valid until one second
+before expiration of the CA.</p>
+<p>You may not be able to view the ca.png we just created. Change it’s
+permissions via <code>sudo chmod 755 ca.png</code>. We will use this
+later to connect smartphones conveniently.</p>
+<h4 id="ca.key-is-of-utmost-importance.-guard-it"><code>ca.key</code> is
+of utmost importance. Guard it!</h4>
+<p>All the new devices that will join the Nebula network will need
+<code>ca.key</code> to sign the certificates for individual nebula
+hosts.</p>
+<div class="sourceCode" id="cb5"><pre
+class="sourceCode bash"><code class="sourceCode bash"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Copy the files</span></span>
+<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a><span class="fu">sudo</span> mv ca.crt /etc/nebula</span>
+<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a><span class="fu">sudo</span> mv ca.key /etc/nebula</span></code></pre></div>
+<h3 id="building-the-network">Building the network</h3>
+<p>Let’s create some certificates for the lighthouse and other devices.
+We’ll be using the subnet <code>192.168.100.x/24</code>. You are allowed
+to use anything you like.</p>
+<div class="sourceCode" id="cb6"><pre
+class="sourceCode bash"><code class="sourceCode bash"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="fu">sudo</span> nebula-cert sign <span class="at">-name</span> <span class="st">&quot;lighthouse&quot;</span> <span class="at">-ip</span> <span class="st">&quot;192.168.100.1/24&quot;</span> <span class="at">-ca-crt</span> /etc/nebula/ca.crt <span class="at">-ca-key</span> /etc/nebula/ca.key</span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a><span class="fu">sudo</span> nebula-cert sign <span class="at">-name</span> <span class="st">&quot;laptop&quot;</span> <span class="at">-ip</span> <span class="st">&quot;192.168.100.5/24&quot;</span> <span class="at">-ca-crt</span> /etc/nebula/ca.crt <span class="at">-ca-key</span> /etc/nebula/ca.key <span class="at">-groups</span> <span class="st">&quot;laptop,ssh&quot;</span></span></code></pre></div>
+<p>Enter the passphrase you chose above. This should give you the
+<code>crt</code> and <code>key</code> files for both, the
+<code>lighthouse</code> and <code>laptop</code>.</p>
+<h3 id="configuring-nebula">Configuring Nebula</h3>
+<p>Download a sample configuration.</p>
+<div class="sourceCode" id="cb7"><pre
+class="sourceCode bash"><code class="sourceCode bash"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="ex">curl</span> <span class="at">-o</span> config.yml https://raw.githubusercontent.com/slackhq/nebula/master/examples/config.yml</span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a><span class="fu">cp</span> config.yml config-lighthouse.yaml</span>
+<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a><span class="fu">cp</span> config.yml config.yaml</span></code></pre></div>
+<h4 id="lighthouse">Lighthouse</h4>
+<p>Make the following changes to the <code>config-lighthouse.yaml</code>
+file:</p>
+<ol type="1">
+<li><p>Delete the line just under <code>static_host_map:</code>. The
+line is: <code>"192.168.100.1": ["100.64.22.11:4242"]</code></p></li>
+<li><p>Change the value of <code>am_lighthouse</code> (under
+<code>lighthouse</code>) from <code>false</code> to
+<code>true</code>.</p></li>
+<li><p>Delete the line just under <code>hosts:</code> (under
+<code>lighthouse</code>). The line is:
+<code>- "192.168.100.1"</code></p></li>
+<li><p>Scroll to the very bottom, and add the following lines under
+<code>firewall</code> and below <code>inbound</code>:</p></li>
+</ol>
+<div class="sourceCode" id="cb8"><pre
+class="sourceCode yaml"><code class="sourceCode yaml"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Allow ssh between any nebula hosts</span></span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a><span class="kw">-</span><span class="at"> </span><span class="fu">port</span><span class="kw">:</span><span class="at"> </span><span class="dv">22</span></span>
+<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="fu">proto</span><span class="kw">:</span><span class="at"> tcp</span></span>
+<span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="fu">host</span><span class="kw">:</span><span class="at"> any</span></span></code></pre></div>
+<p>This allows you to ssh between nebula hosts.</p>
+<h4 id="host-configuration">Host configuration</h4>
+<p>Make the following change to the <code>config.yaml</code> file:</p>
+<p>Copy the External IP of lighthouse from your <a
+href="https://console.cloud.google.com/compute/instances">Instances
+page</a>. Paste the ip in the line under
+<code>static_host_map:</code>:</p>
+<div class="sourceCode" id="cb9"><pre
+class="sourceCode yaml"><code class="sourceCode yaml"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="fu">&quot;192.168.100.1&quot;</span><span class="kw">:</span><span class="at"> </span><span class="kw">[</span><span class="st">&quot;11.22.33.44:4242&quot;</span><span class="kw">]</span></span></code></pre></div>
+<p>Where <code>11.22.33.44</code> is assumed to be the External IP.</p>
+<h3 id="lighthouse-setup">Lighthouse Setup</h3>
+<p>Install nebula using:</p>
+<div class="sourceCode" id="cb10"><pre
+class="sourceCode bash"><code class="sourceCode bash"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="fu">wget</span> https://github.com/slackhq/nebula/releases/latest/download/nebula-linux-amd64.tar.gz</span>
+<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a><span class="fu">tar</span> <span class="at">-xvf</span> nebula-linux-amd64.tar.gz</span>
+<span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a><span class="fu">sudo</span> mv nebula /usr/local/sbin/</span>
+<span id="cb10-4"><a href="#cb10-4" aria-hidden="true" tabindex="-1"></a><span class="fu">sudo</span> mv nebula-cert /usr/local/sbin/</span></code></pre></div>
+<p>Again, the above commands assume <code>amd64</code> architecture.</p>
+<p>Create a new directory: <code>sudo mkdir /etc/nebula</code></p>
+<p>Move the following files you created <strong>locally</strong> <span
+class="math inline">→</span> <strong>lighthouse</strong> by a method of
+your choosing:</p>
+<ol type="1">
+<li><code>config-lighthouse.yaml</code> <span
+class="math inline">→</span> <code>/etc/nebula/config.yaml</code></li>
+<li><code>/etc/nebula/ca.crt</code> <span class="math inline">→</span>
+<code>/etc/nebula/ca.crt</code></li>
+<li><code>lighthouse.crt</code> <span class="math inline">→</span>
+<code>/etc/nebula/host.crt</code></li>
+<li><code>lighthouse.key</code> <span class="math inline">→</span>
+<code>/etc/nebula/host.key</code></li>
+</ol>
+<p><strong>NEVER</strong> copy your <code>ca.key</code> file.</p>
+<p>You can test out your config by running on the lighthouse:</p>
+<div class="sourceCode" id="cb11"><pre
+class="sourceCode bash"><code class="sourceCode bash"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="fu">sudo</span> nebula <span class="at">-config</span> /etc/nebula/config.yaml</span></code></pre></div>
+<p>And if things work well, we can proceed to create a systemd service
+for the same. You may press <code>CTRL + C</code> to stop the
+process.</p>
+<p>Create a new service file:</p>
+<div class="sourceCode" id="cb12"><pre
+class="sourceCode bash"><code class="sourceCode bash"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="fu">sudo</span> nano /etc/systemd/system/nebula.service</span></code></pre></div>
+<p>With the following contents:</p>
+<div class="sourceCode" id="cb13"><pre
+class="sourceCode bash"><code class="sourceCode bash"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="ex">[Unit]</span></span>
+<span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a><span class="va">Description</span><span class="op">=</span>Nebula</span>
+<span id="cb13-3"><a href="#cb13-3" aria-hidden="true" tabindex="-1"></a><span class="va">After</span><span class="op">=</span>network.target</span>
+<span id="cb13-4"><a href="#cb13-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb13-5"><a href="#cb13-5" aria-hidden="true" tabindex="-1"></a><span class="ex">[Service]</span></span>
+<span id="cb13-6"><a href="#cb13-6" aria-hidden="true" tabindex="-1"></a><span class="va">ExecStart</span><span class="op">=</span>/usr/local/sbin/nebula <span class="ex">-config</span> /etc/nebula/config.yaml</span>
+<span id="cb13-7"><a href="#cb13-7" aria-hidden="true" tabindex="-1"></a><span class="va">Restart</span><span class="op">=</span>always</span>
+<span id="cb13-8"><a href="#cb13-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb13-9"><a href="#cb13-9" aria-hidden="true" tabindex="-1"></a><span class="ex">[Install]</span></span>
+<span id="cb13-10"><a href="#cb13-10" aria-hidden="true" tabindex="-1"></a><span class="va">WantedBy</span><span class="op">=</span>default.target</span></code></pre></div>
+<p>and issue:</p>
+<div class="sourceCode" id="cb14"><pre
+class="sourceCode bash"><code class="sourceCode bash"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="fu">sudo</span> systemctl daemon-reload</span>
+<span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a><span class="fu">sudo</span> systemctl enable <span class="at">--now</span> nebula.service</span></code></pre></div>
+<p>for the changes to take effect. You check upon the nebula process by
+using</p>
+<div class="sourceCode" id="cb15"><pre
+class="sourceCode bash"><code class="sourceCode bash"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="fu">sudo</span> systemctl status nebula.service<span class="kw">`</span><span class="bu">.</span></span></code></pre></div>
+<h3 id="laptop-setup">Laptop Setup</h3>
+<p>Similarly to lighthouse, move the files to desired locations:</p>
+<div class="sourceCode" id="cb16"><pre
+class="sourceCode bash"><code class="sourceCode bash"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="fu">sudo</span> mv config.yaml /etc/nebula/config.yaml</span>
+<span id="cb16-2"><a href="#cb16-2" aria-hidden="true" tabindex="-1"></a><span class="fu">sudo</span> mv laptop.crt /etc/nebula/host.crt</span>
+<span id="cb16-3"><a href="#cb16-3" aria-hidden="true" tabindex="-1"></a><span class="fu">sudo</span> mv laptop.key /etc/nebula/host.key</span></code></pre></div>
+<p>We had already copied the <code>ca.crt</code> to
+<code>/etc/nebula</code> above. If you are doing this for any another
+client, do copy the <code>ca.crt</code> too.</p>
+<p>You can test out your config by running on your laptop:</p>
+<div class="sourceCode" id="cb17"><pre
+class="sourceCode bash"><code class="sourceCode bash"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a><span class="fu">sudo</span> nebula <span class="at">-config</span> /etc/nebula/config.yaml</span></code></pre></div>
+<p>Try pinging the lighthouse by opening another terminal window and
+passing:</p>
+<div class="sourceCode" id="cb18"><pre
+class="sourceCode bash"><code class="sourceCode bash"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ping</span> 192.168.100.1</span></code></pre></div>
+<p>If all goes well, create the same systemd service on your laptop and
+reap the benefits of your hard labour.</p>
+<p>Also check SSH access to the lighthouse:</p>
+<div class="sourceCode" id="cb19"><pre
+class="sourceCode bash"><code class="sourceCode bash"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ssh</span> username@192.168.100.1</span></code></pre></div>
+<h3 id="adding-hosts-to-your-network">Adding hosts to your network</h3>
+<p>It is easy to add hosts to an established Nebula network. You simply
+create a new host certificate and key, and then follow the steps under
+Running Nebula. You will not need to make changes to your lighthouse or
+any other hosts when adding hosts to your network, and existing hosts
+will be able to find new ones via the lighthouse, automatically.</p>
+<h3 id="androidapple">Android/Apple</h3>
+<p>To connect your android app, download the Nebula app from <a
+href="https://play.google.com/store/apps/details?id=net.defined.mobile_nebula">Play
+Store</a> or <a
+href="https://apps.apple.com/us/app/mobile-nebula/id1509587936">App
+Store</a>.</p>
+<p>In the app, add a new client by pressing the <code>+</code> button on
+top left. Give your nebula network a name.</p>
+<p>In the Certificate section, under Identity, share the public to your
+laptop (with ca.key) by preferable means and save the file as
+<code>device.pub</code>. Issue the following commands to generate a
+certificate for your mobile:</p>
+<div class="sourceCode" id="cb20"><pre
+class="sourceCode bash"><code class="sourceCode bash"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a><span class="fu">sudo</span> nebula-cert sign <span class="at">-in-pub</span> device.pub <span class="at">-name</span> <span class="st">&quot;mobile&quot;</span> <span class="at">-ip</span> <span class="st">&quot;192.168.100.11/24&quot;</span> <span class="at">-ca-crt</span> /etc/nebula/ca.crt <span class="at">-ca-key</span> /etc/nebula/ca.key <span class="at">-out-qr</span> mobile.png</span></code></pre></div>
+<p>Make note of the IP’s we have been generating. You will need to
+manage the mappings yourself.</p>
+<p>Scan the <code>mobile.png</code> QR code that comes from this. You
+may not be able to view the <code>mobile.png</code> we just created.
+Change it’s permissions via <code>sudo chmod 755 mobile.png</code>.</p>
+<p>In the CA section, scan the <code>ca.png</code> that we created
+earlier.</p>
+<p>Proceed to Hosts and Add a new entry. Add the Nebula IP
+(192.168.100.1) of your Lighthouse, Toggle the Lighthouse switch on,
+enter the External IP (11.22.33.44) and port (4242) of Lighthouse.</p>
+<p>Save it all. Voila! you can connect to any device on the Nebula
+network.</p>
+<h2 id="references">References:</h2>
+<p><a href="https://nebula.defined.net/docs/guides/quick-start/">How to
+create your first overlay network</a></p>
 <div style="text-align: center;"><a href="../index.html">Back to Home</a></div>
 </body>
 </html>
