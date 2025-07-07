@@ -17,25 +17,25 @@ Traditionally, VPNs have had a hub-and-spoke architecture. There are multiple cl
 
 ## Tailscale
 
-![Hub-and-Spoke VPN. Source: [Tailscale](https://tailscale.com/blog/how-tailscale-works)](https://cdn.sanity.io/images/w77i7m8x/production/3cbc3fa27f0b798d3a0bc98f57829a9083dad769-1400x1080.svg?w=3840&q=75&fit=clip&auto=format)
+![Hub-and-Spoke VPN](https://cdn.sanity.io/images/w77i7m8x/production/3cbc3fa27f0b798d3a0bc98f57829a9083dad769-1400x1080.svg?w=3840&q=75&fit=clip&auto=format)
 
 However, there is a single point of failure with this model, and latency can take a huge hit if both the machines are geographically closer but the hub is in some far-away land.
 
-![Latency hits. Source: [Tailscale](https://tailscale.com/blog/how-tailscale-works)](https://cdn.sanity.io/images/w77i7m8x/production/d0363ebfb736fa6e394aef3cb26585cecd842cd2-1320x980.svg?w=3840&q=75&fit=clip&auto=format)
+![Latency hits](https://cdn.sanity.io/images/w77i7m8x/production/d0363ebfb736fa6e394aef3cb26585cecd842cd2-1320x980.svg?w=3840&q=75&fit=clip&auto=format)
 
 Thus, newer generation of VPNs solve this by using a mesh network. Where every machine (node) is connected to every other node (machine).
 
-![Mesh network. Source: [Tailscale](https://tailscale.com/blog/how-tailscale-works)](https://cdn.sanity.io/images/w77i7m8x/production/e989a4a69acd182abbd662d0de93cb31c4c4d210-1600x1080.svg?w=3840&q=75&fit=clip&auto=format)
+![Mesh network](https://cdn.sanity.io/images/w77i7m8x/production/e989a4a69acd182abbd662d0de93cb31c4c4d210-1600x1080.svg?w=3840&q=75&fit=clip&auto=format)
 
 But how do the clients know with whom to talk to? That is handled by a Coordination Server (closed-source), which is essentially a dropbox to exchange public keys.
 
-![Coordination Server. Source: [Tailscale](https://tailscale.com/blog/how-tailscale-works)](https://cdn.sanity.io/images/w77i7m8x/production/dbba97845c1ad1955669cc6a84c94f9d5fb78ade-1600x1080.svg?w=3840&q=75&fit=clip&auto=format)
+![Coordination Server](https://cdn.sanity.io/images/w77i7m8x/production/dbba97845c1ad1955669cc6a84c94f9d5fb78ade-1600x1080.svg?w=3840&q=75&fit=clip&auto=format)
 
 This looks like a Hub and Spoke model again, but its only the keys that are transferred through this server, the data plane remains the mesh.
 
 There are some NAT punching tricks that help with traversal and firewalls, which is beautifully explained in this blogpost by Tailscale: [How NAT traversal works](https://tailscale.com/blog/how-nat-traversal-works).
 
-Tailscale makes this setup very convenient, all you have to do is install the app (which is open-source) and sign in using your available [SSO](https://en.wikipedia.org/wiki/Single_sign-on) (gmail/microsoft/github/apple/email). This is what I would recommend if you are new to networking or want a hands-off approach. Here is a detailed comparison between [Nebula vs. Tailscale](https://tailscale.com/compare/nebula).
+Tailscale makes this setup very convenient, all you have to do is [install](https://tailscale.com/download) the client (which is open-source) and sign in using your available [SSO](https://en.wikipedia.org/wiki/Single_sign-on) (gmail/microsoft/github/apple/email). This is what I would recommend if you are new to networking or want a hands-off approach. Here is a detailed comparison between [Nebula vs. Tailscale](https://tailscale.com/compare/nebula).
 
 ## Nebula
 
@@ -49,7 +49,13 @@ Tailscale makes this setup very convenient, all you have to do is install the ap
 
 Now, nebula assumes we already have a Lighthouse setup with a public facing ip. Let's get that sorted. On the github page they recommend a $6/month digital ocean vm, but I don't have that kind of money so we'll look for free things. [Google compute](https://cloud.google.com/free/docs/free-cloud-features#compute) has a free tier which gives you a e2-micro VM. This is more than enough for our task.
 
-After [signing up](https://console.cloud.google.com/getting-started?pli=1) for an account, spin up a VM using: [Create and start a Compute Engine instance](https://cloud.google.com/compute/docs/instances/create-start-instance). I used a **Debian 12** image for light ram usage, and make sure to change the disk type to `standard persistent disk` (max 30 GB) to not incur any charges.
+After [signing up](https://console.cloud.google.com/getting-started?pli=1) for an account, spin up a VM using: [Create and start a Compute Engine instance](https://cloud.google.com/compute/docs/instances/create-start-instance).
+
+- I used a **Debian 12** image for light ram usage, and make sure to change the disk type to `standard persistent disk` (max 30 GB) to not incur any charges.
+- Select `No Backups` in `Data Protection` tab.
+- Region has to be one of `us-west1`, `us-central1`, `us-east1` for it to be in free tier.
+
+Note: For users in India, `us-west1` will have the least latency among available options. Check out the [latency on GCPing](https://www.gcping.com/) for your region.
 
 After the VM spins up, login to your instance using [gcloud-cli](https://cloud.google.com/sdk/docs/install-sdk):
 
@@ -57,10 +63,10 @@ After the VM spins up, login to your instance using [gcloud-cli](https://cloud.g
 gcloud compute ssh --zone "zone" --project "project" "instance"
 ```
 
-Where "zone" is the one you selected while creating your VM. It should have been one of `us-west1`, `us-central1`, `us-east1` for it to be in free tier. "project" is the random name generated by google when you created 'My First Project'. "instance" is the name of your vm.
+Where `"zone"` is the one you selected while creating your VM, `"project"` is the random name generated by google when you created `'My First Project'`. `"instance"` is the name of your vm.
 You can copy paste the auto-generated command on your [Compute Engine -> VM instances](console.cloud.google.com/compute/instances) page. Click on the down arrow near `SSH` under the `Connect` column and select `View gcloud command`.
 
-You may want to run `sudo apt update && sudo apt upgrade -y` to update your VM install. Since Google thresholds your CPU usage, this will take a long time to complete, so you may want to grab some coffee while this finishes.
+You may want to run `sudo apt update && sudo apt upgrade -y` to update your VM install. Since Google thresholds your CPU usage, this will take some time to complete, till then you can continue with the rest of the blog till you have to [Setup Lighthouse](#lighthouse-setup).
 
 ### Firewall Rule
 
@@ -68,7 +74,7 @@ Nebula needs the `udp/4242` port open which can be setup as a firewall rule on y
 
 Select the `default` [NIC](https://en.wikipedia.org/wiki/Network_interface_controller), click on the `Firewalls` tab, you will see your current rules. Add a new rule using `Add firewall rule` button. Name your rule `nebula`, pre-selected options are fine where already done so. Change the `Targets` to `All instances in this network`, add source IPv4 range `0.0.0.0/0` to allow traffic from any IP. Select the `Specified protocols and ports` radio and enable `UDP` while also adding `4242` in the textbox below it. Save this rule for immediate effect.
 
-### Local Setup (Trusted laptop/desktop)
+### Trusted Device Setup
 
 Download and untar(?) the latest version of nebula using (amd64):
 
@@ -79,11 +85,10 @@ tar -xvf nebula-linux-amd64.tar.gz
 
 For other architectures, visit [Nebula Releases](https://github.com/slackhq/nebula/releases) page.
 
-Move the binaries to `usr/local/sbin` to ensure only sudoers can run nebula:
+Move the binaries to `/usr/local/bin`:
 
 ```bash
-sudo mv nebula /usr/local/sbin/
-sudo mv nebula-cert /usr/local/sbin/
+sudo mv nebula nebula-cert /usr/local/bin/
 ```
 
 Nebula uses certificate authorities to add trusted devices on the Nebula network.
@@ -99,19 +104,11 @@ sudo nebula-cert ca -encrypt -name "Myorganization, Inc" -out-qr ca.png -out-crt
 
 This will ask you for a password to encrypt your key file with. You can choose not to encrypt your key if you'll be using some sort of secure storage. By default, this CA will be created with a one-year expiration, and all certificates signed will be valid until one second before expiration of the CA.
 
-You may not be able to view the ca.png we just created. Change it's permissions via `sudo chmod 755 ca.png`. We will use this later to connect smartphones conveniently.
+You may not be able to view the `ca.png` we just created. Change it's permissions via `sudo chmod 755 ca.png`. We will use this later to connect smartphones conveniently.
 
 #### `ca.key` is of utmost importance. Guard it!
 
 All the new devices that will join the Nebula network will need `ca.key` to sign the certificates for individual nebula hosts.
-
-```bash
-
-
-# Copy the files
-sudo mv ca.crt /etc/nebula
-sudo mv ca.key /etc/nebula
-```
 
 ### Building the network
 
@@ -123,7 +120,7 @@ sudo nebula-cert sign -name "lighthouse" -ip "192.168.100.1/24" -ca-crt /etc/neb
 sudo nebula-cert sign -name "laptop" -ip "192.168.100.5/24" -ca-crt /etc/nebula/ca.crt -ca-key /etc/nebula/ca.key -groups "laptop,ssh"
 ```
 
-Enter the passphrase you chose above. This should give you the `crt` and `key` files for both, the `lighthouse` and `laptop`.
+Enter the passphrase you chose above. This should give you the `crt` and `key` files for both, the `lighthouse` and `laptop`. We kept the ip of both the devices non-consecutive to allow for more lighthouses to join later and retain initial IPs.
 
 ### Configuring Nebula
 
@@ -135,7 +132,7 @@ cp config.yml config-lighthouse.yaml
 cp config.yml config.yaml
 ```
 
-#### Lighthouse
+#### Lighthouse configuration
 
 Make the following changes to the `config-lighthouse.yaml` file:
 
@@ -145,28 +142,35 @@ Make the following changes to the `config-lighthouse.yaml` file:
 
 3. Delete the line just under `hosts:` (under `lighthouse`). The line is: `    - "192.168.100.1"`
 
-4. Scroll to the very bottom, and add the following lines under `firewall` and below `inbound`:
+4. Scroll to the very bottom, and add the following lines under `firewall` and below `inbound` to add allow ssh rule:
 
-```yaml
-# Allow ssh between any nebula hosts
-- port: 22
-  proto: tcp
-  host: any
-```
-
-This allows you to ssh between nebula hosts.
+  ```yaml
+      # Allow ssh between any nebula hosts
+      - port: 22
+        proto: tcp
+        host: any
+  ```
 
 #### Host configuration
 
 Make the following change to the `config.yaml` file:
 
-Copy the External IP of lighthouse from your [Instances page](https://console.cloud.google.com/compute/instances). Paste the ip in the line under `static_host_map:`:
+1. Copy the External IP of lighthouse from your [Instances page](https://console.cloud.google.com/compute/instances). Paste the ip in the line under `static_host_map:`:
 
 ```yaml
-"192.168.100.1": ["11.22.33.44:4242"]
+"192.168.100.1": ["198.51.100.1:4242"]
 ```
 
-Where `11.22.33.44` is assumed to be the External IP.
+Where `198.51.100.1` is assumed to be the External IP.
+
+2. Scroll to the very bottom, and add the following lines under `firewall` and below `inbound` to add allow ssh rule:
+
+  ```yaml
+      # Allow ssh between any nebula hosts
+      - port: 22
+        proto: tcp
+        host: any
+  ```
 
 ### Lighthouse Setup
 
@@ -175,14 +179,16 @@ Install nebula using:
 ```bash
 wget https://github.com/slackhq/nebula/releases/latest/download/nebula-linux-amd64.tar.gz
 tar -xvf nebula-linux-amd64.tar.gz
-sudo mv nebula /usr/local/sbin/
-sudo mv nebula-cert /usr/local/sbin/
+sudo mv nebula nebula-cert /usr/local/bin/
 ```
 
 Again, the above commands assume `amd64` architecture.
 
 Create a new directory:
-`sudo mkdir /etc/nebula`
+
+```bash
+sudo mkdir /etc/nebula
+```
 
 Move the following files you created **locally** $\rightarrow$ **lighthouse** by a method of your choosing:
 
@@ -192,6 +198,24 @@ Move the following files you created **locally** $\rightarrow$ **lighthouse** by
 4. `lighthouse.key` $\rightarrow$ `/etc/nebula/host.key`
 
 **NEVER** copy your `ca.key` file.
+
+For some fast copy/paste action, I use [wl-clipboard: Wayland clipboard utilities](https://github.com/bugaevc/wl-clipboard) on my Fedora 42.
+
+```bash
+# Install using dnf
+sudo dnf install wl-clipboard -y
+
+# Copy the lighthouse config file from your Local machine
+wl-copy < config-lighthouse.yaml
+
+# ON your Lighthouse, paste it in
+sudo nano /etc/nebula/config.yaml
+
+# To copy the crt/key files
+sudo cat /etc/nebula/ca.crt | wl-copy
+
+# ...and so on.
+```
 
 You can test out your config by running on the lighthouse:
 
@@ -215,7 +239,7 @@ Description=Nebula
 After=network.target
 
 [Service]
-ExecStart=/usr/local/sbin/nebula -config /etc/nebula/config.yaml
+ExecStart=/usr/local/bin/nebula -config /etc/nebula/config.yaml
 Restart=always
 
 [Install]
@@ -232,7 +256,7 @@ sudo systemctl enable --now nebula.service
 for the changes to take effect. You check upon the nebula process by using
 
 ```bash
-sudo systemctl status nebula.service`.
+sudo systemctl status nebula.service
 ```
 
 ### Laptop Setup
@@ -261,6 +285,39 @@ ping 192.168.100.1
 
 If all goes well, create the same systemd service on your laptop and reap the benefits of your hard labour.
 
+Note: For OSes with [SELinux (e.g. Fedora)](https://docs.fedoraproject.org/en-US/quick-docs/selinux-getting-started/), your `/usr/local/bin/nebula` is labeled `user_home_t`, so SELinux will treat it as “content in a home directory” and will not let systemd execute it. You need to relabel it as a normal executable (`bin_t`):
+
+1. **Add a file‐context rule** (so it survives relabels and restores)
+
+   ```bash
+   sudo semanage fcontext --add --type bin_t "/usr/local/bin/nebula"
+   ```
+
+2. **Apply the correct context**
+
+   ```bash
+   sudo restorecon -v /usr/local/bin/nebula
+   ```
+
+3. **Verify**
+
+   ```bash
+   ls -lZ /usr/local/bin/nebula
+   # should show: ...:object_r:bin_t:s0 instead of ...:object_r:user_home_t:s0
+   ```
+
+4. **Reload and restart your service**
+
+   ```bash
+   sudo systemctl daemon-reload
+   sudo systemctl restart nebula.service
+   sudo systemctl status nebula.service
+   ```
+
+After that, systemd (running in the `systemd_t` domain) will be allowed to execute the binary labeled `bin_t`, and the 203/EXEC error should go away.
+
+Fun fact: In Fedora 42, [`/usr/bin` and `/usr/sbin` were unified](https://fedoraproject.org/wiki/Changes/Unify_bin_and_sbin). This tutorial originally moved the nebula binaries to `/usr/local/sbin`, but was modified after reading the Changelog.
+
 Also check SSH access to the lighthouse:
 
 ```bash
@@ -275,25 +332,34 @@ It is easy to add hosts to an established Nebula network. You simply create a ne
 
 To connect your android app, download the Nebula app from [Play Store](https://play.google.com/store/apps/details?id=net.defined.mobile_nebula) or [App Store](https://apps.apple.com/us/app/mobile-nebula/id1509587936).
 
-In the app, add a new client by pressing the `+` button on top left. Give your nebula network a name.
+1. In the app, add a new client by pressing the `+` button on top left. Give your nebula network a name.
 
-In the Certificate section, under Identity, share the public to your laptop (with ca.key) by preferable means and save the file as `device.pub`.
-Issue the following commands to generate a certificate for your mobile:
+2. In the **Certificate** section, under **Identity**, share the public to your trusted Device (one with `ca.key`) by preferable means and save the file as `device.pub`.
+   Issue the following commands to generate a certificate for your mobile:
 
 ```bash
-sudo nebula-cert sign -in-pub device.pub -name "mobile" -ip "192.168.100.11/24" -ca-crt /etc/nebula/ca.crt -ca-key /etc/nebula/ca.key -out-qr mobile.png
+sudo nebula-cert sign -in-pub device.pub -name "mobile" -ip "192.168.100.6/24" -ca-crt /etc/nebula/ca.crt -ca-key /etc/nebula/ca.key -out-qr mobile.png
 ```
 
 Make note of the IP's we have been generating. You will need to manage the mappings yourself.
 
-Scan the `mobile.png` QR code that comes from this. You may not be able to view the `mobile.png` we just created. Change it's permissions via `sudo chmod 755 mobile.png`.
+3. Scan the `mobile.png` QR code that comes from this.
 
-In the CA section, scan the `ca.png` that we created earlier.
+- You may not be able to view the `mobile.png` we just created.
+- Change it's permissions via `sudo chmod 755 mobile.png`
 
-Proceed to Hosts and Add a new entry. Add the Nebula IP (192.168.100.1) of your Lighthouse, Toggle the Lighthouse switch on, enter the External IP (11.22.33.44) and port (4242) of Lighthouse.
+4. In the CA section, scan the `ca.png` that we created earlier.
 
-Save it all. Voila! you can connect to any device on the Nebula network.
+5. Proceed to Hosts and Add a new entry.
+
+- Add the Nebula IP (`192.168.100.1`) of your Lighthouse,
+- Toggle the Lighthouse switch on,
+- Enter the External IP (assumed `198.51.100.1`) and port (`4242`) of Lighthouse.
+
+6. Save it all. Voila! you can connect to any device on the Nebula network.
 
 ## References:
 
 [How to create your first overlay network](https://nebula.defined.net/docs/guides/quick-start/)
+
+[How Tailscale works](https://tailscale.com/blog/how-tailscale-works)
