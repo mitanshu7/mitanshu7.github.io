@@ -73,11 +73,16 @@ The following assumptions are made:
 9. Commit, push, wait a bit, and see your website live!
 
 You can check the quality of your website on [PageSpeed Insights](https://pagespeed.web.dev/).
-
 See [this report](https://pagespeed.web.dev/analysis/https-blog-papermatch-me/xfzuhinhkq?form_factor=mobile) for [mitanshu7.github.io](https://mitanshu7.github.io/).
 
-### For more information, see [GitHub Pages documentation ](https://docs.github.com/en/pages)
+Have a look at [GitHub Pages documentation](https://docs.github.com/en/pages) too.
 
-# Bonus!
+## Bonus!
 
-I have created a python script to convert all markdown files to html to ease the process. The script also uses `html/template.html` to add _Back to Home_ links on the bottom of every page. Please visit [mitanshu7/mitanshu7.github.io](https://github.com/mitanshu7/mitanshu7.github.io)!
+I have created a python script to convert all markdown files to html to ease the process. The script also uses `html/template.html` to add _Back to Home_ links on the bottom of every page.
+
+Please visit [mitanshu7/mitanshu7.github.io](https://github.com/mitanshu7/mitanshu7.github.io)!
+
+## Honorary mention
+
+[Hugo](https://gohugo.io/) is one of the most popular open-source static site generators. Checkout their [Quick start](https://gohugo.io/getting-started/quick-start/) and [Host and deploy](https://gohugo.io/host-and-deploy/) page for a similar setup as above. It also comes with a plethora of [Themes](https://themes.gohugo.io/).
