@@ -48,19 +48,25 @@ The following assumptions are made:
    ---
    ```
 
-   to make the blog post SEO friendly. You may skip adding keywords if you don't have any. Is is safer to add `""` around the values of `title`, `subtitle`, `author`, and `description` fields.
+   to make the blog post SEO friendly. You may skip adding keywords if you don't have any. It is safer to add `""` around the values of `title`, `subtitle`, `author`, and `description` fields.
 
 6. Convert the Markdown blog post to HTML using pandoc (execute in the repo folder):
 
-   `pandoc --standalone --output html/post_title.html markdown/post_title.md`
+   ```bash
+   pandoc --standalone --output html/post_title.html markdown/post_title.md
+   ```
 
 7. Create an `index.md` file in `markdown` folder. Create the index by hyperlinking the posts:
 
-   `1. [Post Title](html/post_title.html)`
+   ```markdown
+   1. [Post Title](html/post_title.html)
+   ```
 
 8. Convert `index.md` to HTML using pandoc (execute in the repo folder):
 
-   `pandoc --standalone --output index.html markdown/index.md`
+   ```bash
+   pandoc --standalone --output index.html markdown/index.md
+   ```
 
    You need to create the index file at the root of your repository. Since GitHub does now allow you to host the site from folder titled other than `docs` trivially.
 
@@ -74,4 +80,4 @@ See [this report](https://pagespeed.web.dev/analysis/https-blog-papermatch-me/xf
 
 # Bonus!
 
-I have created a python script to convert all markdown files to html to easy the process. The script also uses `template.html` to add _Back to Home_ links on the bottom of every page. Please visit [mitanshu7/mitanshu7.github.io](https://github.com/mitanshu7/mitanshu7.github.io)!
+I have created a python script to convert all markdown files to html to ease the process. The script also uses `html/template.html` to add _Back to Home_ links on the bottom of every page. Please visit [mitanshu7/mitanshu7.github.io](https://github.com/mitanshu7/mitanshu7.github.io)!

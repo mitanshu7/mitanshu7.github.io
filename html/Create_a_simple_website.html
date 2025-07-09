@@ -287,18 +287,21 @@ class="sourceCode yaml"><code class="sourceCode yaml"><span id="cb1-1"><a href="
 <span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a><span class="fu">keywords</span><span class="kw">:</span><span class="at"> </span><span class="kw">[</span><span class="at">keyword1</span><span class="kw">,</span><span class="at"> keyword2</span><span class="kw">,</span><span class="at"> keyword3</span><span class="kw">]</span></span>
 <span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a><span class="pp">---</span></span></code></pre></div>
 <p>to make the blog post SEO friendly. You may skip adding keywords if
-you don’t have any. Is is safer to add <code>""</code> around the values
+you don’t have any. It is safer to add <code>""</code> around the values
 of <code>title</code>, <code>subtitle</code>, <code>author</code>, and
 <code>description</code> fields.</p></li>
 <li><p>Convert the Markdown blog post to HTML using pandoc (execute in
 the repo folder):</p>
-<p><code>pandoc --standalone --output html/post_title.html markdown/post_title.md</code></p></li>
+<div class="sourceCode" id="cb2"><pre
+class="sourceCode bash"><code class="sourceCode bash"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="ex">pandoc</span> <span class="at">--standalone</span> <span class="at">--output</span> html/post_title.html markdown/post_title.md</span></code></pre></div></li>
 <li><p>Create an <code>index.md</code> file in <code>markdown</code>
 folder. Create the index by hyperlinking the posts:</p>
-<p><code>1. [Post Title](html/post_title.html)</code></p></li>
+<div class="sourceCode" id="cb3"><pre
+class="sourceCode markdown"><code class="sourceCode markdown"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="ss">1. </span><span class="co">[</span><span class="ot">Post Title</span><span class="co">](html/post_title.html)</span></span></code></pre></div></li>
 <li><p>Convert <code>index.md</code> to HTML using pandoc (execute in
 the repo folder):</p>
-<p><code>pandoc --standalone --output index.html markdown/index.md</code></p>
+<div class="sourceCode" id="cb4"><pre
+class="sourceCode bash"><code class="sourceCode bash"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="ex">pandoc</span> <span class="at">--standalone</span> <span class="at">--output</span> index.html markdown/index.md</span></code></pre></div>
 <p>You need to create the index file at the root of your repository.
 Since GitHub does now allow you to host the site from folder titled
 other than <code>docs</code> trivially.</p></li>
@@ -315,9 +318,9 @@ information, see <a href="https://docs.github.com/en/pages">GitHub Pages
 documentation</a></h3>
 <h1 id="bonus">Bonus!</h1>
 <p>I have created a python script to convert all markdown files to html
-to easy the process. The script also uses <code>template.html</code> to
-add <em>Back to Home</em> links on the bottom of every page. Please
-visit <a
+to ease the process. The script also uses
+<code>html/template.html</code> to add <em>Back to Home</em> links on
+the bottom of every page. Please visit <a
 href="https://github.com/mitanshu7/mitanshu7.github.io">mitanshu7/mitanshu7.github.io</a>!</p>
 <div style="text-align: center;"><a href="../index.html">Back to Home</a></div>
 </body>
