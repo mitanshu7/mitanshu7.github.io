@@ -446,10 +446,10 @@ line is: <code>"192.168.100.1": ["100.64.22.11:4242"]</code></p></li>
 rule:</p></li>
 </ol>
 <div class="sourceCode" id="cb7"><pre
-class="sourceCode yaml"><code class="sourceCode yaml"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="co">    # Allow ssh between any nebula hosts</span></span>
-<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="kw">-</span><span class="at"> </span><span class="fu">port</span><span class="kw">:</span><span class="at"> </span><span class="dv">22</span></span>
-<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a><span class="at">      </span><span class="fu">proto</span><span class="kw">:</span><span class="at"> tcp</span></span>
-<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a><span class="at">      </span><span class="fu">host</span><span class="kw">:</span><span class="at"> any</span></span></code></pre></div>
+class="sourceCode yaml"><code class="sourceCode yaml"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Allow ssh between any nebula hosts</span></span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a><span class="kw">-</span><span class="at"> </span><span class="fu">port</span><span class="kw">:</span><span class="at"> </span><span class="dv">22</span></span>
+<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="fu">proto</span><span class="kw">:</span><span class="at"> tcp</span></span>
+<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="fu">host</span><span class="kw">:</span><span class="at"> any</span></span></code></pre></div>
 <h4 id="host-configuration">Host configuration</h4>
 <p>Make the following change to the <code>config.yaml</code> file:</p>
 <ol type="1">
@@ -467,10 +467,10 @@ class="sourceCode yaml"><code class="sourceCode yaml"><span id="cb8-1"><a href="
 rule:</li>
 </ol>
 <div class="sourceCode" id="cb9"><pre
-class="sourceCode yaml"><code class="sourceCode yaml"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="co">    # Allow ssh between any nebula hosts</span></span>
-<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="kw">-</span><span class="at"> </span><span class="fu">port</span><span class="kw">:</span><span class="at"> </span><span class="dv">22</span></span>
-<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a><span class="at">      </span><span class="fu">proto</span><span class="kw">:</span><span class="at"> tcp</span></span>
-<span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a><span class="at">      </span><span class="fu">host</span><span class="kw">:</span><span class="at"> any</span></span></code></pre></div>
+class="sourceCode yaml"><code class="sourceCode yaml"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Allow ssh between any nebula hosts</span></span>
+<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a><span class="kw">-</span><span class="at"> </span><span class="fu">port</span><span class="kw">:</span><span class="at"> </span><span class="dv">22</span></span>
+<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="fu">proto</span><span class="kw">:</span><span class="at"> tcp</span></span>
+<span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="fu">host</span><span class="kw">:</span><span class="at"> any</span></span></code></pre></div>
 <h3 id="lighthouse-setup">Lighthouse Setup</h3>
 <p>Install nebula using:</p>
 <div class="sourceCode" id="cb10"><pre
@@ -566,18 +566,18 @@ href="https://docs.fedoraproject.org/en-US/quick-docs/selinux-getting-started/">
 directory” and will not let systemd execute it. You need to relabel it
 as a normal executable (<code>bin_t</code>):</p>
 <ol type="1">
-<li><p><strong>Add a file‐context rule</strong> (so it survives relabels
-and restores)</p>
+<li><p>Add a file‐context rule (so it survives relabels and
+restores)</p>
 <div class="sourceCode" id="cb21"><pre
 class="sourceCode bash"><code class="sourceCode bash"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a><span class="fu">sudo</span> semanage fcontext <span class="at">--add</span> <span class="at">--type</span> bin_t <span class="st">&quot;/usr/local/bin/nebula&quot;</span></span></code></pre></div></li>
-<li><p><strong>Apply the correct context</strong></p>
+<li><p>Apply the correct context</p>
 <div class="sourceCode" id="cb22"><pre
 class="sourceCode bash"><code class="sourceCode bash"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a><span class="fu">sudo</span> restorecon <span class="at">-v</span> /usr/local/bin/nebula</span></code></pre></div></li>
-<li><p><strong>Verify</strong></p>
+<li><p>Verify</p>
 <div class="sourceCode" id="cb23"><pre
 class="sourceCode bash"><code class="sourceCode bash"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ls</span> <span class="at">-lZ</span> /usr/local/bin/nebula</span>
 <span id="cb23-2"><a href="#cb23-2" aria-hidden="true" tabindex="-1"></a><span class="co"># should show: ...:object_r:bin_t:s0 instead of ...:object_r:user_home_t:s0</span></span></code></pre></div></li>
-<li><p><strong>Reload and restart your service</strong></p>
+<li><p>Reload and restart your service</p>
 <div class="sourceCode" id="cb24"><pre
 class="sourceCode bash"><code class="sourceCode bash"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true" tabindex="-1"></a><span class="fu">sudo</span> systemctl daemon-reload</span>
 <span id="cb24-2"><a href="#cb24-2" aria-hidden="true" tabindex="-1"></a><span class="fu">sudo</span> systemctl restart nebula.service</span>
@@ -586,6 +586,11 @@ class="sourceCode bash"><code class="sourceCode bash"><span id="cb24-1"><a href=
 <p>After that, systemd (running in the <code>systemd_t</code> domain)
 will be allowed to execute the binary labeled <code>bin_t</code>, and
 the 203/EXEC error should go away.</p>
+<p>However, you can just install the <code>nebula</code> package from
+<code>dnf</code> and change <code>/usr/local/bin/nebula</code> to
+<code>/usr/bin/nebula</code> in the systemd service script to avoid the
+hassle. Only use the downloaded binaries if the latest version is not
+available in dnf package repository.</p>
 <p>Fun fact: In Fedora 42, <a
 href="https://fedoraproject.org/wiki/Changes/Unify_bin_and_sbin"><code>/usr/bin</code>
 and <code>/usr/sbin</code> were unified</a>. This tutorial originally

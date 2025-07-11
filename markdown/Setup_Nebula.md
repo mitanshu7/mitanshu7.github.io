@@ -144,12 +144,12 @@ Make the following changes to the `config-lighthouse.yaml` file:
 
 4. Scroll to the very bottom, and add the following lines under `firewall` and below `inbound` to add allow ssh rule:
 
-  ```yaml
-      # Allow ssh between any nebula hosts
-      - port: 22
-        proto: tcp
-        host: any
-  ```
+```yaml
+# Allow ssh between any nebula hosts
+- port: 22
+  proto: tcp
+  host: any
+```
 
 #### Host configuration
 
@@ -165,12 +165,12 @@ Where `198.51.100.1` is assumed to be the External IP.
 
 2. Scroll to the very bottom, and add the following lines under `firewall` and below `inbound` to add allow ssh rule:
 
-  ```yaml
-      # Allow ssh between any nebula hosts
-      - port: 22
-        proto: tcp
-        host: any
-  ```
+```yaml
+# Allow ssh between any nebula hosts
+- port: 22
+  proto: tcp
+  host: any
+```
 
 ### Lighthouse Setup
 
@@ -287,26 +287,26 @@ If all goes well, create the same systemd service on your laptop and reap the be
 
 Note: For OSes with [SELinux (e.g. Fedora)](https://docs.fedoraproject.org/en-US/quick-docs/selinux-getting-started/), your `/usr/local/bin/nebula` is labeled `user_home_t`, so SELinux will treat it as “content in a home directory” and will not let systemd execute it. You need to relabel it as a normal executable (`bin_t`):
 
-1. **Add a file‐context rule** (so it survives relabels and restores)
+1. Add a file‐context rule (so it survives relabels and restores)
 
    ```bash
    sudo semanage fcontext --add --type bin_t "/usr/local/bin/nebula"
    ```
 
-2. **Apply the correct context**
+2. Apply the correct context
 
    ```bash
    sudo restorecon -v /usr/local/bin/nebula
    ```
 
-3. **Verify**
+3. Verify
 
    ```bash
    ls -lZ /usr/local/bin/nebula
    # should show: ...:object_r:bin_t:s0 instead of ...:object_r:user_home_t:s0
    ```
 
-4. **Reload and restart your service**
+4. Reload and restart your service
 
    ```bash
    sudo systemctl daemon-reload
@@ -315,6 +315,8 @@ Note: For OSes with [SELinux (e.g. Fedora)](https://docs.fedoraproject.org/en-US
    ```
 
 After that, systemd (running in the `systemd_t` domain) will be allowed to execute the binary labeled `bin_t`, and the 203/EXEC error should go away.
+
+However, you can just install the `nebula` package from `dnf` and change `/usr/local/bin/nebula` to `/usr/bin/nebula` in the systemd service script to avoid the hassle. Only use the downloaded binaries if the latest version is not available in dnf package repository.
 
 Fun fact: In Fedora 42, [`/usr/bin` and `/usr/sbin` were unified](https://fedoraproject.org/wiki/Changes/Unify_bin_and_sbin). This tutorial originally moved the nebula binaries to `/usr/local/sbin`, but was modified after reading the Changelog.
 
