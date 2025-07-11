@@ -326,7 +326,7 @@ Also check SSH access to the lighthouse:
 ssh username@192.168.100.1
 ```
 
-### Adding hosts to your network
+### [Adding hosts to your network](https://nebula.defined.net/docs/guides/quick-start/#adding-hosts-to-your-network)
 
 It is easy to add hosts to an established Nebula network. You simply create a new host certificate and key, and then follow the steps under Running Nebula. You will not need to make changes to your lighthouse or any other hosts when adding hosts to your network, and existing hosts will be able to find new ones via the lighthouse, automatically.
 
