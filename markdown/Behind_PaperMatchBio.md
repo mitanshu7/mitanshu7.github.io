@@ -21,9 +21,11 @@ Simply stated, bioRxiv is arXiv but for bio.
 
 bioRxiv allows for [machine access](https://www.biorxiv.org/tdm) via Amazon S3 at a [requester pays bucket](https://docs.aws.amazon.com/AmazonS3/latest/dev/RequesterPaysBuckets.html). So this requires us to have an aws account with a working card to be able to mine the bucket for full text access and relinquish our fortunes. Just kidding, its quite cheap to be making all those requests. It cost me about ₹66.24 ($0.77) for all of bioRxiv till April 2025.
 
+NOTE: AWS S3 has become very costly and is frankly excessive for the use case. I will update with a new method soon. The following will AWS tutorial will cost you a lot and hence is not reccomended!
+
 I'll be honest. I do not have the kind of stable electricity nor the bandwidth (internet one) to be mining all of bioRxiv on my laptop. Thankfully, good friends at [HuggingFace](https://huggingface.co/) let you host your [gradio](https://www.gradio.app/) apps for free! These demo's basically run on small VMs. So, I used their [Hello World](https://www.gradio.app/) example to have a fake storefront while downloading the bioRxiv repo in the background. Thanks 🤗 :)
 
-Assuming You have your aws account [created](https://docs.aws.amazon.com/accounts/latest/reference/manage-acct-creating.html) and [billing](https://docs.aws.amazon.com/account-billing/) setup, we'll move onto getting the sweet sweet data.
+Assuming You have your aws account [created](https://docs.aws.amazon.com/accounts/latest/reference/manage-acct-creating.html) and [billing](https://docs.aws.amazon.com/account-billing/) setup along with your [access key id and secret](https://console.aws.amazon.com/iam/home#/security_credentials), we'll move onto getting the sweet sweet data.
 
 [Python](https://www.python.org/) is the language of choice for AI/ML and that is the one I know, so we'll be using that.
 

@@ -265,6 +265,9 @@ working card to be able to mine the bucket for full text access and
 relinquish our fortunes. Just kidding, its quite cheap to be making all
 those requests. It cost me about ₹66.24 ($0.77) for all of bioRxiv till
 April 2025.</p>
+<p>NOTE: AWS S3 has become very costly and is frankly excessive for the
+use case. I will update with a new method soon. The following will AWS
+tutorial will cost you a lot and hence is not reccomended!</p>
 <p>I’ll be honest. I do not have the kind of stable electricity nor the
 bandwidth (internet one) to be mining all of bioRxiv on my laptop.
 Thankfully, good friends at <a
@@ -277,7 +280,9 @@ storefront while downloading the bioRxiv repo in the background. Thanks
 <p>Assuming You have your aws account <a
 href="https://docs.aws.amazon.com/accounts/latest/reference/manage-acct-creating.html">created</a>
 and <a href="https://docs.aws.amazon.com/account-billing/">billing</a>
-setup, we’ll move onto getting the sweet sweet data.</p>
+setup along with your <a
+href="https://console.aws.amazon.com/iam/home#/security_credentials">access
+key id and secret</a>, we’ll move onto getting the sweet sweet data.</p>
 <p><a href="https://www.python.org/">Python</a> is the language of
 choice for AI/ML and that is the one I know, so we’ll be using that.</p>
 <p><a
