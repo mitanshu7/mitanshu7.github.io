@@ -61,7 +61,7 @@ for markdown_file in markdown_files:
         convert_markdown_to_html(
             markdown_file,
             output_file,
-            arguments="--standalone --template=html/template.html",
+            arguments="--standalone --template=html/template.html --highlight-style=kate",
         )
 
 
