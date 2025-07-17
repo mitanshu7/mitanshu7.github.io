@@ -75,6 +75,8 @@ This blog is where I share thoughts/How-Tos on software, high-performance comput
 
 28. [Wash your Cocktails](html/Wash_your_Cocktails.html)
 
+29. [UnixBench of Ampere A1 on Oracle Cloud](html/factotum-2025-07-17-01.html)
+
 ---
 
 # Contact
