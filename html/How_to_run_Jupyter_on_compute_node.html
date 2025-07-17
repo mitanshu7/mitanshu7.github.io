@@ -170,7 +170,6 @@ Tirupati, compute nodes, port forwarding, interactive session" />
       margin: 0 0.8em 0.2em -1.6em;
       vertical-align: middle;
     }
-    .display.math{display: block; text-align: center; margin: 0.5rem auto;}
     /* CSS for syntax highlighting */
     html { -webkit-text-size-adjust: 100%; }
     pre > code.sourceCode { white-space: pre; position: relative; }
@@ -240,6 +239,9 @@ Tirupati, compute nodes, port forwarding, interactive session" />
     code span.vs { color: #bf0303; } /* VerbatimString */
     code span.wa { color: #bf0303; } /* Warning */
   </style>
+  <script
+  src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js"
+  type="text/javascript"></script>
 </head>
 <body>
 <header id="title-block-header">
@@ -306,8 +308,9 @@ already ssh’ed terminal T1 using:</li>
 <code>XX</code> is the node number.</p>
 <ol start="11" type="1">
 <li><p>Now you have a Jupyter server running on your allotted node and a
-ssh tunnel from local-machine <span class="math inline">→</span>
-master-node <span class="math inline">→</span> compute-node</p></li>
+ssh tunnel from local-machine <span class="math inline">\(\to\)</span>
+master-node <span class="math inline">\(\to\)</span>
+compute-node</p></li>
 <li><p>Open your favorite web browser on your local machine and copy
 paste the above URL</p></li>
 <li><p>Enjoy jupyter as if it was running locally ;)</p></li>

@@ -170,8 +170,10 @@ database, paper recommendation, machine learning, gradio" />
       margin: 0 0.8em 0.2em -1.6em;
       vertical-align: middle;
     }
-    .display.math{display: block; text-align: center; margin: 0.5rem auto;}
   </style>
+  <script
+  src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js"
+  type="text/javascript"></script>
 </head>
 <body>
 <header id="title-block-header">
@@ -194,9 +196,8 @@ Abstracts</h1>
 <p>To represent the papers in a form that can be compared effectively, I
 used vector embeddings.</p>
 <p>Embedding models (aka Neural Networks) take in bits of data and give
-out vectors in an <span
-class="math inline"><em>N</em></span>-dimensional space where <span
-class="math inline"><em>N</em></span> depends on the model
+out vectors in an <span class="math inline">\(N\)</span>-dimensional
+space where <span class="math inline">\(N\)</span> depends on the model
 architecture.</p>
 <figure>
 <img
@@ -234,9 +235,9 @@ saving of processed abstracts.</p></li>
 <li><p><strong>Embed</strong>: Pass the abstract to the embedding model
 and store the results in a parquet form with columns
 <code>['id', 'vector']</code> which is a milvus compatibe format. It
-took <span class="math inline"> ∼ 20</span> hours to process <span
-class="math inline"> ∼ 2.5</span> million (1991-2024) records on a RTX
-4050 Laptop GPU.</p></li>
+took <span class="math inline">\(\sim 20\)</span> hours to process <span
+class="math inline">\(\sim 2.5\)</span> million (1991-2024) records on a
+RTX 4050 Laptop GPU.</p></li>
 </ol>
 <p>You can find codes for these at <a
 href="https://github.com/mitanshu7/embed_arxiv_simpler">mitanshu7/embed_arxiv_simpler</a>.

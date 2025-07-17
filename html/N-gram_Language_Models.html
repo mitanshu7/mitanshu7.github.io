@@ -171,7 +171,6 @@ models, Markov processes" />
       margin: 0 0.8em 0.2em -1.6em;
       vertical-align: middle;
     }
-    .display.math{display: block; text-align: center; margin: 0.5rem auto;}
     /* CSS for syntax highlighting */
     html { -webkit-text-size-adjust: 100%; }
     pre > code.sourceCode { white-space: pre; position: relative; }
@@ -241,6 +240,9 @@ models, Markov processes" />
     code span.vs { color: #bf0303; } /* VerbatimString */
     code span.wa { color: #bf0303; } /* Warning */
   </style>
+  <script
+  src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js"
+  type="text/javascript"></script>
 </head>
 <body>
 <header id="title-block-header">
@@ -275,14 +277,17 @@ example, LLMs have to learn to predict that the word coming after
 <p>N-gram models are a very simple form of language models. An n-gram
 model estimates the probability of the next item given the n−1 previous
 items.</p>
-<p><span
-class="math display"><em>P</em>(<em>w</em> * <em>i</em>|<em>w</em> * <em>i</em> − (<em>n</em> − 1), ..., <em>w</em> * <em>i</em> − 1) = <em>c</em><em>o</em><em>u</em><em>n</em><em>t</em>(<em>w</em> * <em>i</em> − (<em>n</em> − 1), ..., <em>w</em> * <em>i</em> − 1, <em>w</em><sub><em>i</em></sub>) / <em>c</em><em>o</em><em>u</em><em>n</em><em>t</em>(<em>w</em> * <em>i</em> − (<em>n</em> − 1), ..., <em>w</em>_<em>i</em> − 1)</span></p>
-<p>For a bigram, <span class="math inline"><em>N</em> = 2</span>,</p>
-<p><span
-class="math display"><em>P</em>(<em>I</em>, <em>s</em><em>a</em><em>w</em>, <em>t</em><em>h</em><em>e</em>, <em>r</em><em>e</em><em>d</em>, <em>h</em><em>o</em><em>u</em><em>s</em><em>e</em>) ≈ <em>P</em>(<em>I</em>|⟨<em>s</em>⟩) × <em>P</em>(<em>s</em><em>a</em><em>w</em>|<em>I</em>) × <em>P</em>(<em>t</em><em>h</em><em>e</em>|<em>s</em><em>a</em><em>w</em>) × <em>P</em>(<em>r</em><em>e</em><em>d</em>|<em>t</em><em>h</em><em>e</em>) × <em>P</em>(<em>h</em><em>o</em><em>u</em><em>s</em><em>e</em>|<em>r</em><em>e</em><em>d</em>) × <em>P</em>(⟨/<em>s</em>⟩|<em>h</em><em>o</em><em>u</em><em>s</em><em>e</em>)</span></p>
+<p><span class="math display">\[ P(w*i | w*{i - (n-1)}, ..., w*{i-1}) =
+count(w*{i - (n-1)}, ..., w*{i-1},w_i) \ / \ count(w*{i - (n-1)}, ...,
+w\_{i-1}) \]</span></p>
+<p>For a bigram, <span class="math inline">\(N = 2\)</span>,</p>
+<p><span class="math display">\[ P(I, saw, the, red, house) \approx
+P(I|\langle s \rangle) \times P(saw|I) \times P(the|saw) \times
+P(red|the) \times P(house|red) \times P(\langle /s \rangle | house)
+\]</span></p>
 <p>where start and end of sentence markers are denoted by <span
-class="math inline">⟨<em>s</em>⟩</span> &amp; <span
-class="math inline">⟨/<em>s</em>⟩</span> respectively.</p>
+class="math inline">\(\langle s \rangle\)</span> &amp; <span
+class="math inline">\(\langle /s \rangle\)</span> respectively.</p>
 <p><a href="https://en.wikipedia.org/wiki/Markov_chain">Markov
 Processes</a> lean into the same idea. A Markov chain assumes that
 future states depend only on the current state, not on the events that
