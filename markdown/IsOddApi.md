@@ -13,7 +13,7 @@ keywords: "IsOddApi, REST API, Flask, Docker, isEven API, odd number checker, pl
 
 # Backstory
 
-The other day [isEven API](https://isevenapi.xyz/) made it to the frontpage of [Hacker News](https://news.ycombinator.com/) and [one commenter](https://news.ycombinator.com/item?id=41371780#41373770) requested the odd version of it. Well, I present to you [**IsOddApi**](https://isodd.papermatch.me/)!
+The other day [isEven API](https://isevenapi.xyz/) made it to the frontpage of [Hacker News](https://news.ycombinator.com/) and [one commenter](https://news.ycombinator.com/item?id=41371780#41373770) requested the odd version of it. Well, I present to you [**IsOddApi**](https://mitanshu7.github.io/IsOddApiWebsite)!
 
 # Implementation
 
@@ -27,7 +27,7 @@ The website uses [The smallest Docker image to serve static websites](https://li
 
 isOdd API is a RESTful API that returns json.
 
-API URL: [https://isoddapi.papermatch.me/api/](https://isoddapi.papermatch.me/api/)
+API URL: [https://isoddapi.onrender.com/api/](https://isoddapi.onrender.com/api/)
 
 **GET `/isodd/<number>/`**
 
@@ -39,7 +39,7 @@ number: the number you want to check
 
 **Example**
 
-[https://isoddapi.papermatch.me/api/isodd/7/](https://isoddapi.papermatch.me/api/isodd/7/)
+[https://isoddapi.onrender.com/api/isodd/7/](https://isoddapi.onrender.com/api/isodd/7/)
 
 ```json
 {
