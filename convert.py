@@ -8,7 +8,7 @@ from glob import glob
 
 # Function to convert markdown files to HTML using Pandoc
 def convert_markdown_to_html(input_file: str, output_file: str, arguments: str = None):
-    command = ["pandoc", input_file, "--output", output_file]
+    command = ["pandoc", input_file, "--output", output_file, "--standalone"]
 
     if arguments:
         # If arguments is a string, split it into a list
@@ -54,14 +54,14 @@ for markdown_file in markdown_files:
         output_file = "index.html"
 
         # Convert the markdown file to HTML without a template
-        convert_markdown_to_html(markdown_file, output_file, arguments="--standalone")
+        convert_markdown_to_html(markdown_file, output_file, arguments="")
 
     else:
         # Convert the markdown file to HTML
         convert_markdown_to_html(
             markdown_file,
             output_file,
-            arguments="--standalone --template=html/template.html --highlight-style=kate --mathjax",
+            arguments="--template=html/template.html --highlight-style=kate --mathjax",
         )
 
 
