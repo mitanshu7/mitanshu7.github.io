@@ -77,6 +77,8 @@ This blog is where I share thoughts/How-Tos on software, high-performance comput
 
 29. [UnixBench of Ampere A1 on Oracle Cloud](html/factotum-2025-07-17-01.html)
 
+30. [SSH into Your Android Phone Using Termux and Cloudflare Tunnels](html/SSH_into_Your_Android_Phone_Using_Termux_and_Cloudflare_Tunnels.html)
+
 ---
 
 # Contact
