@@ -19,7 +19,7 @@ This blog is where I share thoughts/How-Tos on software, high-performance comput
 
 # Index for the website
 
-1. [SSH into Your Android Phone Using Termux and Cloudflare Tunnels](html/SSH_into_Your_Android_Phone_Using_Termux_and_Cloudflare_Tunnels.html)
+1. [SSH into Android with Termux & Cloudflared](html/SSH_into_Android_with_Termux_and_Cloudflared.html)
 
 2. [UnixBench of Ampere A1 on Oracle Cloud](html/factotum-2025-07-17-01.html)
 

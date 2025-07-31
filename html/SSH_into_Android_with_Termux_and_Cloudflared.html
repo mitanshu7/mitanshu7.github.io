@@ -12,7 +12,7 @@ tunnels, remote access, mobile server" />
 access to your Android device using Termux and Cloudflare Tunnels.
 Complete guide covering installation, configuration, and browser-based
 terminal access from anywhere in the world." />
-  <title>SSH into Your Android Phone Using Termux and Cloudflare Tunnels</title>
+  <title>SSH into Android with Termux &amp; Cloudflared</title>
   <style>
     html {
       color: #1a1a1a;
@@ -246,24 +246,38 @@ terminal access from anywhere in the world." />
 <body>
 <div style="text-align: center;"><a href="../index.html">Home</a></div>
 <header id="title-block-header">
-<h1 class="title">SSH into Your Android Phone Using Termux and
-Cloudflare Tunnels</h1>
+<h1 class="title">SSH into Android with Termux &amp; Cloudflared</h1>
 <p class="subtitle"><strong>Turn your Android device into a remotely
 accessible server</strong></p>
 <p class="author"><em>Mitanshu Sukhwani</em></p>
 <p class="date"><code>2025-07-31</code></p>
 </header>
-<p>Ever wanted to SSH into your Android device from anywhere in the
-world? With Termux and Cloudflare Tunnels, you can turn your Android
-phone into a fully accessible remote server that you can connect to
-securely through your browser or terminal. This guide will walk you
-through the complete setup process.</p>
+<p>I have been selfhosting for a couple of years, but every now and then
+I find something that makes my day.</p>
+<p>Recently, I <a href="Setup_Nebula.html">tried out Nebula</a>, the
+open-source <a href="https://tailscale.com/">Tailscale</a> alternative
+and found <a href="https://termux.dev/en/">Termux</a>, a terminal
+emulator for Android, very useful to access common utilities like
+<code>ping</code> and <code>ssh</code>. I like to play around networking
+on odd devices and had created <a
+href="https://github.com/mitanshu7/tailscale_kual">Tailscale on
+Kindle</a>. Then I tried a similar approach as detailed on this github
+gist, <a
+href="https://gist.github.com/mitanshu7/babc5cb9ce0cdc63af40d31f8a330ba4">Tailscale
+without root</a>, but failed with <code>Permission denied</code> error.
+Not knowing anything about Android API, I had to switch directions
+towards my <a
+href="https://gist.github.com/mitanshu7/86c6bc148af770d95f57d558b4096397">Cloudflared
++ Alpine Linux + Raspberri Pi Zero 2W</a> setup.</p>
+<p>Here is a simple <a href="https://oneplus11r.papermatch.me/">website
+being served from my phone</a>, How amazing is that?!</p>
+<p>(It may or may not show for you depending on my phone battery or time
+of day XP)</p>
 <h2 id="what-youll-need">What You’ll Need</h2>
 <ul>
 <li>An Android device with <a
 href="https://f-droid.org/packages/com.termux/">Termux</a>
 installed</li>
-<li>A Cloudflare account</li>
 <li>A domain managed by Cloudflare</li>
 </ul>
 <h2 id="step-1-setting-up-cloudflared-on-termux">Step 1: Setting Up
@@ -340,10 +354,10 @@ href="https://docs.github.com/en/authentication/connecting-to-github-with-ssh/ge
 a new SSH key first</a>.</p>
 <div class="sourceCode" id="cb9"><pre
 class="sourceCode bash"><code class="sourceCode bash"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="co"># On your PC</span></span>
-<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a><span class="fu">cat</span> .ssh/id_ed25519.pub</span></code></pre></div>
+<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a><span class="fu">cat</span> ~/.ssh/id_ed25519.pub</span></code></pre></div>
 <p>Copy the output, then in Termux:</p>
 <div class="sourceCode" id="cb10"><pre
-class="sourceCode bash"><code class="sourceCode bash"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="fu">nano</span> .ssh/authorized_keys</span></code></pre></div>
+class="sourceCode bash"><code class="sourceCode bash"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="fu">nano</span> ~/.ssh/authorized_keys</span></code></pre></div>
 <p>Paste your public key and save the file.</p>
 <h2 id="step-3-configure-cloudflare-access">Step 3: Configure Cloudflare
 Access</h2>
@@ -392,7 +406,7 @@ F-Droid</li>
 <h2 id="troubleshooting">Troubleshooting</h2>
 <ul>
 <li>If you need to stop the SSH service: <code>pkill sshd</code></li>
-<li>Check tunnel status: <code>sv status cloudflared</code> or
+<li>Check tunnel/sshd status: <code>sv status cloudflared</code> or
 <code>sv status sshd</code></li>
 <li>View tunnel logs: Check the log directory we created earlier</li>
 </ul>
@@ -402,16 +416,10 @@ F-Droid</li>
 <li>Regularly update Termux packages with <code>pkg upgrade</code></li>
 <li>Consider limiting access policies in Cloudflare to specific IP
 ranges if possible</li>
-<li>Monitor your tunnel usage through the Cloudflare dashboard</li>
 </ul>
 <h2 id="conclusion">Conclusion</h2>
 <p>You now have secure, remote access to your Android device from
-anywhere in the world! This setup is perfect for running scripts,
-managing files, or even using your phone as a lightweight server. The
-combination of Termux’s Linux environment and Cloudflare’s secure
-tunneling makes for a powerful and accessible mobile computing
-setup.</p>
-<p>Happy remote computing!</p>
+anywhere in the world!</p>
 <h2 id="references">References</h2>
 <ul>
 <li><a href="https://wiki.termux.com/wiki/Remote_Access">Termux Remote

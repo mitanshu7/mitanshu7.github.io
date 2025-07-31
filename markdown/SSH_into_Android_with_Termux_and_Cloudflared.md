@@ -1,6 +1,6 @@
 ---
 # 1. Basic Identification
-title: "SSH into Your Android Phone Using Termux and Cloudflare Tunnels"
+title: "SSH into Android with Termux & Cloudflared"
 subtitle: "**Turn your Android device into a remotely accessible server**"
 author: "_Mitanshu Sukhwani_"
 date: "`2025-07-31`"
@@ -11,12 +11,17 @@ description-meta: "Learn how to set up secure SSH access to your Android device 
 keywords: "termux, android, ssh, cloudflare tunnels, remote access, mobile server"
 ---
 
-Ever wanted to SSH into your Android device from anywhere in the world? With Termux and Cloudflare Tunnels, you can turn your Android phone into a fully accessible remote server that you can connect to securely through your browser or terminal. This guide will walk you through the complete setup process.
+I have been selfhosting for a couple of years, but every now and then I find something that makes my day. 
+
+Recently, I [tried out Nebula](Setup_Nebula.html), the open-source [Tailscale](https://tailscale.com/) alternative and found [Termux](https://termux.dev/en/), a terminal emulator for Android, very useful to access common utilities like `ping` and `ssh`. I like to play around networking on odd devices and had created [Tailscale on Kindle](https://github.com/mitanshu7/tailscale_kual). Then I tried a similar approach as detailed on this github gist, [Tailscale without root](https://gist.github.com/mitanshu7/babc5cb9ce0cdc63af40d31f8a330ba4), but failed with `Permission denied` error. Not knowing anything about Android API, I had to switch directions towards my [Cloudflared + Alpine Linux + Raspberri Pi Zero 2W](https://gist.github.com/mitanshu7/86c6bc148af770d95f57d558b4096397) setup.
+
+Here is a simple [website being served from my phone](https://oneplus11r.papermatch.me/), How amazing is that?!
+
+(It may or may not show for you depending on my phone battery or time of day XP)
 
 ## What You'll Need
 
 - An Android device with [Termux](https://f-droid.org/packages/com.termux/) installed
-- A Cloudflare account
 - A domain managed by Cloudflare
 
 ## Step 1: Setting Up Cloudflared on Termux
@@ -117,13 +122,13 @@ From your PC, copy your public key. If you don't have one, [generate a new SSH k
 
 ```bash
 # On your PC
-cat .ssh/id_ed25519.pub
+cat ~/.ssh/id_ed25519.pub
 ```
 
 Copy the output, then in Termux:
 
 ```bash
-nano .ssh/authorized_keys
+nano ~/.ssh/authorized_keys
 ```
 
 Paste your public key and save the file.
@@ -170,7 +175,7 @@ To ensure your tunnel starts automatically when your phone boots:
 ## Troubleshooting
 
 - If you need to stop the SSH service: `pkill sshd`
-- Check tunnel status: `sv status cloudflared` or `sv status sshd`
+- Check tunnel/sshd status: `sv status cloudflared` or `sv status sshd`
 - View tunnel logs: Check the log directory we created earlier
 
 ## Security Considerations
@@ -178,13 +183,10 @@ To ensure your tunnel starts automatically when your phone boots:
 - Always use strong passwords or SSH keys
 - Regularly update Termux packages with `pkg upgrade`
 - Consider limiting access policies in Cloudflare to specific IP ranges if possible
-- Monitor your tunnel usage through the Cloudflare dashboard
 
 ## Conclusion
 
-You now have secure, remote access to your Android device from anywhere in the world! This setup is perfect for running scripts, managing files, or even using your phone as a lightweight server. The combination of Termux's Linux environment and Cloudflare's secure tunneling makes for a powerful and accessible mobile computing setup.
-
-Happy remote computing!
+You now have secure, remote access to your Android device from anywhere in the world!
 
 ## References
 
