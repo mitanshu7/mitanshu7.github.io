@@ -249,65 +249,147 @@ server?</strong></p>
 <p class="author"><em>Mitanshu Sukhwani</em></p>
 <p class="date"><code>2025-06-07</code></p>
 </header>
-<h1 id="steps">Steps:</h1>
-<p>Rename <strong>mitanshu</strong> to your
-<strong>username</strong></p>
+<h1 id="get-tailscale">Get tailscale</h1>
 <ol type="1">
-<li><p>Fetch appropriate binaries from here:
-https://pkgs.tailscale.com/stable/#static</p></li>
-<li><p>Make them executible with:</p>
+<li><p>Fetch appropriate binaries for your architecture from here: <a
+href="https://pkgs.tailscale.com/stable/#static">Tailscale Packages -
+stable track</a></p></li>
+<li><p>Untar using:</p></li>
+</ol>
 <div class="sourceCode" id="cb1"><pre
-class="sourceCode bash"><code class="sourceCode bash"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">chmod</span> +x /home/mitanshu/tailscale/tailscaled</span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="fu">chmod</span> +x /home/mitanshu/tailscale/tailscale</span></code></pre></div></li>
-<li><p>Create a bash script with
-<code>nano /home/mitanshu/tailscale/start_tailscaled.sh</code>:</p>
+class="sourceCode bash"><code class="sourceCode bash"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">tar</span> xvf tailscale_<span class="pp">*</span>.tgz</span></code></pre></div>
+<ol start="3" type="1">
+<li>Rename folder:</li>
+</ol>
 <div class="sourceCode" id="cb2"><pre
-class="sourceCode bash"><code class="sourceCode bash"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="co">#!/bin/bash</span></span>
-<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Path to the tailscaled binary</span></span>
-<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a><span class="va">TAILSCALED_START</span><span class="op">=</span><span class="st">&quot;/home/mitanshu/tailscale/tailscaled --state=/home/mitanshu/.local/share/tailscale/tailscaled.state --socket=/home/mitanshu/tailscale/tailscaled.sock -tun userspace-networking --port=41641&quot;</span></span>
-<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a><span class="va">TAILSCALED_CLEAN</span><span class="op">=</span><span class="st">&quot;/home/mitanshu/tailscale/tailscaled --cleanup&quot;</span></span>
-<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a><span class="co"># Function to check if tailscaled is running</span></span>
-<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a><span class="fu">is_running()</span> <span class="kw">{</span></span>
-<span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a>    <span class="ex">pgrep</span> <span class="at">-x</span> tailscaled <span class="op">&gt;</span> /dev/null</span>
-<span id="cb2-10"><a href="#cb2-10" aria-hidden="true" tabindex="-1"></a><span class="kw">}</span></span>
-<span id="cb2-11"><a href="#cb2-11" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-12"><a href="#cb2-12" aria-hidden="true" tabindex="-1"></a><span class="co"># Start tailscaled if not running</span></span>
-<span id="cb2-13"><a href="#cb2-13" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> <span class="ot">! </span><span class="ex">is_running</span><span class="kw">;</span> <span class="cf">then</span></span>
-<span id="cb2-14"><a href="#cb2-14" aria-hidden="true" tabindex="-1"></a>    <span class="fu">date</span></span>
-<span id="cb2-15"><a href="#cb2-15" aria-hidden="true" tabindex="-1"></a>    <span class="bu">echo</span> <span class="st">&quot;Starting tailscaled...&quot;</span></span>
-<span id="cb2-16"><a href="#cb2-16" aria-hidden="true" tabindex="-1"></a>    <span class="fu">nohup</span> <span class="va">$TAILSCALED_CLEAN</span> <span class="op">&gt;</span> /home/mitanshu/tailscale/tailscaled.log <span class="dv">2</span><span class="op">&gt;&amp;</span><span class="dv">1</span> <span class="kw">&amp;</span></span>
-<span id="cb2-17"><a href="#cb2-17" aria-hidden="true" tabindex="-1"></a>    <span class="fu">nohup</span> <span class="va">$TAILSCALED_START</span> <span class="op">&gt;</span> /home/mitanshu/tailscale/tailscaled.log <span class="dv">2</span><span class="op">&gt;&amp;</span><span class="dv">1</span> <span class="kw">&amp;</span></span>
-<span id="cb2-18"><a href="#cb2-18" aria-hidden="true" tabindex="-1"></a><span class="cf">else</span></span>
-<span id="cb2-19"><a href="#cb2-19" aria-hidden="true" tabindex="-1"></a>    <span class="fu">date</span></span>
-<span id="cb2-20"><a href="#cb2-20" aria-hidden="true" tabindex="-1"></a>    <span class="bu">echo</span> <span class="st">&quot;tailscaled is already running.&quot;</span></span>
-<span id="cb2-21"><a href="#cb2-21" aria-hidden="true" tabindex="-1"></a><span class="cf">fi</span></span></code></pre></div></li>
-<li><p>Add cronjob using:</p>
-<p><code>crontab -e</code></p>
-<p>and adding</p>
+class="sourceCode bash"><code class="sourceCode bash"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="fu">mv</span> tailscale_<span class="pp">*</span>/ tailscale/</span></code></pre></div>
+<ol start="4" type="1">
+<li>Add folder to path &amp; alias by appending the following lines in
+<code>~/.bashrc</code>:</li>
+</ol>
 <div class="sourceCode" id="cb3"><pre
-class="sourceCode bash"><code class="sourceCode bash"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="ex">@reboot</span> /home/mitanshu/tailscale/start_tailscaled.sh</span>
-<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="ex">*</span> <span class="pp">*</span> <span class="pp">*</span> <span class="pp">*</span> <span class="pp">*</span> /home/mitanshu/tailscale/start_tailscaled.sh</span></code></pre></div></li>
-<li><p>Run tailscale using:</p>
-<p><code>tailscale --socket=/home/mitanshu/tailscale/tailscaled.sock up</code></p></li>
-<li><p>Login using the url shown and voila!</p></li>
+class="sourceCode bash"><code class="sourceCode bash"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="bu">export</span> <span class="va">PATH</span><span class="op">=</span><span class="st">&quot;</span><span class="va">$HOME</span><span class="st">/tailscale:</span><span class="va">$PATH</span><span class="st">&quot;</span></span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="bu">alias</span> tailscale=<span class="st">&#39;tailscale --socket=$HOME/tailscale/tailscaled.sock&#39;</span></span></code></pre></div>
+<h2 id="with-systemd-recommended">With Systemd (Recommended)</h2>
+<ol start="0" type="1">
+<li>Create the systemd user config directory:</li>
+</ol>
+<div class="sourceCode" id="cb4"><pre
+class="sourceCode bash"><code class="sourceCode bash"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="fu">mkdir</span> <span class="at">-p</span> ~/.config/systemd/user/</span></code></pre></div>
+<ol type="1">
+<li>Create a service file using:</li>
+</ol>
+<div class="sourceCode" id="cb5"><pre
+class="sourceCode bash"><code class="sourceCode bash"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="fu">nano</span> ~/.config/systemd/user/tailscaled.service</span></code></pre></div>
+<ol start="2" type="1">
+<li>With the following contents:</li>
+</ol>
+<div class="sourceCode" id="cb6"><pre
+class="sourceCode ini"><code class="sourceCode ini"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="kw">[Unit]</span></span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a><span class="dt">Description</span><span class="ot">=</span><span class="st">Tailscale node agent</span></span>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a><span class="dt">Documentation</span><span class="ot">=</span><span class="st">https://tailscale.com/kb/</span></span>
+<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a><span class="dt">Wants</span><span class="ot">=</span><span class="st">network-pre.target</span></span>
+<span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a><span class="dt">After</span><span class="ot">=</span><span class="st">network-pre.target NetworkManager.service systemd-resolved.service</span></span>
+<span id="cb6-6"><a href="#cb6-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-7"><a href="#cb6-7" aria-hidden="true" tabindex="-1"></a><span class="kw">[Service]</span></span>
+<span id="cb6-8"><a href="#cb6-8" aria-hidden="true" tabindex="-1"></a><span class="dt">ExecStart</span><span class="ot">=</span><span class="st">%h/tailscale/tailscaled --state=%h/tailscale/tailscaled.state --socket=%h/tailscale/tailscaled.sock -tun=userspace-networking --port=41641</span></span>
+<span id="cb6-9"><a href="#cb6-9" aria-hidden="true" tabindex="-1"></a><span class="dt">ExecStopPost</span><span class="ot">=</span><span class="st">%h/tailscale/tailscaled --cleanup</span></span>
+<span id="cb6-10"><a href="#cb6-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-11"><a href="#cb6-11" aria-hidden="true" tabindex="-1"></a><span class="dt">Restart</span><span class="ot">=</span><span class="st">always</span></span>
+<span id="cb6-12"><a href="#cb6-12" aria-hidden="true" tabindex="-1"></a><span class="dt">RestartSec</span><span class="ot">=</span><span class="dv">5</span></span>
+<span id="cb6-13"><a href="#cb6-13" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-14"><a href="#cb6-14" aria-hidden="true" tabindex="-1"></a><span class="dt">StandardOutput</span><span class="ot">=</span><span class="st">append:%h/tailscale/tailscaled.log</span></span>
+<span id="cb6-15"><a href="#cb6-15" aria-hidden="true" tabindex="-1"></a><span class="dt">StandardError</span><span class="ot">=</span><span class="st">append:%h/tailscale/tailscaled.log</span></span>
+<span id="cb6-16"><a href="#cb6-16" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-17"><a href="#cb6-17" aria-hidden="true" tabindex="-1"></a><span class="kw">[Install]</span></span>
+<span id="cb6-18"><a href="#cb6-18" aria-hidden="true" tabindex="-1"></a><span class="dt">WantedBy</span><span class="ot">=</span><span class="st">default.target</span></span></code></pre></div>
+<p><code>%h</code> redirects to <code>$HOME</code> variable.</p>
+<ol start="3" type="1">
+<li>Reload daemon, start &amp; enable the service, and check the
+status:</li>
+</ol>
+<div class="sourceCode" id="cb7"><pre
+class="sourceCode bash"><code class="sourceCode bash"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="ex">systemctl</span> <span class="at">--user</span> daemon-reload</span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a><span class="ex">systemctl</span> <span class="at">--user</span> enable <span class="at">--now</span> tailscaled.service</span>
+<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a><span class="ex">systemctl</span> <span class="at">--user</span> status tailscaled.service</span></code></pre></div>
+<ol start="4" type="1">
+<li>Run the client with:</li>
+</ol>
+<div class="sourceCode" id="cb8"><pre
+class="sourceCode bash"><code class="sourceCode bash"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="ex">tailscale</span> <span class="at">--socket</span><span class="op">=</span><span class="va">$HOME</span>/tailscale/tailscaled.sock up</span></code></pre></div>
+<ol start="5" type="1">
+<li>Log in and profit!</li>
+</ol>
+<h2 id="without-systemd-hacky">Without Systemd (Hacky)</h2>
+<ol type="1">
+<li>Create a bash script</li>
+</ol>
+<div class="sourceCode" id="cb9"><pre
+class="sourceCode bash"><code class="sourceCode bash"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="fu">nano</span> <span class="va">$HOME</span>/tailscale/start_tailscaled.sh</span></code></pre></div>
+<ol start="2" type="1">
+<li>With the following contents:</li>
+</ol>
+<div class="sourceCode" id="cb10"><pre
+class="sourceCode bash"><code class="sourceCode bash"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="co">#!/bin/bash</span></span>
+<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Path to the tailscaled binary</span></span>
+<span id="cb10-4"><a href="#cb10-4" aria-hidden="true" tabindex="-1"></a><span class="va">TAILSCALED_START</span><span class="op">=</span><span class="st">&quot;</span><span class="va">$HOME</span><span class="st">/tailscale/tailscaled --state=</span><span class="va">$HOME</span><span class="st">/tailscale/tailscaled.state --socket=</span><span class="va">$HOME</span><span class="st">/tailscale/tailscaled.sock -tun=userspace-networking --port=41641&quot;</span></span>
+<span id="cb10-5"><a href="#cb10-5" aria-hidden="true" tabindex="-1"></a><span class="va">TAILSCALED_CLEAN</span><span class="op">=</span><span class="st">&quot;</span><span class="va">$HOME</span><span class="st">/tailscale/tailscaled --cleanup&quot;</span></span>
+<span id="cb10-6"><a href="#cb10-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-7"><a href="#cb10-7" aria-hidden="true" tabindex="-1"></a><span class="co"># Function to check if tailscaled is running</span></span>
+<span id="cb10-8"><a href="#cb10-8" aria-hidden="true" tabindex="-1"></a><span class="fu">is_running()</span> <span class="kw">{</span></span>
+<span id="cb10-9"><a href="#cb10-9" aria-hidden="true" tabindex="-1"></a>    <span class="ex">pgrep</span> <span class="at">-x</span> tailscaled <span class="op">&gt;</span> /dev/null</span>
+<span id="cb10-10"><a href="#cb10-10" aria-hidden="true" tabindex="-1"></a><span class="kw">}</span></span>
+<span id="cb10-11"><a href="#cb10-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-12"><a href="#cb10-12" aria-hidden="true" tabindex="-1"></a><span class="co"># Start tailscaled if not running</span></span>
+<span id="cb10-13"><a href="#cb10-13" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> <span class="ot">! </span><span class="ex">is_running</span><span class="kw">;</span> <span class="cf">then</span></span>
+<span id="cb10-14"><a href="#cb10-14" aria-hidden="true" tabindex="-1"></a>    <span class="fu">date</span></span>
+<span id="cb10-15"><a href="#cb10-15" aria-hidden="true" tabindex="-1"></a>    <span class="bu">echo</span> <span class="st">&quot;Starting tailscaled...&quot;</span></span>
+<span id="cb10-16"><a href="#cb10-16" aria-hidden="true" tabindex="-1"></a>    <span class="fu">nohup</span> <span class="va">$TAILSCALED_CLEAN</span> <span class="op">&gt;&gt;</span> <span class="va">$HOME</span>/tailscale/tailscaled.log <span class="dv">2</span><span class="op">&gt;&amp;</span><span class="dv">1</span> <span class="kw">&amp;</span></span>
+<span id="cb10-17"><a href="#cb10-17" aria-hidden="true" tabindex="-1"></a>    <span class="fu">nohup</span> <span class="va">$TAILSCALED_START</span> <span class="op">&gt;&gt;</span> <span class="va">$HOME</span>/tailscale/tailscaled.log <span class="dv">2</span><span class="op">&gt;&amp;</span><span class="dv">1</span> <span class="kw">&amp;</span></span>
+<span id="cb10-18"><a href="#cb10-18" aria-hidden="true" tabindex="-1"></a><span class="cf">else</span></span>
+<span id="cb10-19"><a href="#cb10-19" aria-hidden="true" tabindex="-1"></a>    <span class="fu">date</span></span>
+<span id="cb10-20"><a href="#cb10-20" aria-hidden="true" tabindex="-1"></a>    <span class="bu">echo</span> <span class="st">&quot;tailscaled is already running.&quot;</span></span>
+<span id="cb10-21"><a href="#cb10-21" aria-hidden="true" tabindex="-1"></a><span class="cf">fi</span></span></code></pre></div>
+<ol start="4" type="1">
+<li>Modify the crontab via</li>
+</ol>
+<div class="sourceCode" id="cb11"><pre
+class="sourceCode bash"><code class="sourceCode bash"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="fu">crontab</span> <span class="at">-e</span></span></code></pre></div>
+<ol start="5" type="1">
+<li>With</li>
+</ol>
+<div class="sourceCode" id="cb12"><pre
+class="sourceCode bash"><code class="sourceCode bash"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="ex">@reboot</span> <span class="va">$HOME</span>/tailscale/start_tailscaled.sh</span>
+<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a><span class="ex">*</span> <span class="pp">*</span> <span class="pp">*</span> <span class="pp">*</span> <span class="pp">*</span> <span class="va">$HOME</span>/tailscale/start_tailscaled.sh</span></code></pre></div>
+<ol start="5" type="1">
+<li>Run tailscale using:</li>
+</ol>
+<div class="sourceCode" id="cb13"><pre
+class="sourceCode bash"><code class="sourceCode bash"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="ex">tailscale</span> <span class="at">--socket</span><span class="op">=</span><span class="va">$HOME</span>/tailscale/tailscaled.sock up</span></code></pre></div>
+<ol start="6" type="1">
+<li>Login using the url shown and enjoy!</li>
 </ol>
 <h1 id="bonus">Bonus:</h1>
-<p>If multiple people are using Tailscale, change to a free port and
-modify the following in your bash script:</p>
+<p>If multiple people are using Tailscale without root, change to a free
+port and modify the following in your systemd.service/bash.script:</p>
 <ol type="1">
 <li>from</li>
 </ol>
-<p><code>--port=41641</code></p>
+<div class="sourceCode" id="cb14"><pre
+class="sourceCode bash"><code class="sourceCode bash"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="ex">--port=41641</span></span></code></pre></div>
 <p>to</p>
-<p><code>--port=41642</code></p>
+<div class="sourceCode" id="cb15"><pre
+class="sourceCode bash"><code class="sourceCode bash"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="ex">--port=41642</span></span></code></pre></div>
 <ol start="2" type="1">
-<li>from</li>
+<li>Only in bash script:</li>
 </ol>
-<p><code>pgrep -x tailscaled</code></p>
+<p>from</p>
+<div class="sourceCode" id="cb16"><pre
+class="sourceCode bash"><code class="sourceCode bash"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="ex">pgrep</span> <span class="at">-x</span> tailscaled</span></code></pre></div>
 <p>to</p>
-<p><code>pgrep -f 41642</code></p>
+<div class="sourceCode" id="cb17"><pre
+class="sourceCode bash"><code class="sourceCode bash"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a><span class="ex">pgrep</span> <span class="at">-f</span> 41642</span></code></pre></div>
 <div style="text-align: center;"><a href="../index.html"><i>Back to Home</i></a></div>
 </body>
 </html>
