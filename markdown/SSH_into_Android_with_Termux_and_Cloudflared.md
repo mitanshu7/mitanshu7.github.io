@@ -81,6 +81,12 @@ You can check if everything is working with:
 sv status cloudflared
 ```
 
+Log files for services are situated in `$PREFIX/var/log/sv/<PKG>/` with the active log file named "current". 
+
+```bash
+cat $PREFIX/var/log/sv/cloudflared/current
+```
+
 ## Step 2: Configure SSH on Termux
 
 Now let's set up the SSH server on your Android device.
