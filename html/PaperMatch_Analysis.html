@@ -360,8 +360,7 @@ closer the points, and hence more related they are.</p>
 <a href="https://en.wikipedia.org/wiki/Cosine_similarity">Cosine
 Similarity</a>.</p>
 <figure>
-<img
-src="https://wikimedia.org/api/rest_v1/media/math/render/svg/15d11df2d48da4787ee86a4b8c14551fbf0bc96a"
+<img src="../image/cosine_similarity.svg"
 alt="Cosine similarity formula" />
 <figcaption aria-hidden="true">Cosine similarity formula</figcaption>
 </figure>
@@ -374,8 +373,7 @@ in the same direction. Embedding models also capture semantic meaning in
 terms of the direction. And hence, if two vectors are pointing in the
 same direction, they tend to mean similar things.</p>
 <figure>
-<img
-src="https://miro.medium.com/v2/resize:fit:824/1*GK56xmDIWtNQAD_jnBIt2g.png"
+<img src="../image/cosine_similarity_graph.webp"
 alt="Cosine similarity graph" />
 <figcaption aria-hidden="true">Cosine similarity graph</figcaption>
 </figure>
@@ -388,8 +386,7 @@ bitwise <a href="https://en.wikipedia.org/wiki/Exclusive_or">XOR</a> of
 two binary vectors and then summing up the values in resulting
 vector.</p>
 <figure>
-<img
-src="https://docs.oracle.com/en/database/oracle/oracle-database/23/vecse/img/hamming_similarity2.png"
+<img src="../image/hamming_similarity.webp"
 alt="Hamming distance calulation" />
 <figcaption aria-hidden="true">Hamming distance calulation</figcaption>
 </figure>
@@ -411,16 +408,14 @@ simplicity comes with the cost of having to compute a lot.</p>
 neighbour search. First you partition your embedding database, then
 calculate centroids of all the partitions.</p>
 <figure>
-<img src="https://assets.zilliz.com/centroid_09ce775136.png"
-alt="Partition" />
+<img src="../image/zilliz_partition.webp" alt="Partition" />
 <figcaption aria-hidden="true">Partition</figcaption>
 </figure>
 <p>Then, when a query vector comes, first you only query the centroids
 and when you find the closest centroid, you use FLAT search for all the
 vectors belonging to that cluster.</p>
 <figure>
-<img src="https://assets.zilliz.com/centroid_1_64417f3d6d.png"
-alt="IVF-FLAT search" />
+<img src="../image/zilliz_ivf_flat_search.webp" alt="IVF-FLAT search" />
 <figcaption aria-hidden="true">IVF-FLAT search</figcaption>
 </figure>
 <p>Source: <a
@@ -496,9 +491,7 @@ class="math inline">\(2\)</span>) by identifying the most important
 features (principal components) that capture the most variance in a
 dataset.</p>
 <figure>
-<img
-src="https://numxl.com/wp-content/uploads/principal-component-analysis-pca-featured.png"
-alt="PCA in action" />
+<img src="../image/pca.webp" alt="PCA in action" />
 <figcaption aria-hidden="true">PCA in action</figcaption>
 </figure>
 <p>We can apply pca to float and binary vectors to see the impact of

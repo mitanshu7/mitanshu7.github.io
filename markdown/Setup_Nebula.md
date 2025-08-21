@@ -17,19 +17,19 @@ Traditionally, VPNs have had a hub-and-spoke architecture. There are multiple cl
 
 ## Tailscale
 
-![Hub-and-Spoke VPN](https://cdn.sanity.io/images/w77i7m8x/production/3cbc3fa27f0b798d3a0bc98f57829a9083dad769-1400x1080.svg?w=3840&q=75&fit=clip&auto=format)
+![Hub-and-Spoke VPN](../image/tailscale_hub_and_spoke.svg)
 
 However, there is a single point of failure with this model, and latency can take a huge hit if both the machines are geographically closer but the hub is in some far-away land.
 
-![Latency hits](https://cdn.sanity.io/images/w77i7m8x/production/d0363ebfb736fa6e394aef3cb26585cecd842cd2-1320x980.svg?w=3840&q=75&fit=clip&auto=format)
+![Latency hits](../image/tailscale_latency_hits.svg)
 
 Thus, newer generation of VPNs solve this by using a mesh network. Where every machine (node) is connected to every other node (machine).
 
-![Mesh network](https://cdn.sanity.io/images/w77i7m8x/production/e989a4a69acd182abbd662d0de93cb31c4c4d210-1600x1080.svg?w=3840&q=75&fit=clip&auto=format)
+![Mesh network](../image/tailscale_mesh_network.svg)
 
 But how do the clients know with whom to talk to? That is handled by a Coordination Server (closed-source), which is essentially a dropbox to exchange public keys.
 
-![Coordination Server](https://cdn.sanity.io/images/w77i7m8x/production/dbba97845c1ad1955669cc6a84c94f9d5fb78ade-1600x1080.svg?w=3840&q=75&fit=clip&auto=format)
+![Coordination Server](../image/tailscale_coordination_server.svg)
 
 This looks like a Hub and Spoke model again, but its only the keys that are transferred through this server, the data plane remains the mesh.
 

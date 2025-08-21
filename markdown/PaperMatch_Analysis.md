@@ -83,15 +83,15 @@ Euclidean distance signifies how close (or far) two points are. Smaller the dist
 
 However, when talking about semantic search, the most used metric is [Cosine Similarity](https://en.wikipedia.org/wiki/Cosine_similarity).
 
-![Cosine similarity formula](https://wikimedia.org/api/rest_v1/media/math/render/svg/15d11df2d48da4787ee86a4b8c14551fbf0bc96a)
+![Cosine similarity formula](../image/cosine_similarity.svg)
 
 Cosine similarity ranges from $-1 \to 1$. Where $-1$ tells you that the vectors in question are facing opposite to each other, $0$ tells you orthogonal vector and $1$ tells you both the vectors are facing in the same direction. Embedding models also capture semantic meaning in terms of the direction. And hence, if two vectors are pointing in the same direction, they tend to mean similar things.
 
-![Cosine similarity graph](https://miro.medium.com/v2/resize:fit:824/1*GK56xmDIWtNQAD_jnBIt2g.png)
+![Cosine similarity graph](../image/cosine_similarity_graph.webp)
 
 Another such metric is [Hamming distance](https://en.wikipedia.org/wiki/Hamming_distance). It exists for binary vectors, values of which are either $0$ or $1$. Hamming distance is defined by taking bitwise [XOR](https://en.wikipedia.org/wiki/Exclusive_or) of two binary vectors and then summing up the values in resulting vector.
 
-![Hamming distance calulation](https://docs.oracle.com/en/database/oracle/oracle-database/23/vecse/img/hamming_similarity2.png)
+![Hamming distance calulation](../image/hamming_similarity.webp)
 
 Fun fact, [POPCNT](https://en.wikipedia.org/wiki/SSE4#POPCNT_and_LZCNT) - counts the number of 1 bits, is actually [The NSA Instruction](https://vaibhavsagar.com/blog/2019/09/08/popcount/).
 
@@ -103,11 +103,11 @@ FLAT is a very simple index. It simply calculates the distance between the query
 
 Inverted File FLAT (IVF-FLAT) allows for approximate nearest neighbour search. First you partition your embedding database, then calculate centroids of all the partitions.
 
-![Partition](https://assets.zilliz.com/centroid_09ce775136.png)
+![Partition](../image/zilliz_partition.webp)
 
 Then, when a query vector comes, first you only query the centroids and when you find the closest centroid, you use FLAT search for all the vectors belonging to that cluster.
 
-![IVF-FLAT search](https://assets.zilliz.com/centroid_1_64417f3d6d.png)
+![IVF-FLAT search](../image/zilliz_ivf_flat_search.webp)
 
 Source: [How to Pick a Vector Index in Your Milvus Instance: A Visual Guide](https://zilliz.com/learn/how-to-pick-a-vector-index-in-milvus-visual-guide).
 
@@ -145,7 +145,7 @@ Now you know why arXiv has so many [CS](https://arxiv.org/archive/cs) papers. Th
 
 [Principal Component Analysis](https://scikit-learn.org/stable/modules/generated/sklearn.decomposition.PCA.html), is a statistical technique used to reduce the dimensionality of data (from a vector of size $1024$ to say $2$) by identifying the most important features (principal components) that capture the most variance in a dataset.
 
-![PCA in action](https://numxl.com/wp-content/uploads/principal-component-analysis-pca-featured.png)
+![PCA in action](../image/pca.webp)
 
 We can apply pca to float and binary vectors to see the impact of conversion.
 

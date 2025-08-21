@@ -37,7 +37,7 @@ where start and end of sentence markers are denoted by $\langle s \rangle$ & $\l
 
 [Markov Processes](https://en.wikipedia.org/wiki/Markov_chain) lean into the same idea. A Markov chain assumes that future states depend only on the current state, not on the events that occurred before it.
 
-![A two-state Markov process.](https://upload.wikimedia.org/wikipedia/commons/thumb/2/2b/Markovkate_01.svg/500px-Markovkate_01.svg.png)
+![A two-state Markov process.](../image/markov_process.webp)
 
 Armed with the theory, let's code up a Bigram model on [Pride and Prejudice](https://en.wikipedia.org/wiki/Pride_and_Prejudice) by [Jane Austen](https://en.wikipedia.org/wiki/Jane_Austen) from [Project Gutenberg](https://www.gutenberg.org/).
 

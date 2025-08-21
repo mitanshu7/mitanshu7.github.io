@@ -260,8 +260,7 @@ both, the internet and your office network, which is how you can
 <em>relay</em> your <code>ssh</code> connections to the destination.</p>
 <h2 id="tailscale">Tailscale</h2>
 <figure>
-<img
-src="https://cdn.sanity.io/images/w77i7m8x/production/3cbc3fa27f0b798d3a0bc98f57829a9083dad769-1400x1080.svg?w=3840&amp;q=75&amp;fit=clip&amp;auto=format"
+<img src="../image/tailscale_hub_and_spoke.svg"
 alt="Hub-and-Spoke VPN" />
 <figcaption aria-hidden="true">Hub-and-Spoke VPN</figcaption>
 </figure>
@@ -269,26 +268,21 @@ alt="Hub-and-Spoke VPN" />
 latency can take a huge hit if both the machines are geographically
 closer but the hub is in some far-away land.</p>
 <figure>
-<img
-src="https://cdn.sanity.io/images/w77i7m8x/production/d0363ebfb736fa6e394aef3cb26585cecd842cd2-1320x980.svg?w=3840&amp;q=75&amp;fit=clip&amp;auto=format"
-alt="Latency hits" />
+<img src="../image/tailscale_latency_hits.svg" alt="Latency hits" />
 <figcaption aria-hidden="true">Latency hits</figcaption>
 </figure>
 <p>Thus, newer generation of VPNs solve this by using a mesh network.
 Where every machine (node) is connected to every other node
 (machine).</p>
 <figure>
-<img
-src="https://cdn.sanity.io/images/w77i7m8x/production/e989a4a69acd182abbd662d0de93cb31c4c4d210-1600x1080.svg?w=3840&amp;q=75&amp;fit=clip&amp;auto=format"
-alt="Mesh network" />
+<img src="../image/tailscale_mesh_network.svg" alt="Mesh network" />
 <figcaption aria-hidden="true">Mesh network</figcaption>
 </figure>
 <p>But how do the clients know with whom to talk to? That is handled by
 a Coordination Server (closed-source), which is essentially a dropbox to
 exchange public keys.</p>
 <figure>
-<img
-src="https://cdn.sanity.io/images/w77i7m8x/production/dbba97845c1ad1955669cc6a84c94f9d5fb78ade-1600x1080.svg?w=3840&amp;q=75&amp;fit=clip&amp;auto=format"
+<img src="../image/tailscale_coordination_server.svg"
 alt="Coordination Server" />
 <figcaption aria-hidden="true">Coordination Server</figcaption>
 </figure>

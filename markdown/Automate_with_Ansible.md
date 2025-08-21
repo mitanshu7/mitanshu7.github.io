@@ -17,7 +17,7 @@ I learned all about [ansible](https://docs.ansible.com/ansible/latest/getting_st
 
 The idea with ansible is to have a certain set of rules, which we call Playbook, define how software gets installed on computer systems at scale.
 
-![Ansible environment](https://docs.ansible.com/ansible/latest/_images/ansible_inv_start.svg)
+![Ansible environment](../image/ansible_inv_start.svg)
 
 On your Control Node, device from which you will be running the playbook, you can install Ansible as follows:
 

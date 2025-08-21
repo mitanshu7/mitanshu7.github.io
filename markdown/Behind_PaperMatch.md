@@ -21,11 +21,11 @@ To represent the papers in a form that can be compared effectively, I used vecto
 
 Embedding models (aka Neural Networks) take in bits of data and give out vectors in an $N$-dimensional space where $N$ depends on the model architecture.
 
-![How Embeddings Work? Source: [Qdrant](https://qdrant.tech/articles/what-are-embeddings/)](https://qdrant.tech/articles_data/what-are-embeddings/How-Embeddings-Work.jpg)
+![How Embeddings Work? Source: [Qdrant](https://qdrant.tech/articles/what-are-embeddings/)](../image/qdrant_how_embeddings_work.webp)
 
 For this I used the open source model [mixedbread-ai/mxbai-embed-large-v1](https://huggingface.co/mixedbread-ai/mxbai-embed-large-v1) from [Mixedbread](https://www.mixedbread.ai/docs/embeddings/mxbai-embed-large-v1).
 
-![2D Semantics. Source: [Qdrant](https://qdrant.tech/articles/what-are-embeddings/)](https://qdrant.tech/articles_data/what-are-embeddings/Similar-Embeddings.jpg)
+![2D Semantics. Source: [Qdrant](https://qdrant.tech/articles/what-are-embeddings/)](../image/qdrant_similar_embeddings.webp)
 
 These fixed-length numerical representations, of the paper abstracts in our case, capture semantic similarity.
 
@@ -50,7 +50,7 @@ Once I had the embeddings, I needed a way to store and efficiently search throug
 
 Something that helped me choose milvus:
 
-![Vector database comparision. Source: [Reddit](https://www.reddit.com/r/LangChain/comments/170jigz/my_strategy_for_picking_a_vector_database_a/)](https://preview.redd.it/my-strategy-for-picking-a-vector-database-a-side-by-side-v0-dw181oiz8esb1.png?width=1080&crop=smart&auto=webp&s=a7e046c5e03a5d7eb6d4aa07262ddd166b06c5b9)
+![Vector database comparision. Source: [Reddit](https://www.reddit.com/r/LangChain/comments/170jigz/my_strategy_for_picking_a_vector_database_a/)](../image/reddit_pick_vectordb.webp)
 
 Here's how the process works to handle the interaction between my embedding data and Milvus:
 
@@ -64,7 +64,7 @@ Here's how the process works to handle the interaction between my embedding data
 
 To serve the app, I chose [Gradio](https://www.gradio.app/), a simple yet powerful framework for building web UIs for machine learning apps. I integrated Gradio with my backend to allow for a user-friendly interaction with the service. To increase response rate and decrease server load, I cache all the queries.
 
-![PaperMatch UI](https://github.com/mitanshu7/PaperMatch/raw/main/demo.gif)
+![PaperMatch UI](../image/papermatch_demo_4bit.gif)
 
 You can find codes for these at [mitanshu7/PaperMatch](https://github.com/mitanshu7/PaperMatch).
 
