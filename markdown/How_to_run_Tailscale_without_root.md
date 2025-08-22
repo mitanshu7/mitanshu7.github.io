@@ -83,7 +83,7 @@ systemctl --user status tailscaled.service
 4. Run the client with:
 
 ```bash
-tailscale --socket=$HOME/tailscale/tailscaled.sock up
+tailscale up
 ```
 
 5. Log in and profit!
@@ -137,7 +137,7 @@ crontab -e
 5. Run tailscale using:
 
 ```bash
-tailscale --socket=$HOME/tailscale/tailscaled.sock up
+tailscale up
 ```
 
 6. Login using the url shown and enjoy!
