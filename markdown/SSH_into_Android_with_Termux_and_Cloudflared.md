@@ -5,6 +5,7 @@ subtitle: "**Turn your Android device into a remotely accessible server**"
 author: "_Mitanshu Sukhwani_"
 date: "`2025-07-31`"
 lang: en
+mainfont: 'Helvetica'
 
 # 2. Metadata / SEO
 description-meta: "Learn how to set up secure SSH access to your Android device using Termux and Cloudflare Tunnels. Complete guide covering installation, configuration, and browser-based terminal access from anywhere in the world."

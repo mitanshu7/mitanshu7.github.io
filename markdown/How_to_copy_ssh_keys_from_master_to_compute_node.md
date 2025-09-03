@@ -5,6 +5,7 @@ subtitle: "**Fix when you run `ssh-keygen` on brand new HPC access**"
 author: "_Mitanshu Sukhwani_"
 date: "`2025-06-07`"
 lang: en
+mainfont: 'Helvetica'
 
 # 2. Metadata / SEO
 description: "Quick guide to set up passwordless SSH access from the master to compute nodes in an HPC cluster. Covers key generation, retrieving node IPs, and using ssh-copy-id."

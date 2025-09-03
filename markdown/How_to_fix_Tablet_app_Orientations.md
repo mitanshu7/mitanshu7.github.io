@@ -5,6 +5,7 @@ subtitle: "**Free the portrait-locked apps**"
 author: "_Mitanshu Sukhwani_"
 date: "`2025-06-07`"
 lang: en
+mainfont: 'Helvetica'
 
 # 2. Metadata / SEO
 description: "Force portrait-locked apps like Venmo or Authy to run in landscape on Android tablets and foldables using a simple ADB command. Works on Android 12+ with letterboxing support."

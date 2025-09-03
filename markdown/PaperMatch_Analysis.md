@@ -5,6 +5,7 @@ subtitle: "**What do the vectors tell us?**"
 author: "_Mitanshu Sukhwani_"
 date: "`2025-06-11`"
 lang: en
+mainfont: 'Helvetica'
 
 # 2. Metadata / SEO
 description: "Exploring how vector embeddings reveal insights about scientific research on arXiv. From distance metrics and vector DB performance to category shifts and dimensionality reduction using PCA, UMAP, and MRL on millions of abstracts."

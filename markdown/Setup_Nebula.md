@@ -5,6 +5,7 @@ subtitle: "**The Open-Source Tailscale Alternative**"
 author: "_Mitanshu Sukhwani_"
 date: "`2025-06-19`"
 lang: en
+mainfont: 'Helvetica'
 
 # 2. Metadata / SEO
 description: "Learn how to self-host a mesh VPN using Nebula, the open-source Tailscale alternative. Set up a lighthouse node on Google Cloud’s free tier, configure firewall rules, and connect devices securely."

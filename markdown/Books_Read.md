@@ -5,6 +5,7 @@ subtitle: "**From memory**"
 author: "_Mitanshu Sukhwani_"
 date: "`2025-06-09`"
 lang: en
+mainfont: 'Helvetica'
 
 # 2. Metadata / SEO
 description: "A personal reading list spanning memoirs, fiction, science, and philosophy — from 'Sapiens' and 'Educated' to 'The Martian' and 'Thinking, Fast and Slow'. A mix of thought-provoking, entertaining, and reflective reads remembered from memory."

@@ -5,6 +5,7 @@ subtitle: "**Like this one**"
 author: "_Mitanshu Sukhwani_"
 date: "`2025-06-07`"
 lang: en
+mainfont: 'Helvetica'
 
 # 2. Metadata / SEO
 description: "Step-by-step guide to build a free personal website using GitHub Pages and Markdown. Convert your content with Pandoc and publish easily without writing raw HTML. Ideal for developers and writers familiar with git."

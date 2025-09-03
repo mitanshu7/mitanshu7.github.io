@@ -5,6 +5,7 @@ subtitle: "**A tutorial**"
 author: "_Mitanshu Sukhwani_"
 date: "`2025-06-07`"
 lang: en
+mainfont: 'Helvetica'
 
 # 2. Metadata / SEO
 description: "Guide to securely change the SSH port on Oracle Cloud Infrastructure (OCI). Includes SELinux adjustments, firewall and security list updates, and troubleshooting via Cloud Shell."

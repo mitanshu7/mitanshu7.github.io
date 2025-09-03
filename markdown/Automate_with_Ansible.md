@@ -5,6 +5,7 @@ subtitle: "**Hello IT. Did you try turning it on and off again?**"
 author: "_Mitanshu Sukhwani_"
 date: "`2025-06-09`"
 lang: en
+mainfont: 'Helvetica'
 
 # 2. Metadata / SEO
 description-meta: "Automate system management with Ansible using Playbooks to define desired states. Learn installation, idempotent tasks, and secure automation with Vault. Based on tutorials from LearnLinuxTV."

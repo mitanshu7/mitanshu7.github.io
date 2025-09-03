@@ -5,6 +5,7 @@ subtitle: "**Own your data, reduce reliance on Big Tech**"
 author: "_Mitanshu Sukhwani_"
 date: "`2025-06-09`"
 lang: en
+mainfont: 'Helvetica'
 
 # 2. Metadata / SEO
 description: "A personal journey into selfhosting—repurposing old hardware, running Debian with Docker, and hosting Nextcloud & Audiobookshelf using Cloudflare Tunnel and Tailscale to own your data and reduce reliance on Big Tech."

@@ -5,6 +5,7 @@ subtitle: "**Did aliens try to divert the direction of arxiv?**"
 author: "_Mitanshu Sukhwani_"
 date: "`2025-06-13`"
 lang: en
+mainfont: 'Helvetica'
 
 # 2. Metadata / SEO
 description: "A mysterious cluster of arXiv papers formed a new 'island' in UMAP projections between Nov 2024–Feb 2025. Data suggests a systemic shift—was it aliens or just arXiv changing something?"

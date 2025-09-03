@@ -5,6 +5,7 @@ subtitle: "**Run rooted Android on Windows using WSA with KernelSU**"
 author: "_Mitanshu Sukhwani_"
 date: "`2025-06-07`"
 lang: en
+mainfont: 'Helvetica'
 
 # 2. Metadata / SEO
 description: "Run rooted Android on Windows using WSA with KernelSU. Includes Google Play, sideloading, ZygiskNext, LSPosed, and Pixelify to unlock unlimited Google Photos storage."

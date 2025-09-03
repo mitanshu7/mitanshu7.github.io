@@ -5,6 +5,7 @@ subtitle: "**A playful REST API to check if a number is odd**"
 author: "_Mitanshu Sukhwani_"
 date: "`2025-06-09`"
 lang: en
+mainfont: 'Helvetica'
 
 # 2. Metadata / SEO
 description: "A playful REST API that tells you if a number is odd—powered by isEven API under the hood and built with Flask and Docker. Visit isodd.papermatch.me for docs, source code, and usage examples."

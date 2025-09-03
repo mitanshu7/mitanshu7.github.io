@@ -5,6 +5,7 @@ subtitle: "**A Bigram Model on Jane Austen's Pride and Prejudice**"
 author: "_Mitanshu Sukhwani_"
 date: "`2025-06-08`"
 lang: en
+mainfont: 'Helvetica'
 
 # 2. Metadata / SEO
 description: "Explore the basics of N-gram models—simple yet powerful tools in NLP—through a hands-on bigram generator built on Jane Austen's 'Pride and Prejudice'. A look back at language modeling before the LLM era."

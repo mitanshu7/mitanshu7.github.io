@@ -5,6 +5,7 @@ subtitle: "**When you need to get forms after leaving abrubtly**"
 author: "_Mitanshu Sukhwani_"
 date: "`2025-06-07`"
 lang: en
+mainfont: 'Helvetica'
 
 # 2. Metadata / SEO
 description: "Guide to securely access the IISER Tirupati intranet from home using Tailscale VPN and sshuttle. Works with a campus-connected workstation and a Linux/Mac device with sudo access. Quick setup for remote intranet browsing."

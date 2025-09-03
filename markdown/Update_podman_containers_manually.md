@@ -5,6 +5,7 @@ subtitle: "**When auto-update isn't working**"
 author: "_Mitanshu Sukhwani_"
 date: "`2025-06-06`"
 lang: en
+mainfont: 'Helvetica'
 
 # 2. Metadata / SEO
 description: "Manually update Podman containers by stopping them, pulling new images, restarting with original commands, and regenerating systemd service files if auto-update isn't working."

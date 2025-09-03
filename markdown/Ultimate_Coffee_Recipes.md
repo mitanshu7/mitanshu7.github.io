@@ -5,6 +5,7 @@ subtitle: "**Brew like a pro with James Hoffmann’s top techniques**"
 author: "_Mitanshu Sukhwani_"
 date: "`2025-06-07`"
 lang: en
+mainfont: 'Helvetica'
 
 # 2. Metadata / SEO
 description: "Brew like a pro with James Hoffmann’s top techniques for V60, Chemex, AeroPress, French Press, and more. Includes links to brewers and a curated YouTube playlist."

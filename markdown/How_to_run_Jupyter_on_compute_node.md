@@ -5,6 +5,7 @@ subtitle: "**Step-by-step guide for IISER Tirupati HPC**"
 author: "_Mitanshu Sukhwani_"
 date: "`2025-06-07`"
 lang: en
+mainfont: 'Helvetica'
 
 # 2. Metadata / SEO
 description: "Step-by-step guide to run JupyterLab on HPC compute nodes at IISER Tirupati, using or bypassing PBS. Includes SSH tunneling setup, port forwarding, and automated scripts for seamless access from local machine."

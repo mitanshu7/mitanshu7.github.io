@@ -5,6 +5,7 @@ subtitle: "**Keep rootless Podman containers running after logout or reboot**"
 author: "_Mitanshu Sukhwani_"
 date: "`2025-06-06`"
 lang: en
+mainfont: 'Helvetica'
 
 # 2. Metadata / SEO
 description: "Keep rootless Podman containers running after logout or reboot using systemd user services, linger sessions, and generated unit files. Note: systemd support is deprecated; consider using Quadlets."

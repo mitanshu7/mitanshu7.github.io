@@ -5,6 +5,7 @@ subtitle: "**Guide to running Milvus using Podman instead of Docker**"
 author: "_Mitanshu Sukhwani_"
 date: "`2025-06-07`"
 lang: en
+mainfont: 'Helvetica'
 
 # 2. Metadata / SEO
 description: "Guide to running Milvus using Podman instead of Docker by modifying Milvus's official standalone script. Adjustments include removing sudo, adding SELinux ':Z' flags for volume mounts, and using fully qualified image names for compatibility."

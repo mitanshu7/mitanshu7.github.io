@@ -5,6 +5,7 @@ subtitle: "**Things I Wish to Do**"
 author: "_Mitanshu Sukhwani_"
 date: "`2025-06-06`"
 lang: en
+mainfont: 'Helvetica'
 
 # 2. Metadata / SEO
 description: "A wishlist of personal tech projects—from building a silent trimmer for sensory sensitivity to syncing BeanConqueror with NextCloud, making a OnePlus pencil work with a phone, and running DuckDB on Kindle."

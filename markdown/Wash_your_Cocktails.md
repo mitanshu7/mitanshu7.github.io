@@ -5,6 +5,7 @@ subtitle: "**With Milk**"
 author: "_Mitanshu Sukhwani_"
 date: "`2025-06-28`"
 lang: en
+mainfont: 'Helvetica'
 
 # 2. Metadata / SEO
 description: "Make a clarified coffee cocktail using milk washing. Infuse vodka with coffee and masala, curdle with milk and lemon, filter slowly, and enjoy a smooth, flavorful punch—budget-friendly and delicious."

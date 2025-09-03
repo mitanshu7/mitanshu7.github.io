@@ -5,6 +5,7 @@ subtitle: "**For Raspberry Pi Zero 2W**"
 author: "_Mitanshu Sukhwani_"
 date: "`2025-06-07`"
 lang: en
+mainfont: 'Helvetica'
 
 # 2. Metadata / SEO
 description: "Guide to install and run Cloudflared on Alpine Linux for Raspberry Pi Zero 2W using OpenRC. Includes tunnel setup, systemd replacement with OpenRC, and startup configuration."

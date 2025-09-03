@@ -5,6 +5,7 @@ subtitle: "**Building a Paper Recommendation Engine with arXiv Abstracts and Mil
 author: "_Mitanshu Sukhwani_"
 date: "`2025-06-07`"
 lang: en
+mainfont: 'Helvetica'
 
 # 2. Metadata / SEO
 description: "How I built PaperMatch: a paper recommendation engine using arXiv abstracts, transformer embeddings, and Milvus. Learn about the embedding pipeline, vector search, and Gradio-powered UI at papermatch.me."
