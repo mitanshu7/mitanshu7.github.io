@@ -37,3 +37,6 @@ keywords: "Project Wishlist, silent trimmer, OnePlus Stylo 2, NextCloud, BeanCon
   - Tailscale is mesh VPN that allows you to connect your individual devices and without relying on a central server.
   - KUAL is Kindle Unified Application Launcher which allows kindles to open apps in a seamless manner
   - If you can make Tailscale work with kindle, then you can sync your books over any network without needing aws to take care of it for you. (Send to Kindle feature)
+  
+-  [ ] Create a fun and/or useful programming language
+
