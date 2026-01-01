@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <meta name="author" content="Mitanshu Sukhwani" />
+  <meta name="dcterms.date" content="2026-01-01" />
+  <meta name="keywords" content="LLM, human connection, troubleshooting,
+docker, hot chocolate" />
+  <meta name="description" content="The author lists their experience on how LLMs are taking away the human connection." />
+  <title>Where’s the human touch?</title>
+  <style>
+    html {
+      font-family: Helvetica;
+      color: #1a1a1a;
+      background-color: #fdfdfd;
+    }
+    body {
+      margin: 0 auto;
+      max-width: 36em;
+      padding-left: 50px;
+      padding-right: 50px;
+      padding-top: 50px;
+      padding-bottom: 50px;
+      hyphens: auto;
+      overflow-wrap: break-word;
+      text-rendering: optimizeLegibility;
+      font-kerning: normal;
+    }
+    @media (max-width: 600px) {
+      body {
+        font-size: 0.9em;
+        padding: 12px;
+      }
+      h1 {
+        font-size: 1.8em;
+      }
+    }
+    @media print {
+      html {
+        background-color: white;
+      }
+      body {
+        background-color: transparent;
+        color: black;
+        font-size: 12pt;
+      }
+      p, h2, h3 {
+        orphans: 3;
+        widows: 3;
+      }
+      h2, h3, h4 {
+        page-break-after: avoid;
+      }
+    }
+    p {
+      margin: 1em 0;
+    }
+    a {
+      color: #1a1a1a;
+    }
+    a:visited {
+      color: #1a1a1a;
+    }
+    img {
+      max-width: 100%;
+    }
+    svg {
+      height: auto;
+      max-width: 100%;
+    }
+    h1, h2, h3, h4, h5, h6 {
+      margin-top: 1.4em;
+    }
+    h5, h6 {
+      font-size: 1em;
+      font-style: italic;
+    }
+    h6 {
+      font-weight: normal;
+    }
+    ol, ul {
+      padding-left: 1.7em;
+      margin-top: 1em;
+    }
+    li > ol, li > ul {
+      margin-top: 0;
+    }
+    blockquote {
+      margin: 1em 0 1em 1.7em;
+      padding-left: 1em;
+      border-left: 2px solid #e6e6e6;
+      color: #606060;
+    }
+    code {
+      font-family: Menlo, Monaco, Consolas, 'Lucida Console', monospace;
+      font-size: 85%;
+      margin: 0;
+      hyphens: manual;
+    }
+    pre {
+      margin: 1em 0;
+      overflow: auto;
+    }
+    pre code {
+      padding: 0;
+      overflow: visible;
+      overflow-wrap: normal;
+    }
+    .sourceCode {
+     background-color: transparent;
+     overflow: visible;
+    }
+    hr {
+      border: none;
+      border-top: 1px solid #1a1a1a;
+      height: 1px;
+      margin: 1em 0;
+    }
+    table {
+      margin: 1em 0;
+      border-collapse: collapse;
+      width: 100%;
+      overflow-x: auto;
+      display: block;
+      font-variant-numeric: lining-nums tabular-nums;
+    }
+    table caption {
+      margin-bottom: 0.75em;
+    }
+    tbody {
+      margin-top: 0.5em;
+      border-top: 1px solid #1a1a1a;
+      border-bottom: 1px solid #1a1a1a;
+    }
+    th {
+      border-top: 1px solid #1a1a1a;
+      padding: 0.25em 0.5em 0.25em 0.5em;
+    }
+    td {
+      padding: 0.125em 0.5em 0.25em 0.5em;
+    }
+    header {
+      margin-bottom: 4em;
+      text-align: center;
+    }
+    #TOC li {
+      list-style: none;
+    }
+    #TOC ul {
+      padding-left: 1.3em;
+    }
+    #TOC > ul {
+      padding-left: 0;
+    }
+    #TOC a:not(:hover) {
+      text-decoration: none;
+    }
+    code{white-space: pre-wrap;}
+    span.smallcaps{font-variant: small-caps;}
+    div.columns{display: flex; gap: min(4vw, 1.5em);}
+    div.column{flex: auto; overflow-x: auto;}
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    /* The extra [class] is a hack that increases specificity enough to
+       override a similar rule in reveal.js */
+    ul.task-list[class]{list-style: none;}
+    ul.task-list li input[type="checkbox"] {
+      font-size: inherit;
+      width: 0.8em;
+      margin: 0 0.8em 0.2em -1.6em;
+      vertical-align: middle;
+    }
+  </style>
+</head>
+<body>
+<div style="text-align: center;"><a href="../index.html">Home</a></div>
+<header id="title-block-header">
+<h1 class="title">Where’s the human touch?</h1>
+<p class="subtitle"><strong>A rant on LLMs and seclusion</strong></p>
+<p class="author"><em>Mitanshu Sukhwani</em></p>
+<p class="date"><code>2026-01-01</code></p>
+</header>
+<p>I recently (finally) joined a software company. Hooray! I would like
+to document the shift from academia to industry sometime down the line.
+I’ll wait at least till the probation period ends Xp.</p>
+<p>I’ve have a little (okay maybe not <em>little</em>) aversion to using
+LLMs at my day job. I am in pretty early stages of my career and would
+like to maximise on my learning rather than how much I ship. I also feel
+like I cheat when I use an LLM to write code instead of going through
+the docs to learn a thing or two. So rest assured I am a bit slow with
+ticking the to-dos, as remarked by my peers. But that’s a debate for
+another post.</p>
+<p>What I want to rant about today is missing the human connection while
+these writing calculators are taking over the world. You see, I have
+been <a href="https://github.com/mitanshu7">writing code</a> for the
+past 3 years all alone. After joining a company, I was really looking
+forward to collaborating with other developers. After all how fun is it
+to solve a problem together! Lo and behold, I am facing some issues with
+<a href="https://docs.docker.com/">docker</a>. I call my colleague over
+and they start looking into the issue. They start with the usual process
+of bringing the containers <a href="https://youtu.be/5UT8RkSmN4k">down
+and then up</a>. I tell them I have tried it already. When this did not
+fix the issue, they brought over their laptop, opened <a
+href="https://claude.ai/">Claude</a> and start to ask it for commands.
+And when translating was hard, they opened <a
+href="https://teams.microsoft.com/">Teams</a> to send themselves the
+error logs, which were then copy pasted from their Teams and into the
+model. Claude asked them to remove the images and rebuild the
+containers. Since I had done this already, I suggested that we talk
+through the problem. They ‘hmmed’ and carried on. Eventually they solved
+the issue by <a
+href="https://docs.docker.com/reference/cli/docker/compose/down/#options">removing
+the orpahned containers</a>. While this did boost their confidence, I
+was left feeling quite alone.</p>
+<p>This isn’t contained only to workspaces either. Every weekend, I make
+my roommate some filter coffee (which he genuinely appreciates). After
+getting my hands on some vegan milk options, we tried <a
+href="https://www.amazon.in/Sofit-Soya-Milk-Vanilla-1L/dp/B00SH7JJ0A">vanilla
+flavoured soy milk</a>. The coffee was bitter since the soy milk was
+letting through all of the coffee, unlike whole milk. Understandably
+they did not want to experiment more with the same recipe. Incidentally,
+I called them for trying out hot chocolate with the same milk (after
+verifying that it’s not the heat that makes the milk taste burnt). They
+asked <a href="https://chatgpt.com/">ChatGPT</a> how it would taste and
+when they got the answer ‘It’ll taste like protein shake’, they
+reliablly refused. I carried on making the hot chocolate, and when it
+did taste a bit like protein shake (when hot), I caught myself thinking
+that I would have loved to make this discovery with them rather than be
+informed by <em>something</em> else over the internet.</p>
+<p>I realise that these might be very specific traits of very specific
+people. This may as well be the age old rant on how phones make you more
+disconnected with the people around you. All I ask of you to please talk
+a little bit more. It may be hard, but it’s quite rewarding too!</p>
+<div style="text-align: center;"><a href="../index.html"><i>Back to Home</i></a></div>
+</body>
+</html>
