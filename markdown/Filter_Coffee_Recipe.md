@@ -28,6 +28,8 @@ My friend asked me for my south indian filter coffee recipe, so I took the chanc
   - I use a 1:10 ratio of sugar:milk.
   - Meaning, you would add 10 gms of sugar to 100gms of milk.
 
+***
+
 ### Recipe:
 
 1. Take the upper chamber (one with a lot of holes in the bottom) and place it on top of the cap. This helps retain any loose grounds that may fall from the holes.
@@ -54,12 +56,16 @@ My friend asked me for my south indian filter coffee recipe, so I took the chanc
 
 12. Here is where you control the strength of your coffee. I serve a 1:10 ratio to guests. (10 gms decoction to 100gms of milk.) However, I personally prefer a 2:10 ratio.
 
-Some [_people_](https://www.linkedin.com/in/madhumitha-krishnaswamy) may not like the swirling part, but they haven't tasted my brew yet. :D
+***
 
-The recipe is inspired by the referenced video. I have been using a brewer similar to [this](https://www.amazon.in/AASAVI-Stainless-Authentic-Indian-Percolator/dp/B09STDYKMJ). Since this has an opening in the bottom chamber, it highly reduces the chances of the brew stalling. However, you may get away with a [run of the mill version](https://amzn.in/d/1IDzisG). 
+### Notes:
+
+Some [people](https://www.linkedin.com/in/madhumitha-krishnaswamy) may not like the swirling part, but they haven't tasted my brew yet. :D
+
+The recipe is inspired by the referenced video. I have been using a brewer similar to [this](https://amzn.in/d/1VYBjDb). Since it has an opening in the bottom chamber, it highly reduces the chances of the brew stalling. However, you may get away with a [run of the mill version](https://amzn.in/d/1IDzisG). 
 
 You can scale up or scale down the recipe, but it's generally hard to get good results from 10gm of filter coffee.
 
-References:
+### References:
 
 1. [Sofi 72: South Indian Filter Coffee Reimagined](https://youtu.be/pb1rH6xOrCQ)
