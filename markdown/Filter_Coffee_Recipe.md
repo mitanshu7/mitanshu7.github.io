@@ -12,7 +12,7 @@ description: "The author lists their recipe for filter coffee."
 keywords: "pour over, filter coffee, south indian, recipe,"
 ---
 
-My friend asked me for my south indian filter coffee recipe, so I took the chance to record it here for posterity and you fine folks of the Internet. It yields 2 to 3 cups.
+My [dear friend](https://www.linkedin.com/in/kshitij-sharma-8b43081a5) (Who you may know from [What about the Island?](What_about_the_Island.html)) asked me for my south indian filter coffee recipe, so I took the chance to record it here for posterity and you fine folks of the Internet. It yields 2 to 3 cups.
 
 
 ### Ingredients:
