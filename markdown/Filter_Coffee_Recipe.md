@@ -63,7 +63,7 @@ My [dear friend](https://www.linkedin.com/in/kshitij-sharma-8b43081a5) (Who you 
 
 ### Notes:
 
-- I would expect the decoction weight to near 2x the weight of coffee. Your typical "espresso" strength.
+- I would expect the decoction weigh to near 2x the weight of coffee. Your typical "espresso strength".
 
 - Did you spot how conveniently I neglected the [umbrella](https://web.archive.org/web/20260114120612/https://m.media-amazon.com/images/S/aplus-media-library-service-media/11258750-222a-44bc-86e0-fc1c7aae45d4.__CR0,130,1280,792_PT0_SX970_V1___.jpg) that comes with the brewer? Well, don't use it. The shape tends to be a dome, rather than a flat disc, and distorts how evenly you water the coffee.
 
