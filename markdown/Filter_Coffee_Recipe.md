@@ -71,7 +71,7 @@ My [dear friend](https://www.linkedin.com/in/kshitij-sharma-8b43081a5) (Who you 
 
 - Some [people](https://www.linkedin.com/in/madhumitha-krishnaswamy) may not like the swirling part, but they haven't tasted my brew yet. :D
 
-- The recipe is inspired by the referenced video. I have been using a brewer similar to [this](https://amzn.in/d/1VYBjDb). Since it has an opening in the bottom chamber, it highly reduces the chances of the brew stalling. However, you may get away with a [run of the mill version](https://amzn.in/d/1IDzisG). 
+- I have been using a brewer with an [opening in the bottom chamber](https://amzn.in/d/1VYBjDb). This highly reduces the chances of the brew stalling. However, you may get away with a [run of the mill version](https://amzn.in/d/1IDzisG). 
 
 - You can scale up or scale down the recipe, but it's generally hard to get good results from 10gm of filter coffee.
 
