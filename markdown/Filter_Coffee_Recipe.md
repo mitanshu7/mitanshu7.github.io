@@ -23,7 +23,8 @@ My [dear friend](https://www.linkedin.com/in/kshitij-sharma-8b43081a5) (Who you 
   - [Parampare](https://parampare.com/product/super-choice/) and [Bayars](https://bayarscoffee.com/product/bayars-80-degree/) have yielded very good results for me.
 
 - 60 gms hot water (4x the weight of coffee).
-  - I bring the water to a boil and then wait for a minute to let it cool down.
+  - I bring the water to a boil and then wait for a couple of minutes to let it cool down.
+  - Try cooling the water a bit more if you get bitter brews.
 
 - 200 gms of whole milk ([4.5%](https://amzn.in/d/0ZpSrka) to [6%](https://www.amul.com/products/amul-gold-info.php) fat).
 
