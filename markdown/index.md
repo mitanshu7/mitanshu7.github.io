@@ -20,69 +20,71 @@ This blog is where I share thoughts/How-Tos on software, high-performance comput
 
 # Index for the website
 
-1. [Filter Coffee Recipe](html/Filter_Coffee_Recipe.html)
+1. [On Frugality](html/On_Frugality.html)
 
-2. [Where's the human touch?](html/Wheres_the_human_touch.html)
+2. [Filter Coffee Recipe](html/Filter_Coffee_Recipe.html)
 
-3. [SSH into Android with Termux & Cloudflared](html/SSH_into_Android_with_Termux_and_Cloudflared.html)
+3. [Where's the human touch?](html/Wheres_the_human_touch.html)
 
-4. [UnixBench of Ampere A1 on Oracle Cloud](html/factotum-2025-07-17-01.html)
+4. [SSH into Android with Termux & Cloudflared](html/SSH_into_Android_with_Termux_and_Cloudflared.html)
 
-5. [Wash your Cocktails](html/Wash_your_Cocktails.html)
+5. [UnixBench of Ampere A1 on Oracle Cloud](html/factotum-2025-07-17-01.html)
 
-6. [Setup Nebula](html/Setup_Nebula.html)
+6. [Wash your Cocktails](html/Wash_your_Cocktails.html)
 
-7. [What about the Island?](html/What_about_the_Island.html)
+7. [Setup Nebula](html/Setup_Nebula.html)
 
-8. [PaperMatch Analysis](html/PaperMatch_Analysis.html)
+8. [What about the Island?](html/What_about_the_Island.html)
 
-9. [Books Read](html/Books_Read.html)
+9. [PaperMatch Analysis](html/PaperMatch_Analysis.html)
 
-10. [IsOddApi](html/IsOddApi.html)
+10. [Books Read](html/Books_Read.html)
 
-11. [Selfhosting Setup](html/Selfhosting_Setup.html)
+11. [IsOddApi](html/IsOddApi.html)
 
-12. [Automate with Ansible](html/Automate_with_Ansible.html)
+12. [Selfhosting Setup](html/Selfhosting_Setup.html)
 
-13. [N-gram Language Models](html/N-gram_Language_Models.html)
+13. [Automate with Ansible](html/Automate_with_Ansible.html)
 
-14. [Behind PaperMatchBio](html/Behind_PaperMatchBio.html)
+14. [N-gram Language Models](html/N-gram_Language_Models.html)
 
-15. [Tailscale on Kindle](html/Tailscale_on_Kindle.html)
+15. [Behind PaperMatchBio](html/Behind_PaperMatchBio.html)
 
-16. [Browse Intranet from Home](html/Browse_Intranet_from_Home.html)
+16. [Tailscale on Kindle](html/Tailscale_on_Kindle.html)
 
-17. [Create a simple website](html/Create_a_simple_website.html)
+17. [Browse Intranet from Home](html/Browse_Intranet_from_Home.html)
 
-18. [How to Install Cloudflared on Alpine](html/How_to_Install_Cloudflared_on_Alpine.html)
+18. [Create a simple website](html/Create_a_simple_website.html)
 
-19. [How to run Tailscale without root](html/How_to_run_Tailscale_without_root.html)
+19. [How to Install Cloudflared on Alpine](html/How_to_Install_Cloudflared_on_Alpine.html)
 
-20. [How to run Jupyter on compute node](html/How_to_run_Jupyter_on_compute_node.html)
+20. [How to run Tailscale without root](html/How_to_run_Tailscale_without_root.html)
 
-21. [How to copy ssh keys from master to compute node](html/How_to_copy_ssh_keys_from_master_to_compute_node.html)
+21. [How to run Jupyter on compute node](html/How_to_run_Jupyter_on_compute_node.html)
 
-22. [Milvus on Podman](html/Milvus_on_Podman.html)
+22. [How to copy ssh keys from master to compute node](html/How_to_copy_ssh_keys_from_master_to_compute_node.html)
 
-23. [How to fix Tablet app Orientations](html/How_to_fix_Tablet_app_Orientations.html)
+23. [Milvus on Podman](html/Milvus_on_Podman.html)
 
-24. [Ultimate Coffee Recipes](html/Ultimate_Coffee_Recipes.html)
+24. [How to fix Tablet app Orientations](html/How_to_fix_Tablet_app_Orientations.html)
 
-25. [Update podman containers manually](html/Update_podman_containers_manually.html)
+25. [Ultimate Coffee Recipes](html/Ultimate_Coffee_Recipes.html)
 
-26. [Masala Tea Recipe](html/Masala_Tea_Recipe.html)
+26. [Update podman containers manually](html/Update_podman_containers_manually.html)
 
-27. [How to change SSH Port on OCI](html/How_to_change_SSH_Port_on_OCI.html)
+27. [Masala Tea Recipe](html/Masala_Tea_Recipe.html)
 
-28. [How to SSH to another user](html/How_to_SSH_to_another_user.html)
+28. [How to change SSH Port on OCI](html/How_to_change_SSH_Port_on_OCI.html)
 
-29. [WSA with KernelSU](html/WSA_with_KernelSU.html)
+29. [How to SSH to another user](html/How_to_SSH_to_another_user.html)
 
-30. [Behind PaperMatch](html/Behind_PaperMatch.html)
+30. [WSA with KernelSU](html/WSA_with_KernelSU.html)
 
-31. [Stop podman containers from getting killed](html/Stop_podman_containers_from_getting_killed.html)
+31. [Behind PaperMatch](html/Behind_PaperMatch.html)
 
-32. [Project Wishlist](html/Project_Wishlist.html)
+32. [Stop podman containers from getting killed](html/Stop_podman_containers_from_getting_killed.html)
+
+33. [Project Wishlist](html/Project_Wishlist.html)
 
 ---
 
