@@ -12,7 +12,7 @@ description: "This blog post describes a method to autostart ProtonVPN client us
 keywords: "protonvpn, vpn, security, autostart, systemd"
 ---
 
-As much as the ProtonVPN is revered, I do not believe we have official support for auto connecting to the VPN on boot. Here is a simple way to use systemd to auto connect to ProtonVPN at boot. 
+As much as the ProtonVPN is revered, I do not believe we have official support for auto connecting to the VPN on boot. Here is a simple way that uses systemd. 
 
 The following has been tested on 'Fedora Linux 44 (Workstation Edition)', your mileage may vary.
 
