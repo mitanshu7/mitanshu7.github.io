@@ -39,7 +39,7 @@ alias tailscale='tailscale --socket=$HOME/tailscale/tailscaled.sock'
 0. Create the systemd user config directory:
 
 ```bash
-mkdir -p ~/.config/systemd/user/
+mkdir --parents ~/.config/systemd/user/
 ```
 
 1. Create a service file using:
