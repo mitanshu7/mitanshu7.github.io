@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <meta name="author" content="Mitanshu Sukhwani" />
+  <meta name="dcterms.date" content="2026-09-12" />
+  <meta name="keywords" content="netflix, jellyfin, self-hosted,
+streaming," />
+  <meta name="description" content="This blog post describes about jellyfin, a self hosted streaming platform" />
+  <title>About Jellyfin</title>
+  <style>
+    html {
+      font-family: Helvetica;
+      color: #1a1a1a;
+      background-color: #fdfdfd;
+    }
+    body {
+      margin: 0 auto;
+      max-width: 36em;
+      padding-left: 50px;
+      padding-right: 50px;
+      padding-top: 50px;
+      padding-bottom: 50px;
+      hyphens: auto;
+      overflow-wrap: break-word;
+      text-rendering: optimizeLegibility;
+      font-kerning: normal;
+    }
+    @media (max-width: 600px) {
+      body {
+        font-size: 0.9em;
+        padding: 12px;
+      }
+      h1 {
+        font-size: 1.8em;
+      }
+    }
+    @media print {
+      html {
+        background-color: white;
+      }
+      body {
+        background-color: transparent;
+        color: black;
+        font-size: 12pt;
+      }
+      p, h2, h3 {
+        orphans: 3;
+        widows: 3;
+      }
+      h2, h3, h4 {
+        page-break-after: avoid;
+      }
+    }
+    p {
+      margin: 1em 0;
+    }
+    a {
+      color: #1a1a1a;
+    }
+    a:visited {
+      color: #1a1a1a;
+    }
+    img {
+      max-width: 100%;
+    }
+    svg {
+      height: auto;
+      max-width: 100%;
+    }
+    h1, h2, h3, h4, h5, h6 {
+      margin-top: 1.4em;
+    }
+    h5, h6 {
+      font-size: 1em;
+      font-style: italic;
+    }
+    h6 {
+      font-weight: normal;
+    }
+    ol, ul {
+      padding-left: 1.7em;
+      margin-top: 1em;
+    }
+    li > ol, li > ul {
+      margin-top: 0;
+    }
+    blockquote {
+      margin: 1em 0 1em 1.7em;
+      padding-left: 1em;
+      border-left: 2px solid #e6e6e6;
+      color: #606060;
+    }
+    code {
+      font-family: Menlo, Monaco, Consolas, 'Lucida Console', monospace;
+      font-size: 85%;
+      margin: 0;
+      hyphens: manual;
+    }
+    pre {
+      margin: 1em 0;
+      overflow: auto;
+    }
+    pre code {
+      padding: 0;
+      overflow: visible;
+      overflow-wrap: normal;
+    }
+    .sourceCode {
+     background-color: transparent;
+     overflow: visible;
+    }
+    hr {
+      border: none;
+      border-top: 1px solid #1a1a1a;
+      height: 1px;
+      margin: 1em 0;
+    }
+    table {
+      margin: 1em 0;
+      border-collapse: collapse;
+      width: 100%;
+      overflow-x: auto;
+      display: block;
+      font-variant-numeric: lining-nums tabular-nums;
+    }
+    table caption {
+      margin-bottom: 0.75em;
+    }
+    tbody {
+      margin-top: 0.5em;
+      border-top: 1px solid #1a1a1a;
+      border-bottom: 1px solid #1a1a1a;
+    }
+    th {
+      border-top: 1px solid #1a1a1a;
+      padding: 0.25em 0.5em 0.25em 0.5em;
+    }
+    td {
+      padding: 0.125em 0.5em 0.25em 0.5em;
+    }
+    header {
+      margin-bottom: 4em;
+      text-align: center;
+    }
+    #TOC li {
+      list-style: none;
+    }
+    #TOC ul {
+      padding-left: 1.3em;
+    }
+    #TOC > ul {
+      padding-left: 0;
+    }
+    #TOC a:not(:hover) {
+      text-decoration: none;
+    }
+    code{white-space: pre-wrap;}
+    span.smallcaps{font-variant: small-caps;}
+    div.columns{display: flex; gap: min(4vw, 1.5em);}
+    div.column{flex: auto; overflow-x: auto;}
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    /* The extra [class] is a hack that increases specificity enough to
+       override a similar rule in reveal.js */
+    ul.task-list[class]{list-style: none;}
+    ul.task-list li input[type="checkbox"] {
+      font-size: inherit;
+      width: 0.8em;
+      margin: 0 0.8em 0.2em -1.6em;
+      vertical-align: middle;
+    }
+  </style>
+</head>
+<body>
+<div style="text-align: center;"><a href="../index.html">Home</a></div>
+<header id="title-block-header">
+<h1 class="title">About Jellyfin</h1>
+<p class="subtitle"><strong>Make your LDR work</strong></p>
+<p class="author"><em>Mitanshu Sukhwani</em></p>
+<p class="date"><code>2026-09-12</code></p>
+</header>
+<p>There is one question that I get asked a lot. How do my partner and I
+manage a Long Distance Relationship (LDR)? I always point to
+communication.</p>
+<p>This realisation was not natural or easy for me. Things are much
+simpler when you both live in the same
+house/city/state/country/timezone. It is a whole different ballgame when
+the timezones are flipped. And do not get me started on <a
+href="https://en.wikipedia.org/wiki/Daylight_saving_time"
+title="DST">Daylight Saving Time</a>. What do you mean your intricately
+tuned circadian rhythm to match the other person’s timezone for maximum
+overlap is now thrown off by an hour?</p>
+<p>Given that I was a very shy person, it was impossible to get me on a
+call. This resulted in my partner feeling left out to the point where we
+had to go on a break till I fixed these issues. What do we say? <a
+href="https://www.goodreads.com/book/show/25793458-nick-and-charlie"
+title="Nick and Charlie by Alice Oseman">‘Absence makes the heart grow
+fonder’</a></p>
+<p>Heck, I think I was just a bad communicator. Imagine this, there is a
+person that loves you, on the other side of the world, with no idea of
+<a href="https://english.stackexchange.com/a/251609"
+title="Word to describe &quot;everyday things&quot;">the minutiae of
+your everyday life</a>. What do you do? Start slow. Just let them know
+how you feel today, what food you had, what piqued your interest, what
+was bulls*t. And then ask them the same things in return. Really listen
+to them as they picture their day for you, and put yourself in their
+shoes as they are doing so. How would you have felt if something they
+describe happened with you? Then tell them how you feel about it!</p>
+<p>At this point I might sound very obvious. Aren’t I just talking about
+talking? Duh! That’s exactly what you do. Day in, Day out. You can even
+scale the medium of your conversations at your own pace. Start with
+text, then have a voice call over the weekend, then everynight. Slowly
+and steadily you’ll come to crave video calls from them daily. This of
+course presumes the more you know them, you come to like them even more
+as a person!</p>
+<p>Anyway, wasn’t I going to tell you something about <a
+href="https://jellyfin.org/"
+title="The Free Software Media System">Jellyfin</a>? Oh yeah, so
+assuming you already have a <a href="Selfhosting_Setup.html"
+title="My old selfhosting setup">selfhosting setup</a>, you can now
+stream movies/shows/music/books. It’s your own personal Netflix of
+sorts. We hop onto a <a href="https://meet.google.com/"
+title="Video-communication app">Google Meet</a>, where they share their
+screen, play the media, and <a href="Wash_your_Cocktails.html"
+title="Do you wash your cocktails?">enjoy our drinks</a>.</p>
+<p>I have saved the <a
+href="jellyfin_podman_instruction_20260912.html">instructions for
+running jellyfin on podman</a>, just for posterity. But you should
+always go to their <a href="https://jellyfin.org/docs/"
+title="Welcome to the Jellyfin Documentation">latest documentation</a>.
+It works on a client-server model, where the computer running 24x7 hosts
+all the compute, disks, and media to serve to the clients. Once the
+server is setup and running, grab your copy of the <a
+href="https://jellyfin.org/downloads/clients/">Jellyfin Client</a> for
+<a
+href="https://github.com/jellyfin/jellyfin-desktop/releases">Desktop</a>,
+<a
+href="https://play.google.com/store/apps/details?id=org.jellyfin.mobile">Android</a>,
+<a
+href="https://apps.apple.com/us/app/jellyfin-mobile/id1480192618">iOS</a>,
+<a href="https://www.amazon.com/gp/aw/d/B07TX7Z725">Fire TV</a>, or <a
+href="https://www.samsung.com/us/tvs/smart-tv/samsung-tv-apps-detail/?appId=3202007021208">Samsung
+TV</a>!</p>
+<p>If you do end up using Jellyfin—and love it like I do—I highly
+encourage you to <a href="https://jellyfin.org/contribute/">contribute
+to their project</a> (however you can) or <a
+href="https://opencollective.com/jellyfin">donate on
+OpenCollective</a>!</p>
+<hr />
+<div style="text-align: center;"><p>Please <a href="mailto:mitanshu.sukhwani@gmail.com">email me</a> with any feedback/comments/suggestions!</p></div>
+<div style="text-align: center;"><a href="../index.html"><i>Back to Home</i></a></div>
+</body>
+</html>
