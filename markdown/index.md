@@ -18,7 +18,7 @@ This blog is where I share thoughts/How-Tos on software, high-performance comput
 
 ---
 
-# Index for the website
+# Index
 
 1. [How to register (any*) passkey to linux?](html/register_passkey_linux.html)
 
