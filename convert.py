@@ -49,8 +49,8 @@ def build_rss_item(markdown_file: str) -> Item:
     link = f"{BASE_URL}/{markdown_file.replace('markdown/', 'html/').replace('.md', '.html')}"
     description = re.search(r"^description:(.+)", markdown_post, re.MULTILINE).group(1)
     date = re.search(r"^date:(.+)", markdown_post, re.MULTILINE).group(1)[3:-2]
-    keywords = re.search(r"^keywords:(.+)", markdown_post, re.MULTILINE).group(1)
-    categories = [keyword.strip(",") for keyword in keywords.split(", ")]
+    keywords = re.search(r"^keywords:(.+)", markdown_post, re.MULTILINE).group(1)[2:-1]
+    categories = [keyword.strip(",").strip() for keyword in keywords.split(", ")]
 
     return Item(
         title=title,
