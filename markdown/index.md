@@ -8,7 +8,7 @@ lang: en
 mainfont: 'Helvetica'
 
 # 2. Metadata / SEO
-description-meta: "I'm Mitanshu Sukhwani, creator of PaperMatch. With a Master's in Physics from IIT Madras, I explore neuroscience, ML, and data. This blog shares thoughts on software, HPC, coffee, and cats."
+description: "I'm Mitanshu Sukhwani, creator of PaperMatch. With a Master's in Physics from IIT Madras, I explore neuroscience, ML, and data. This blog shares thoughts on software, HPC, coffee, and cats."
 keywords: "Mitanshu Sukhwani, PaperMatch, IIT Madras, neuroscience, ML, data, software, HPC, coffee, cats"
 ---
 
@@ -104,4 +104,8 @@ This blog is where I share thoughts/How-Tos on software, high-performance comput
 
 - [Curriculum Vitae](https://raw.githubusercontent.com/mitanshu7/dumpyard/refs/heads/main/mitanshu_cv.pdf)
 
-_Thanks for stopping by!_
+---
+
+_Thanks for stopping by!_ 
+
+Stay in touch: [**RSS**](rss.xml)
