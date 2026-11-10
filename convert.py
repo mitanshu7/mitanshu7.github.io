@@ -4,7 +4,7 @@
 import os
 import re
 import subprocess
-from datetime import datetime
+from datetime import UTC, datetime
 from glob import glob
 
 # https://github.com/svpino/rfeed
@@ -69,7 +69,7 @@ def build_rss_feed(rss_feed_items: list[Item]):
         link="https://mitanshu7.github.io/rss.xml",
         description="Hello, I’m Mitanshu Sukhwani, creator of PaperMatch with a Master’s in Physics from IIT Madras. I’ve worked at IISER Tirupati on EEG data, network science, and brain modeling. I enjoy exploring ML, Linux, and the intersection of neuroscience, software, and data.",
         language="en-US",
-        lastBuildDate=datetime.now(),
+        lastBuildDate=datetime.now(UTC),
         items=rss_feed_items,
     )
     with open("rss.xml", "w", encoding="utf-8") as file:
