@@ -8,7 +8,7 @@ lang: en
 mainfont: 'Helvetica'
 
 # 2. Metadata / SEO
-description-meta: "Learn how to set up secure SSH access to your Android device using Termux and Cloudflare Tunnels. Complete guide covering installation, configuration, and browser-based terminal access from anywhere in the world."
+description: "Learn how to set up secure SSH access to your Android device using Termux and Cloudflare Tunnels. Complete guide covering installation, configuration, and browser-based terminal access from anywhere in the world."
 keywords: "termux, android, ssh, cloudflare tunnels, remote access, mobile server"
 ---
 
