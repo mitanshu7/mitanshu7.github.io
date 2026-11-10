@@ -712,6 +712,7 @@ class Feed(Host):
 
 		self._write_element("title", self.title)
 		self._write_element("link", self.link)
+		self._write_element("atom:link", "", {"href":self.link, "rel" : "self", "type" : "application/rss+xml"})
 		self._write_element("description", self.description)
 		self._write_element("language", self.language)
 		self._write_element("copyright", self.copyright)
@@ -753,7 +754,7 @@ class Feed(Host):
 		handler.endElement("channel")
 
 	def _get_attributes(self):
-		attributes = {"version": "2.0", "xmlns:dc" : "http://purl.org/dc/elements/1.1/"}
+		attributes = {"version": "2.0", "xmlns:dc" : "http://purl.org/dc/elements/1.1/", "xmlns:atom" : "http://www.w3.org/2005/Atom"}
 
 		for extension in self.extensions:
 			if isinstance(extension, Extension):
