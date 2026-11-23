@@ -102,7 +102,7 @@ This blog is where I share thoughts/How-Tos on software, high-performance comput
 
 - GitHub: [mitanshu7](https://github.com/mitanshu7)
 
-- [Curriculum Vitae](https://raw.githubusercontent.com/mitanshu7/dumpyard/refs/heads/main/mitanshu_cv.pdf)
+- [Curriculum Vitae](https://raw.githubusercontent.com/mitanshu7/mitanshu_cv_typst/refs/heads/main/reckonsys_onepage/main.pdf)
 
 ---
 
